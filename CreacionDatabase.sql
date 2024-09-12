@@ -320,4 +320,4 @@ CREATE TABLE Restricciones (
     FOREIGN KEY (Carrera_id) REFERENCES Carrera(Carrera_id),           -- FK opcional a la tabla Carrera
     FOREIGN KEY (Colegio_id) REFERENCES Colegio(Colegio_id),           -- FK opcional a la tabla Colegio
     FOREIGN KEY (Semestre_id) REFERENCES Semestre(Semestre_id)         -- FK opcional a la tabla Semestre
-);
+); 
