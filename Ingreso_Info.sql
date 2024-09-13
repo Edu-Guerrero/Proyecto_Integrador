@@ -40,7 +40,6 @@ INSERT INTO Notas (Nota_id, Nota) VALUES
 (6, 'P');
 
 -- Insertar edificios en la tabla Edificio
--- Insertar edificios en la tabla Edificio con nuevas abreviaturas
 INSERT INTO Edificio (Edificio_id, Abreviatura, Nombre) VALUES
 (1, 'MS', 'Miguel de Santiago'),
 (2, 'A', 'Aristóteles'),
@@ -65,3 +64,53 @@ INSERT INTO Edificio (Edificio_id, Abreviatura, Nombre) VALUES
 (21, 'EE', 'Eugenio Espejo'),
 (22, 'EP', 'Epicuro');
 
+-- Insertar datos en la tabla Carrera
+INSERT INTO Carrera (Carrera_id, Colegio_id, Abreviatura, Nombre) VALUES
+(1, 1, 'AE', 'Administracion de Empresas'),
+(2, 1, 'AE-G', 'Administracion de Empresas (Galapagos)'),
+(3, 7, 'AD', 'Animacion Digital'),
+(4, 6, 'ANT', 'Antropologia'),
+(5, 2, 'ARQ', 'Arquitectura'),
+(6, 6, 'AL', 'Artes Liberales'),
+(7, 7, 'AV', 'Artes Visuales'),
+(8, 7, 'AV-DM', 'Artes Visuales: Diseno de modas'),
+(9, 3, 'BIO', 'Biologia'),
+(10, 3, 'BIO-T', 'Biotecnologia'),
+(11, 6, 'CP', 'Ciencias Politicas'),
+(12, 7, 'CINE', 'Cine'),
+(13, 11, 'CMC', 'Composicion para Medios Contemporaneos'),
+(14, 7, 'COM', 'Comunicacion'),
+(15, 10, 'DER', 'Derecho'),
+(16, 2, 'DI', 'Diseno de Interiores'),
+(17, 7, 'DMI', 'Diseno de Medios Interactivos'),
+(18, 7, 'DGC', 'Diseno Grafico: Diseno Comunicacional'),
+(19, 8, 'ECO', 'Economia'),
+(20, 6, 'EDU', 'Educacion'),
+(21, 11, 'EMC', 'Ejecucion de Musica Contemporanea'),
+(22, 1, 'FIN', 'Finanzas'),
+(23, 5, 'FIS', 'Fisica'),
+(24, 9, 'GAST', 'Gastronomia'),
+(25, 3, 'GA-G', 'Gestion Ambiental (Galapagos)'),
+(26, 9, 'HH', 'Hospitalidad y Hoteleria'),
+(27, 5, 'IA', 'Ingenieria Ambiental'),
+(28, 5, 'IC', 'Ingenieria Civil'),
+(29, 5, 'IA-A', 'Ingenieria en Agronomia'),
+(30, 5, 'IA-F', 'Ingenieria en Alimentos'),
+(31, 5, 'IA-CC', 'Ingenieria en Ciencias de la Computacion'),
+(32, 5, 'IA-EA', 'Ingenieria en Electronica y Automatizacion'),
+(33, 5, 'IA-MAC', 'Ingenieria en Matematicas Aplicadas y Computacion (MAC)'),
+(34, 5, 'II', 'Ingenieria Industrial'),
+(35, 5, 'IM', 'Ingenieria Mecanica'),
+(36, 5, 'IQ', 'Ingenieria Quimica'),
+(37, 1, 'MARK', 'Marketing'),
+(38, 5, 'MAT', 'Matematica'),
+(39, 4, 'MED', 'Medicina'),
+(40, 4, 'MV', 'Medicina Veterinaria'),
+(41, 4, 'ND', 'Nutricion y Dietetica'),
+(42, 4, 'OD', 'Odontologia'),
+(43, 7, 'PER', 'Periodismo'),
+(44, 11, 'PM', 'Produccion Musical'),
+(45, 6, 'PSI', 'Psicologia'),
+(46, 6, 'PSIC', 'Psicologia Clinica'),
+(47, 7, 'PUB', 'Publicidad'),
+(48, 6, 'RI', 'Relaciones Internacionales');
