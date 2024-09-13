@@ -350,3 +350,17 @@ INSERT INTO Modalidad (Modalidad_id, Nombre) VALUES
 (2, 'Virtual Sincrónico'),
 (3, 'Híbrido'),
 (4, 'En Línea');
+
+-- Insertar datos en la tabla Horario
+INSERT INTO Horario (Horario_id, Hora) VALUES
+(1, '07:00 - 08:20'),
+(2, '08:30 - 09:50'),
+(3, '10:00 - 11:20'),
+(4, '11:30 - 12:50'),
+(5, '13:00 - 14:20'),
+(6, '14:30 -15:50'),
+(7, '16:00 - 17:20'),
+(8, '17:30 - 18:50'),
+(9, '19:00 - 20:20'),
+(10, '20:30 - 21:50');
+
