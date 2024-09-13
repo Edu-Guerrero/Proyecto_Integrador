@@ -11,7 +11,8 @@ DROP TABLE IF EXISTS Colegio;
 -- Crear la tabla Colegio
 CREATE TABLE Colegio (
     Colegio_id INT PRIMARY KEY,  -- Identificador único del colegio
-    Nombre VARCHAR(255) NOT NULL    -- Nombre del colegio (POLI, COCOA, etc.)
+    Nombre VARCHAR(255) NOT NULL,    -- Nombre del colegio
+    Abreviatura VARCHAR(10) NOT NULL -- Abreviatura del colegio (POLI, COCOA, etc.)
 );
 
 -- Eliminar la tabla KeyWords si ya existe
