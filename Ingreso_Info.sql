@@ -39,6 +39,21 @@ INSERT INTO Notas (Nota_id, Nota) VALUES
 (5, 'F'),
 (6, 'P');
 
+-- Insertar datos en la tabla Semestre
+INSERT INTO Semestre (Semestre_id, Nombre) VALUES
+(1, 'Primer Semestre'),
+(2, 'Segundo Semestre'),
+(3, 'Tercer Semestre'),
+(4, 'Cuarto Semestre'),
+(5, 'Quinto Semestre'),
+(6, 'Sexto Semestre'),
+(7, 'Séptimo Semestre'),
+(8, 'Octavo Semestre'),
+(9, 'Noveno Semestre'),
+(10, 'Décimo Semestre')
+(11, 'Undécimo Semestre'),
+(12, 'Duodécimo Semestre');
+
 -- Insertar edificios en la tabla Edificio
 INSERT INTO Edificio (Edificio_id, Abreviatura, Nombre) VALUES
 (1, 'MS', 'Miguel de Santiago'),
@@ -66,22 +81,22 @@ INSERT INTO Edificio (Edificio_id, Abreviatura, Nombre) VALUES
 
 -- Insertar datos en la tabla Carrera
 INSERT INTO Carrera (Carrera_id, Colegio_id, Abreviatura, Nombre) VALUES
-(1, 1, 'AE', 'Administracion de Empresas'),
-(2, 1, 'AE-G', 'Administracion de Empresas (Galapagos)'),
-(3, 7, 'AD', 'Animacion Digital'),
+(1, 1, 'ADM', 'Administracion de Empresas'),
+(2, 1, 'ADG', 'Administracion de Empresas (Galapagos)'),
+(3, 7, 'ANI', 'Animacion Digital'),
 (4, 6, 'ANT', 'Antropologia'),
 (5, 2, 'ARQ', 'Arquitectura'),
-(6, 6, 'AL', 'Artes Liberales'),
-(7, 7, 'AV', 'Artes Visuales'),
-(8, 7, 'AV-DM', 'Artes Visuales: Diseno de modas'),
+(6, 6, 'ART', 'Artes Liberales'),
+(7, 7, 'VIS', 'Artes Visuales'),
+(8, 7, 'MOD', 'Artes Visuales: Diseno de modas'),
 (9, 3, 'BIO', 'Biologia'),
-(10, 3, 'BIO-T', 'Biotecnologia'),
-(11, 6, 'CP', 'Ciencias Politicas'),
-(12, 7, 'CINE', 'Cine'),
+(10, 3, 'BTC', 'Biotecnologia'),
+(11, 6, 'POL', 'Ciencias Politicas'),
+(12, 7, 'CIN', 'Cine'),
 (13, 11, 'CMC', 'Composicion para Medios Contemporaneos'),
 (14, 7, 'COM', 'Comunicacion'),
 (15, 10, 'DER', 'Derecho'),
-(16, 2, 'DI', 'Diseno de Interiores'),
+(16, 2, 'DIN', 'Diseno de Interiores'),
 (17, 7, 'DMI', 'Diseno de Medios Interactivos'),
 (18, 7, 'DGC', 'Diseno Grafico: Diseno Comunicacional'),
 (19, 8, 'ECO', 'Economia'),
@@ -89,31 +104,31 @@ INSERT INTO Carrera (Carrera_id, Colegio_id, Abreviatura, Nombre) VALUES
 (21, 11, 'EMC', 'Ejecucion de Musica Contemporanea'),
 (22, 1, 'FIN', 'Finanzas'),
 (23, 5, 'FIS', 'Fisica'),
-(24, 9, 'GAST', 'Gastronomia'),
-(25, 3, 'GA-G', 'Gestion Ambiental (Galapagos)'),
-(26, 9, 'HH', 'Hospitalidad y Hoteleria'),
-(27, 5, 'IA', 'Ingenieria Ambiental'),
-(28, 5, 'IC', 'Ingenieria Civil'),
-(29, 5, 'IA-A', 'Ingenieria en Agronomia'),
-(30, 5, 'IA-F', 'Ingenieria en Alimentos'),
-(31, 5, 'IA-CC', 'Ingenieria en Ciencias de la Computacion'),
-(32, 5, 'IA-EA', 'Ingenieria en Electronica y Automatizacion'),
-(33, 5, 'IA-MAC', 'Ingenieria en Matematicas Aplicadas y Computacion (MAC)'),
-(34, 5, 'II', 'Ingenieria Industrial'),
-(35, 5, 'IM', 'Ingenieria Mecanica'),
-(36, 5, 'IQ', 'Ingenieria Quimica'),
-(37, 1, 'MARK', 'Marketing'),
+(24, 9, 'GAS', 'Gastronomia'),
+(25, 3, 'GAG', 'Gestion Ambiental (Galapagos)'),
+(26, 9, 'HOT', 'Hospitalidad y Hoteleria'),
+(27, 5, 'AMB', 'Ingenieria Ambiental'),
+(28, 5, 'CIV', 'Ingenieria Civil'),
+(29, 5, 'AGR', 'Ingenieria en Agronomia'),
+(30, 5, 'ALI', 'Ingenieria en Alimentos'),
+(31, 5, 'CMP', 'Ingenieria en Ciencias de la Computacion'),
+(32, 5, 'ELE', 'Ingenieria en Electronica y Automatizacion'),
+(33, 5, 'MAC', 'Ingenieria en Matematicas Aplicadas y Computacion'),
+(34, 5, 'IND', 'Ingenieria Industrial'),
+(35, 5, 'MEC', 'Ingenieria Mecanica'),
+(36, 5, 'QUI', 'Ingenieria Quimica'),
+(37, 1, 'MKT', 'Marketing'),
 (38, 5, 'MAT', 'Matematica'),
 (39, 4, 'MED', 'Medicina'),
-(40, 4, 'MV', 'Medicina Veterinaria'),
-(41, 4, 'ND', 'Nutricion y Dietetica'),
-(42, 4, 'OD', 'Odontologia'),
+(40, 4, 'VET', 'Medicina Veterinaria'),
+(41, 4, 'NUT', 'Nutricion y Dietetica'),
+(42, 4, 'ODO', 'Odontologia'),
 (43, 7, 'PER', 'Periodismo'),
-(44, 11, 'PM', 'Produccion Musical'),
+(44, 11, 'PRM', 'Produccion Musical'),
 (45, 6, 'PSI', 'Psicologia'),
-(46, 6, 'PSIC', 'Psicologia Clinica'),
+(46, 6, 'PSC', 'Psicologia Clinica'),
 (47, 7, 'PUB', 'Publicidad'),
-(48, 6, 'RI', 'Relaciones Internacionales');
+(48, 6, 'RIN', 'Relaciones Internacionales');
 
 INSERT INTO profesor (profesor_id, Nombre, correo) VALUES
 (1, 'Alberto Cardenas Ruales', 'acardenas1@usfq.edu.ec'),
@@ -328,3 +343,10 @@ INSERT INTO profesor (profesor_id, Nombre, correo) VALUES
 (210, 'Wilson Orellana', 'worellanam@usfq.edu.ec'),
 (211, 'Xavier Andrade Castillo', 'xandrade@usfq.edu.ec'),
 (212, 'Yovani Marrero-Ponce', 'ymarrero@usfq.edu.ec');
+
+-- Insertar datos en la tabla Modalidad
+INSERT INTO Modalidad (Modalidad_id, Nombre) VALUES
+(1, 'Presencial'),
+(2, 'Virtual Sincrónico'),
+(3, 'Híbrido'),
+(4, 'En Línea');
