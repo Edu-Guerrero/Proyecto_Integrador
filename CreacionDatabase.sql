@@ -58,7 +58,8 @@ DROP TABLE IF EXISTS Profesor;
 CREATE TABLE Profesor (
     Profesor_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,  -- Identificador único del profesor
     Nombre VARCHAR(255) NOT NULL,    -- Nombre del profesor
-    Correo VARCHAR(255)              -- Correo del profesor
+    Correo VARCHAR(255) NOT NULL,             -- Correo del profesor
+    CHECK (Correo LIKE '%@usfq.edu.ec')  -- Verificar que el correo termine en "@usfq.edu.ec"
 );
 
 -- Eliminar la tabla Dias si ya existe
@@ -139,6 +140,7 @@ CREATE TABLE Estudiante (
     Carrera_id INT NOT NULL, 
     Semestre_id INT NOT NULL,
     SubEsp_id INT NULL,
+    CHECK (Correo LIKE '%@estud.usfq.edu.ec'), -- Verificar que el correo termine en "@estud.usfq.edu.ec"
     FOREIGN KEY (Carrera_id) REFERENCES Carrera(Carrera_id)
         ON DELETE RESTRICT 
         ON UPDATE CASCADE,                    -- FK referencia a la tabla Carrera
