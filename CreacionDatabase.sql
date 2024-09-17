@@ -141,6 +141,7 @@ CREATE TABLE Estudiante (
     Semestre_id INT NOT NULL,
     SubEsp_id INT NULL,
     CHECK (Correo LIKE '%@estud.usfq.edu.ec'), -- Verificar que el correo termine en "@estud.usfq.edu.ec"
+    CHECK (Estudiante_id REGEXP '^[0-9]{6}$'),  -- Verificar que el ID sea de 8 dígitos, comience con 00
     FOREIGN KEY (Carrera_id) REFERENCES Carrera(Carrera_id)
         ON DELETE RESTRICT 
         ON UPDATE CASCADE,                    -- FK referencia a la tabla Carrera
