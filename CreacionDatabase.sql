@@ -322,6 +322,8 @@ CREATE TABLE Curso (
     Campus_id INT NOT NULL,                             -- FK Campus donde se dicta el curso
     Modalidad_id INT NOT NULL,                          -- FK Modalidad en la que se dicta el curso
     Edificio_id INT NOT NULL,                           -- FK Edificio en el que se dicta el curso
+    Cupo INT NOT NULL,
+    Aula INT NOT NULL,
     FOREIGN KEY (Asignatura_id) REFERENCES Asignatura(Asignatura_id)
         ON DELETE RESTRICT 
         ON UPDATE CASCADE,                              -- FK referencia a la tabla Asignatura
