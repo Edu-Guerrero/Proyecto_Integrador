@@ -10,9 +10,9 @@ def generate_subject_info(html_content):
 
     # Define the hash map for subject IDs
     subject_id_map = {
-        'ADM': 1, 'ADG': 2, 'ANI': 3, 'ANT': 4, 'ARQ': 5, 'ARL': 6, 'ART': 7,
+        'ADM': 1, 'ADG': 2, 'AND': 3, 'ANT': 4, 'ARQ': 5, 'ARL': 6, 'ART': 7,
         'MOD': 8, 'BIO': 9, 'BTC': 10, 'POL': 11, 'CIN': 12, 'CMC': 13, 'COM': 14,
-        'DER': 15, 'DIN': 16, 'DMI': 17, 'DIC': 18, 'ECN': 19, 'EDU': 20, 'EMC': 21,
+        'DER': 15, 'DIN': 16, 'DIM': 17, 'DIC': 18, 'ECN': 19, 'EDU': 20, 'EMC': 21,
         'FIN': 22, 'FIS': 23, 'GST': 24, 'GAG': 25, 'HSP': 26, 'AMB': 27, 'CIV': 28,
         'AGR': 29, 'ALI': 30, 'CMP': 31, 'ELE': 32, 'MAC': 33, 'IIN': 34, 'MEC': 35,
         'QUI': 36, 'MAK': 37, 'MAT': 38, 'MED': 39, 'VET': 40, 'NUT': 41, 'ODO': 42,

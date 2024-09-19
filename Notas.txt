@@ -1,0 +1,56 @@
+Agregado Carreras de
+    Computacion
+    Gastronomia
+    Educacion
+    Adm de Empresas
+    Artes visuales
+
+Agregado minors de
+    Videojuegos
+    Matematica
+    Danza
+    Ing Industrial
+    Cine
+
+Agregado Mallas de carrera
+    Computacion
+    Gastronomia
+    Adm de Empresas
+    Educacion
+    Artes visuales
+        FALTA LAS MATERIAS EN LA TABLA
+
+Agregado Malla de minor
+    Videojuegos
+    Danza
+    Ing Industrial
+    Matematica
+    Cine
+
+Agregado asignaturas a Malla
+    Computacion
+    Gastronomia
+    Administracoi
+    Educacion
+    Artes Visuales
+
+Agregado asignaturas a Malla minor
+    Videojuegos
+    Danza
+    Ing Industrial
+    Matematica
+    Cine
+
+Agregar Kardex de estudiantes (Minimo 5)
+    Agregado Kardex de 5 Estudiantes
+
+Added Palabras para los estudiantes.
+
+Agregar pre y co requisitos
+Agregar restricciones
+Tabla para malla cuando es ART/ENG/CCSS/ETC
+
+Duplicados: Introduccion a la econ. 58 - orginal 16 - Falta cambiar la asignatura
+            Matematica empresarial. 96 - original 46 - Falta cambiar la asignatura
+            Principios de Adm 94 - original 48 - Falta cambiar la asignatura
+            Contabilidad Empresarial 95 - original 52 - Falta cambiar la asignatura.
