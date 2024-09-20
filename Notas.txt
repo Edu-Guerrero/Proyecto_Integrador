@@ -57,54 +57,57 @@ Hecho:
     Agregado prerrequisito
     Agregado 3 correquisitos
 
+    Agregado Triggers
+
 Agregar restricciones
 Crear Indices
-Crear triggers para log.
+Entregar Optativas
+Entregar Electivas
+Verificar restricciones
+
 
 HAcer pruebas
-Comprobrar Prerequisitos
-Comprobar Correquisitos
 HOY 
 
-            Lab Creacion1 -> Fundamentos de las Artes
-            Teoria critica -> Fun. Comunicacion o Fund de las Artes
-            Nuevos medios -> fotografia
-            Lab Creacion 2 -> 1
-            Arte y contexto Social -> Fundamentos de las Artes
-            Taller investgacion -> (Fund Comunicaion o Fund Artes) y (Teoria critica)
-            Talleres de arte
-            Enfasis
-            Labs de creacion
-            Produccion Lab creacion 3 y Art Contemporaneo
-            Calculo integral -> Calculo para ciencias o Calculo Diferencial
-            Pro avanzad -> Prog en c++
-            Mat discretas -> (calc Diferencial y Cal Integral) o Calc Ciencias
-            Fisica -> Calculo integral o Calculo para ciencias
-            Calculo vectoria -> Calculo integal o Calculo para ciencias
-            Prog app -> Prog avanzada c++
-            Fisica 2 -> Fisica 1
-            Electronica -> Fisica 2
-            Estructura de datos -> Prog apps o Prog C++
-            Prob y Est -> Calculo Integla o Calculo ciencias 1
-            Teoria de la comp -> Matematicas discretas
-            Prog avan app -> Estructura de datos
-            Org com -> Estructura de datos
-            Diseño Sistemas -> Estructura de datos
-            Intelgenvia ar -> Estructura de datos
-            BDD -> Estructura de datos
-            Machine learning -> Prob y est
-            Redes -> org
-            Sistemas -> org
-            Seguridad -> Redes
-            Data min -> Machine
-            App distr -> Redes y BDD
-            Neurociencia y educacin -> Teorias del apr y desarrollo niño
-            Plani 2 -> Plani 1
-            Ensñ lenguaje -> Plani 2
-            Pract 1 -> Plani2
-            Metodologia -> Plani2
-            Bilingualism -> Enseñanza y Desarrollo niño y Ingles 6
-            Practicas
+    Lab Creacion1 -> Fundamentos de las Artes
+    Teoria critica -> Fund de las Artes
+    Nuevos medios -> fotografia
+    Lab Creacion 2 -> 1
+    Arte y contexto Social -> Fundamentos de las Artes
+    Taller investgacion -> Fund Artes y (Teoria critica)
+    Talleres de arte
+    Enfasis
+    Labs de creacion
+    Produccion Lab creacion 3 y Art Contemporaneo
+    Calculo integral -> Calculo Diferencial
+    Pro avanzad -> Prog en c++
+    Mat discretas -> (calc Diferencial y Cal Integral)
+    Fisica -> Calculo integral 
+    Calculo vectoria -> Calculo integal 
+    Prog app -> Prog avanzada c++
+    Fisica 2 -> Fisica 1
+    Electronica -> Fisica 2
+    Estructura de datos -> Prog apps
+    Prob y Est -> Calculo Integla 
+    Teoria de la comp -> Matematicas discretas
+    Prog avan app -> Estructura de datos
+    Org com -> Estructura de datos
+    Diseño Sistemas -> Estructura de datos
+    Intelgenvia ar -> Estructura de datos
+    BDD -> Estructura de datos
+    Machine learning -> Prob y est
+    Redes -> org
+    Sistemas -> org
+    Seguridad -> Redes
+    Data min -> Machine
+    App distr -> Redes y BDD
+    Neurociencia y educacin -> Teorias del apr y desarrollo niño
+    Plani 2 -> Plani 1
+    Ensñ lenguaje -> Plani 2
+    Pract 1 -> Plani2
+    Metodologia -> Plani2
+    Bilingualism -> Enseñanza Len y Desarrollo niño y Ingles 6
+    Practicas
             Gestio de talento -> Prin admin y princp de mrk y prin de fin
             Tecnicas
             Progamacion para diseños

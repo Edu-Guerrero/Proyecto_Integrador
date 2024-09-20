@@ -200,26 +200,13 @@ DROP TABLE IF EXISTS Prerrequisito;
 CREATE TABLE Prerrequisito (
     Prerrequisito_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,  -- Identificador único del prerrequisito
     Asignatura_id INT NOT NULL,   -- Asignatura que es un prerrequisito (FK)
-    Grupo INT NOT NULL,                             -- Identificador del grupo de prerrequisitos
+    Dependencia_id INT NOT NULL,  -- Dependencia que es un prerrequisito (FK)
     FOREIGN KEY (Asignatura_id) REFERENCES Asignatura(Asignatura_id)
+        ON DELETE RESTRICT 
+        ON UPDATE CASCADE,  -- FK que referencia a Asignatura
+    FOREIGN KEY (Dependencia_id) REFERENCES Asignatura(Asignatura_id)
         ON DELETE RESTRICT 
         ON UPDATE CASCADE  -- FK que referencia a Asignatura
-);
-
--- Eliminar la tabla Grupo_Prerrequisito si ya existe
-DROP TABLE IF EXISTS Grupo_Prerrequisito;
-
--- Crear la tabla Grupo_Prerrequisito
-CREATE TABLE Grupo_Prerrequisito (
-    Grupo_Prerequisito_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    Asignatura_id INT NOT NULL,  -- Identificador de la asignatura (FK)
-    Prerrequisito_id INT NOT NULL,  -- Identificador del grupo de prerrequisitos
-    FOREIGN KEY (Prerrequisito_id) REFERENCES Prerrequisito(Prerrequisito_id) 
-        ON DELETE RESTRICT 
-        ON UPDATE CASCADE,  -- FK que referencia a Prerrequisito
-    FOREIGN KEY (Asignatura_id) REFERENCES Asignatura(Asignatura_id)
-        ON DELETE RESTRICT 
-        ON UPDATE CASCADE  -- FK que referencia a Asignatura -- Identificador del grupo de prerrequisitos                                  -- Nombre del grupo de prerrequisitos (opcional)
 );
 
 -- Eliminar la tabla Malla_Subespecializacion si ya existe

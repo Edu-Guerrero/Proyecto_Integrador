@@ -554,7 +554,6 @@ INSERT INTO Estudiante (Estudiante_id, Nombres, Apellidos, Correo, Contraseña, 
     (00528672, 'Victor', 'Chavez', 'victor.chavez39@estud.usfq.edu.ec', 'passVic@39', 11, 10, 68),
     (00999999, 'PRUEBA', 'PRUEBA', 'prueba@estud.usfq.edu.ec', 'prueba', 31, 5, NULL)
 
-
 -- Insertar datos en la tabla Categoria
 INSERT INTO Categoria (Categoria_id, Nombre) VALUES
     (1, 'Ciencias Exactas'),
@@ -2251,7 +2250,6 @@ INSERT INTO Curso (Curso_id, Asignatura_id, Profesor_id, Horario_id, Campus_id, 
     (928, 186, 196, 7, 3, 2, 10, 45, 309),
     (929, 186, 118, 2, 1, 3, 22, 15, 112),
     (930, 186, 212, 9, 3, 3, 2, 40, 304);
-
 
 INSERT INTO Dias_Asignatura (Dias_Asignatura_id, Curso_id, Dia_id) VALUES
     (1, 1, 5),
@@ -5021,10 +5019,8 @@ INSERT INTO Kardex_Asignatura (Kardex_id, Asignatura_id, Nota_id, Aprobada) VALU
     (5, 11, 1, TRUE),
     (5, 19, 1, TRUE),
     (5, 20, 1, TRUE),
-    (1, 122, 1, TRUE);
-    
-INSERT INTO Kardex_Asignatura (Kardex_id, Asignatura_id, Nota_id, Aprobada) VALUES
-(1, 157, 2, TRUE);
+    (1, 122, 1, TRUE),
+    (1, 157, 2, TRUE);
 
 INSERT INTO Malla_Extras (MallaCarrera_id, Categoria_id, Optativa, Electiva, Semestre_id) VALUES
     #Para Computacion
@@ -5081,133 +5077,121 @@ INSERT INTO Malla_Extras (MallaCarrera_id, Categoria_id, Optativa, Electiva, Sem
     (5, NULL, TRUE, FALSE, 8), # Optativa
     (5, NULL, FALSE, TRUE, 8); # Electiva
 
-INSERT INTO Prerrequisito (Asignatura_id, Grupo) VALUES
-    (6, 1), #Para Ingles 2
-    (7, 2), #Para ingles 3
-    (12, 3), #para ingles 4
-    (13, 4), #ingles 5
-    (19, 5), #ingles 6
-    (118, 6), #Lab Creacion 1 y Teoria critica y Arte contexto social y Talelr inv
-    (122, 7), #Nuevos medios
-    (120, 8), #Lab Creacion 2
-    (127, 9), #Lab Creacion 3
-    (124, 10),#Tallr de inv
-    (128, 11),#Taller Art 2
-    (133, 12),#Taller Art 3
-    (132, 13),#Enfasis 2
-    (134, 14),#Enfasis 3
-    (136, 15),#Produccion
-    (126, 16),#Produccion
-    (148, 17),#Cal integral
-    (3, 17),#Calc integral
-    (8, 18),#Prog Avanzado
-    (3, 19),#MatDiscretas
-    (148, 19),#MatDiscretas
-    (9, 20),#MatDiscretas y Fisica1 y Cal Vectorial y ProbEst
-    (148, 20),#MatDiscretas y Fisica1 y Cal Vectorial y ProbEst
-    (14, 21),#Prog Apps 
-    (17, 22),#Fisica2
-    (23, 23),#Electronica
-    (21, 24),#Estructura
-    (14, 24),#Estructura
-    (15, 25),#Teoria de la comp
-    (27, 26),#Prog avan apps y Org comp y Diseño Sis y IA y BDD
-    (28, 27),#Machine Learnig
-    (31, 28),#Redes y Sistemas
-    (37, 29),#Seguridad y Apps Distr
-    (36, 30),#Data Mining
-    (35, 31),#AppsDistru
-    (73, 32),#Neurociencia
-    (74, 33),#Neurociencia
-    (75, 34),#Plani2
-    (78, 35),#Esñ Lenguaje y Pract1 y Metodologias
-    (84, 36),#Bilingue
-    (20, 37),#Bilingue
-    (81, 38),#Practica2
-    (87, 39),#Practica3
-    (90, 40),#Practica4
-    (48, 41),#Gestion de talento
-    (97, 42),#Gestion de talento
-    (102, 43),#Gestion de talento
-    (47, 44),#Conceptos y Técnicas
-    (143, 45),#Programacion para diseño2
-    (144, 46),#Programacion apra diseño3
-    (117, 47),#Modelado 3d
-    (176, 48);#Cinematografia y Sonido
-
-INSERT INTO Grupo_Prerrequisito (Asignatura_id, Prerrequisito_id) VALUES
-    (7, 1),
-    (12, 2),
-    (13, 3),
-    (19, 4),
-    (20, 5),
-    (120, 6),
-    (124, 6),
-    (130, 6),
-    (131, 6),
-    (125, 7),
-    (127, 8),
-    (136, 9),
-    (131, 10),
-    (133, 11),
-    (139, 12),
-    (134, 13),
-    (138, 14),
-    (142, 15),
-    (142, 16),
-    (9, 17),
-    (9, 18),
-    (14, 19),
-    (15, 20),
-    (15, 21),
-    (15, 22),
-    (15, 23),
-    (17, 22),
-    (18, 22),
-    (28, 22),
-    (17, 23),
-    (18, 23),
-    (28, 23),
-    (21, 24),
-    (23, 25),
-    (26, 26),
-    (27, 27),
-    (27, 28),
-    (29, 29),
-    (30, 30),
-    (31, 30),
-    (33, 30),
-    (34, 30),
-    (35, 30),
-    (36, 31),
-    (37, 32),
-    (38, 32),
-    (42, 33),
-    (44, 33),
-    (43, 34),
+INSERT INTO Prerrequisito (Asignatura_id, Dependencia_id) VALUES
+    (120, 118),
+    (124, 118),
+    (125, 122),
+    (127, 120),
+    (130, 118),
+    (131, 128),
+    (131, 124),
+    (133, 128),
+    (139, 133),
+    (134, 132),
+    (138, 134),
+    (136, 127),
+    (142, 136),
+    (142, 130),
+    (9, 3),
+    (14, 8),
+    (15, 3),
+    (15, 9),
+    (17, 9),
+    (18, 9),
+    (21, 14),
+    (23, 17),
+    (26, 23),
+    (27, 21),
+    (28, 9),
+    (29, 15),
+    (30, 27),
+    (31, 27),
+    (33, 27),
+    (34, 27),
+    (35, 27),
+    (36, 28),
+    (37, 31),
+    (38, 31),
+    (42, 37),
+    (43, 36),
+    (44, 37),
     (44, 35),
-    (77, 36),
-    (77, 37),
-    (78, 38),
-    (80, 39),
-    (81, 39),
-    (82, 39),
-    (86, 40),
-    (86, 41),
-    (87, 42),
-    (90, 43),
-    (93, 44),
-    (112, 45),
-    (112, 46),
-    (112, 47),
-    (47, 48),
-    (144, 49),
-    (145, 50),
-    (147, 51),
-    (177, 52),
-    (178, 52);
+    (77, 73),
+    (77, 74),
+    (78, 75),
+    (80, 75),
+    (81, 75),
+    (86, 80),
+    (86, 74),
+    (86, 20),
+    (87, 81),
+    (90, 87),
+    (93, 90),
+    (112, 97),
+    (112, 102),
+    (122, 48),
+    (53, 47),
+    (144, 143),
+    (145, 144),
+    (147, 117),
+    (177, 176),
+    (178, 176),
+    (7, 6),
+    (12, 7),
+    (13, 12),
+    (19, 13),
+    (20, 19);
 
 INSERT INTO Correquisito (Asignatura_id, Correquisito_Asignatura_id) VALUES
     (1, 5),
     (10, 11),
     (154, 155);
+
+INSERT INTO Restricciones (Asignatura_id, Carrera_id, Colegio_id, Semestre_id) VALUES
+    (45, 31, 5, 7),
+    (71, 24, 9, 7),
+    (92, 20, 6, 7),
+    (93, 20, 6, 7),
+    (116, 1, 1, 7),
+    (30, NULL, 5, 5),
+    (31, NULL, 5, 5),
+    (32, NULL, 5, 5),
+    (33, NULL, 7, 5),
+    (57, NULL, 7, 5),
+    (61, NULL, NULL, 4),
+    (62, NULL, NULL, 4),
+    (64, NULL, NULL, 4),
+    (66, NULL, NULL, 4),
+    (69, NULL, NULL, 4),
+    (83, NULL, NULL, 4),
+    (84, NULL, NULL, 4),
+    (86, NULL, NULL, 4),
+    (88, NULL, NULL, 4),
+    (90, NULL, NULL, 4),
+    (104, NULL, NULL, 4),
+    (96, NULL, NULL, 4),
+    (106, NULL, NULL, 4),
+    (108, NULL, NULL, 4),
+    (109, NULL, NULL, 4),
+    (112, NULL, NULL, 4),
+    (113, NULL, NULL, 4),
+    (126, NULL, NULL, 4),
+    (130, NULL, NULL, 4),
+    (131, NULL, NULL, 4),
+    (134, NULL, NULL, 4),
+    (135, NULL, NULL, 4),
+    (145, NULL, NULL, 4),
+    (149, NULL, NULL, 4),
+    (150, NULL, NULL, 4),
+    (157, NULL, NULL, 4),
+    (158, NULL, NULL, 4),
+    (159, NULL, NULL, 4),
+    (160, NULL, NULL, 4),
+    (161, NULL, NULL, 4),
+    (162, NULL, NULL, 4),
+    (171, NULL, NULL, 4),
+    (172, NULL, NULL, 4),
+    (182, NULL, NULL, 4),
+    (183, NULL, NULL, 4),
+    (184, NULL, NULL, 4),
+    (185, NULL, NULL, 4);
