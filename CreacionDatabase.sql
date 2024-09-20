@@ -169,16 +169,6 @@ CREATE TABLE Palabra_Estudiante (
         ON UPDATE CASCADE                                           -- FK referencia a la tabla Estudiante
 );
 
--- Eliminar la tabla Grupo_Prerrequisito si ya existe
-DROP TABLE IF EXISTS Grupo_Prerrequisito;
-
--- Crear la tabla Grupo_Prerrequisito
-CREATE TABLE Grupo_Prerrequisito (
-    Grupo_Prerequisito_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,  -- Identificador del grupo de prerrequisitos
-    Nombre VARCHAR(255) NOT NULL                                    -- Nombre del grupo de prerrequisitos (opcional)
-);
-
-
 -- Eliminar la tabla Asignatura si ya existe
 DROP TABLE IF EXISTS Asignatura;
 
@@ -191,8 +181,7 @@ CREATE TABLE Asignatura (
     Categoria_id INT NOT NULL,                             -- FK, categoría a la que pertenece la asignatura
     Nota_id INT NOT NULL,                                 -- FK, nota mínima para pasar
     Numero VARCHAR(20) NOT NULL,                           -- Número de curso para la carrera (por ejemplo CMP-1001)
-    Creditos INT NOT NULL,                                -- Créditos que tiene la asignatura
-    Grupo_Prerequisito_id INT,                            -- FK, identificador del grupo de prerrequisitos (opcional)
+    Creditos INT NOT NULL,                                -- Créditos que tiene la asignatura                           -- FK, identificador del grupo de prerrequisitos (opcional)
     FOREIGN KEY (Carrera_id) REFERENCES Carrera(Carrera_id)
         ON DELETE RESTRICT 
         ON UPDATE CASCADE,                                  -- FK que referencia a Carrera
@@ -201,10 +190,36 @@ CREATE TABLE Asignatura (
         ON UPDATE CASCADE,                                  -- FK que referencia a Categoria
     FOREIGN KEY (Nota_id) REFERENCES Notas(Nota_id)
         ON DELETE RESTRICT 
-        ON UPDATE CASCADE,                                  -- FK que referencia a Notas
-    FOREIGN KEY (Grupo_Prerequisito_id) REFERENCES Grupo_Prerrequisito(Grupo_Prerequisito_id)
-        ON DELETE SET NULL 
-        ON UPDATE CASCADE                                   -- FK que referencia a Grupo_Prerrequisito
+        ON UPDATE CASCADE                                  -- FK que referencia a Notas                                  -- FK que referencia a Grupo_Prerrequisito
+);
+
+-- Eliminar la tabla Prerrequisito si ya existe
+DROP TABLE IF EXISTS Prerrequisito;
+
+-- Crear la tabla Prerrequisito
+CREATE TABLE Prerrequisito (
+    Prerrequisito_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,  -- Identificador único del prerrequisito
+    Asignatura_id INT NOT NULL,   -- Asignatura que es un prerrequisito (FK)
+    Grupo INT NOT NULL,                             -- Identificador del grupo de prerrequisitos
+    FOREIGN KEY (Asignatura_id) REFERENCES Asignatura(Asignatura_id)
+        ON DELETE RESTRICT 
+        ON UPDATE CASCADE  -- FK que referencia a Asignatura
+);
+
+-- Eliminar la tabla Grupo_Prerrequisito si ya existe
+DROP TABLE IF EXISTS Grupo_Prerrequisito;
+
+-- Crear la tabla Grupo_Prerrequisito
+CREATE TABLE Grupo_Prerrequisito (
+    Grupo_Prerequisito_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    Asignatura_id INT NOT NULL,  -- Identificador de la asignatura (FK)
+    Prerrequisito_id INT NOT NULL,  -- Identificador del grupo de prerrequisitos
+    FOREIGN KEY (Prerrequisito_id) REFERENCES Prerrequisito(Prerrequisito_id) 
+        ON DELETE RESTRICT 
+        ON UPDATE CASCADE,  -- FK que referencia a Prerrequisito
+    FOREIGN KEY (Asignatura_id) REFERENCES Asignatura(Asignatura_id)
+        ON DELETE RESTRICT 
+        ON UPDATE CASCADE  -- FK que referencia a Asignatura -- Identificador del grupo de prerrequisitos                                  -- Nombre del grupo de prerrequisitos (opcional)
 );
 
 -- Eliminar la tabla Malla_Subespecializacion si ya existe
@@ -360,23 +375,6 @@ CREATE TABLE Dias_Asignatura (
         ON UPDATE CASCADE       -- FK referencia a la tabla Dias
 );
 
-
--- Eliminar la tabla Prerrequisito si ya existe
-DROP TABLE IF EXISTS Prerrequisito;
-
--- Crear la tabla Prerrequisito
-CREATE TABLE Prerrequisito (
-    Prerrequisito_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,  -- Identificador único del prerrequisito
-    Asignatura_id INT NOT NULL,   -- Asignatura que tiene un prerrequisito (FK)
-    Grupo_Prerequisito_id INT NOT NULL,                             -- Identificador del grupo de prerrequisitos
-    FOREIGN KEY (Asignatura_id) REFERENCES Asignatura(Asignatura_id)
-        ON DELETE RESTRICT 
-        ON UPDATE CASCADE,  -- FK que referencia a Asignatura
-    FOREIGN KEY (Grupo_Prerequisito_id) REFERENCES Grupo_Prerrequisito(Grupo_Prerequisito_id)
-        ON DELETE CASCADE 
-        ON UPDATE CASCADE   -- FK que referencia a Grupo_Prerrequisito
-);
-
 -- Eliminar la tabla Correquisito si ya existe
 DROP TABLE IF EXISTS Correquisito;
 
@@ -399,9 +397,9 @@ DROP TABLE IF EXISTS Restricciones;
 CREATE TABLE Restricciones (
     Restriccion_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,  -- Identificador único de la restricción
     Asignatura_id INT NOT NULL,                     -- FK, Asignatura a la cual pertenecen las restricciones
-    Carrera_id INT NULL,                            -- FK opcional, carrera que se restringe
-    Colegio_id INT NULL,                            -- FK opcional, colegio que se restringe
-    Semestre_id INT NULL,                           -- FK opcional, desde qué semestre se aplica la restricción
+    Carrera_id INT NULL,                            -- FK opcional, carrera que se permite
+    Colegio_id INT NULL,                            -- FK opcional, colegio que se permite
+    Semestre_id INT NULL,                           -- FK opcional, desde qué semestre se aplica la aceptacion
     FOREIGN KEY (Asignatura_id) REFERENCES Asignatura(Asignatura_id)
         ON DELETE CASCADE 
         ON UPDATE CASCADE,  -- FK a la tabla Asignatura
@@ -426,4 +424,26 @@ CREATE TABLE Audit_Log (
     Usuario VARCHAR(255) NOT NULL,                     -- Usuario que realizó el cambio
     Tabla_Modificada VARCHAR(255) NOT NULL,            -- Nombre de la tabla modificada
     Descripcion TEXT NOT NULL                          -- Descripción del cambio realizado
+);
+
+-- Eliminar la tabla Malla_Extras si ya existe
+DROP TABLE IF EXISTS Malla_Extras;
+
+-- Crear la tabla Malla_Extras
+CREATE TABLE Malla_Extras (
+    MallaExtras_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,  -- Identificador único de la tabla
+    MallaCarrera_id INT NOT NULL,                            -- FK, Identificador de la malla de una carrera
+    Categoria_id INT,                                  -- FK, Identificador de la carrera
+    Optativa BOOLEAN,
+    Electiva BOOLEAN,
+    Semestre_id INT NOT NULL,                             -- FK, Identificador del semestre
+    FOREIGN KEY (Semestre_id) REFERENCES Semestre(Semestre_id)
+        ON DELETE RESTRICT 
+        ON UPDATE CASCADE,                                -- FK que referencia a Semestre                                      -- Grupo
+    FOREIGN KEY (MallaCarrera_id) REFERENCES Malla_Carrera(MallaCarrera_id)
+        ON DELETE CASCADE 
+        ON UPDATE CASCADE,                                    -- FK que referencia a Malla_Carrera
+    FOREIGN KEY (Categoria_id) REFERENCES Categoria(Categoria_id)
+        ON DELETE CASCADE 
+        ON UPDATE CASCADE                                     -- FK que referencia a Carrera
 );

@@ -573,740 +573,751 @@ INSERT INTO Categoria (Categoria_id, Nombre) VALUES
     (14, 'Lenguas'),
     (15, 'Diseño');
 
-INSERT INTO Asignatura (Asignatura_id, Nombre, Descripcion, Carrera_id, Categoria_id, Nota_id, Numero, Creditos, Grupo_Prerequisito_id) 
-VALUES
+INSERT INTO Asignatura (Asignatura_id, Nombre, Descripcion, Carrera_id, Categoria_id, Nota_id, Numero, Creditos) VALUES
     #Malla Computacion
     (1, 'Escritura Academica', 'Esta asignatura se centra en desarrollar habilidades avanzadas de redacción académica. 
     Los estudiantes aprenderán a estructurar ensayos, realizar investigaciones y usar correctamente citas y 
     referencias bibliográficas. También se abordan técnicas para mejorar la claridad y coherencia en los escritos. 
     Se enfoca en la creación de textos formales y académicos. El curso es esencial para presentar trabajos de 
-    investigación de alta calidad.', 49, 13, 3, 1001, 3, NULL),
+    investigación de alta calidad.', 49, 13, 3, 1001, 3),
     (2, 'Taller de Ing. Cs. Computación', 'En esta asignatura se imparten conocimientos prácticos sobre el desarrollo
     de proyectos en el campo de la ingeniería de software. Los estudiantes trabajarán en equipos para diseñar, 
     implementar y probar soluciones a problemas reales usando herramientas de programación. El taller también aborda 
     metodologías ágiles y el ciclo de vida del desarrollo de software. Se fomenta el uso de mejores prácticas de 
     codificación y documentación. Los proyectos involucran la integración de conocimientos teóricos en escenarios 
-    prácticos.', 31, 4, 3, '1001', 3, NULL),
+    prácticos.', 31, 4, 3, '1001', 3),
     (3, 'Cálculo Diferencial + Ej', 'Este curso introduce los conceptos fundamentales del cálculo diferencial, como 
     límites, derivadas y aplicaciones de la derivada en problemas de optimización y análisis de funciones. 
-    Se complementa con ejercicios prácticos para aplicar los conceptos. Es esencial en la formación de ingenieros.', 38, 1, 3, '1201', 3, NULL),
+    Se complementa con ejercicios prácticos para aplicar los conceptos. Es esencial en la formación de ingenieros.', 38, 1, 3, '1201', 3),
     (4, 'Química General 1 +Lab/Ej', 'Este curso cubre los principios básicos de la química, como la estructura
     atómica, enlaces químicos y reacciones. Incluye experimentos de laboratorio para reforzar los conceptos y 
-    desarrollar habilidades experimentales. Proporciona una base sólida en química.', 36, 4, 3, '1003', 3, NULL),
+    desarrollar habilidades experimentales. Proporciona una base sólida en química.', 36, 4, 3, '1003', 3),
     (5, 'Cosmos', 'Este curso estudia el universo desde la formación de estrellas y galaxias hasta las teorías 
     que explican su origen. Incluye la exploración de fenómenos astronómicos y un análisis crítico de las teorías
-    cosmológicas actuales. Invita a reflexionar sobre nuestro lugar en el cosmos.', 6, 13, 3, '1002', 3, NULL),
+    cosmológicas actuales. Invita a reflexionar sobre nuestro lugar en el cosmos.', 6, 13, 3, '1002', 3),
     (6, 'Inglés Nivel 1', 'Este curso introduce a los estudiantes a los conceptos fundamentales del inglés, 
     enfocándose en habilidades básicas de comunicación. Se cubren aspectos de gramática, vocabulario y 
     comprensión oral, con actividades prácticas para mejorar la capacidad de leer y escribir en inglés.', 50, 14, 3, 
-    '0001', 0, NULL),
+    '0001', 0),
     (7, 'Inglés Nivel 2', 'Continuación del curso de nivel 1, este curso profundiza en las estructuras gramaticales
     más complejas y expande el vocabulario. Se introducen lecturas más avanzadas y se practica la conversación
-    para mejorar la fluidez y comprensión.', 50, 14, 3, '0002', 0, NULL),
+    para mejorar la fluidez y comprensión.', 50, 14, 3, '0002', 0),
     (8, 'Programación en C++ +Ej', 'Este curso cubre los fundamentos de la programación en C++, incluyendo conceptos
     como estructuras de control, funciones, arreglos y punteros. Se refuerza el aprendizaje a través de ejercicios
-    prácticos para implementar programas básicos en C++.', 31, 4, 3, '1101', 3, NULL),
+    prácticos para implementar programas básicos en C++.', 31, 4, 3, '1101', 3),
     (9, 'Cálculo Integral + Ej', 'Este curso continúa con los temas de cálculo diferencial, introduciendo técnicas 
     de integración, teoremas fundamentales y aplicaciones de la integral. Incluye ejercicios prácticos para aplicar 
-    estos conceptos a problemas reales.', 38, 1, 3, '1202', 3, NULL),
+    estos conceptos a problemas reales.', 38, 1, 3, '1202', 3),
     (10, 'Autoconocimiento', 'Un curso dedicado a la exploración personal y el desarrollo de habilidades 
     introspectivas. Los estudiantes aprenderán sobre teorías del autoconcepto, la gestión emocional y el crecimiento 
-    personal, con un enfoque práctico en el autodescubrimiento.', 6, 13, 3, '1001', 3, NULL),
+    personal, con un enfoque práctico en el autodescubrimiento.', 6, 13, 3, '1001', 3),
     (11, 'Ser y Cosmos', 'Curso que examina las interacciones entre el ser humano y el universo. Se exploran temas 
     de filosofía, cosmología y existencia desde una perspectiva interdisciplinaria, fomentando la reflexión crítica.',
-    6, 13, 3, '2001', 3, NULL),
+    6, 13, 3, '2001', 3),
     (12, 'Inglés Nivel 3', 'Avanzando en la complejidad, este curso refuerza las habilidades lingüísticas con énfasis 
     en la escritura académica, el análisis de textos y la mejora de la pronunciación. Incluye tareas de conversación 
-    y redacción más elaboradas.', 50, 14, 6, '0003', 0, NULL),
+    y redacción más elaboradas.', 50, 14, 6, '0003', 0),
     (13, 'Inglés Nivel 4', 'Último nivel del ciclo básico de inglés, donde los estudiantes desarrollan habilidades 
     para debatir temas complejos, escribir ensayos formales y realizar presentaciones en inglés. El curso prepara a 
-    los estudiantes para niveles más avanzados de competencia.', 50, 14, 6, '0004', 0, NULL),
+    los estudiantes para niveles más avanzados de competencia.', 50, 14, 6, '0004', 0),
     (14, 'Programación Avanzada en C++', 'Curso avanzado en el lenguaje de programación C++, donde se profundizan 
     temas como estructuras de datos dinámicas, programación orientada a objetos y manejo de memoria. Se trabaja con 
-    ejemplos y proyectos más complejos.', 31, 4, 3, '2102', 3, NULL),
+    ejemplos y proyectos más complejos.', 31, 4, 3, '2102', 3),
     (15, 'Matemáticas Discretas', 'Introducción a conceptos fundamentales de matemáticas discretas como teoría de 
     conjuntos, grafos, algoritmos y combinatoria. Se estudian aplicaciones en informática y otras áreas relacionadas.',
-    38, 1, 3, '2004', 3, NULL),
+    38, 1, 3, '2004', 3),
     (16, 'Introducción a la Economía', 'Curso que proporciona una visión general de los principios de la economía, 
     abarcando temas como oferta, demanda, mercados, y sistemas económicos. Se analiza cómo estos conceptos afectan 
-    la toma de decisiones en los niveles personal y empresarial.', 19, 2, 3, '1001', 3, NULL),
+    la toma de decisiones en los niveles personal y empresarial.', 19, 2, 3, '1001', 3),
     (17, 'Física para Ingeniería 1 +Lab/Ej', 'Este curso introduce los principios de la física aplicados a la 
     ingeniería, cubriendo temas como la mecánica clásica, cinemática, y dinámica. Incluye un componente de laboratorio 
-    para aplicar los conocimientos teóricos a experimentos prácticos.', 23, 1, 3, '2701', 3, NULL),
+    para aplicar los conocimientos teóricos a experimentos prácticos.', 23, 1, 3, '2701', 3),
     (18, 'Cálculo Vectorial', 'Este curso aborda el cálculo en varias variables, incluyendo la diferenciación e 
     integración de funciones vectoriales. Se estudian conceptos como campos vectoriales, integrales de línea y de 
-    superficie, con aplicaciones en física e ingeniería.', 38, 1, 3, '2203', 3, NULL),
+    superficie, con aplicaciones en física e ingeniería.', 38, 1, 3, '2203', 3),
     (19, 'Inglés Nivel 5', 'Curso avanzado de inglés que se centra en el desarrollo de habilidades comunicativas en 
     contextos más especializados. Los estudiantes participan en discusiones, debates y presentaciones formales sobre 
     temas complejos. Se enfatiza la fluidez y precisión en la comunicación, así como la capacidad de argumentar y 
-    defender puntos de vista de manera efectiva.', 50, 14, 6, '0005', 0, NULL),
+    defender puntos de vista de manera efectiva.', 50, 14, 6, '0005', 0),
     (20, 'Inglés Nivel 6', 'Este curso finaliza la serie de niveles de inglés, preparando a los estudiantes para 
     comunicarse con fluidez en situaciones académicas y profesionales. Incluye tareas avanzadas de escritura, 
     análisis de textos y presentaciones formales. Los estudiantes desarrollan habilidades para redactar informes 
     detallados, realizar investigaciones académicas y participar en discusiones profesionales.',
-    50, 14, 6, '0006', 0, NULL),
+    50, 14, 6, '0006', 0),
     (21, 'Programación de Apps', 'Este curso enseña el diseño y desarrollo de aplicaciones móviles. Los 
     estudiantes aprenden a programar interfaces de usuario, gestionar bases de datos móviles y optimizar la
     experiencia del usuario en entornos móviles. Se cubren temas como la integración de servicios web, el 
     uso de APIs y la implementación de características avanzadas como notificaciones push y almacenamiento 
-    en la nube.', 31, 4, 3, '2103', 3, NULL),
+    en la nube.', 31, 4, 3, '2103', 3),
     (22, 'Álgebra Lineal 1 +Ej', 'Introducción a los conceptos básicos de álgebra lineal, incluyendo matrices, 
     determinantes, vectores y espacios vectoriales. Se incluyen ejercicios prácticos para aplicar estos conceptos 
     a problemas de ingeniería y ciencias. Los estudiantes aprenderán a resolver sistemas de ecuaciones lineales, 
-    realizar transformaciones lineales y comprender la teoría de espacios vectoriales.', 38, 1, 3, '1401', 3, NULL),
+    realizar transformaciones lineales y comprender la teoría de espacios vectoriales.', 38, 1, 3, '1401', 3),
     (23, 'Física para Ingeniería 2 +Lab/Ej', 'Continuación del curso de Física para Ingeniería 1, este curso cubre 
     temas como electromagnetismo, circuitos eléctricos y ondas. Incluye un componente de laboratorio para la 
     aplicación práctica de los conceptos teóricos. Los estudiantes realizarán experimentos para entender el 
     comportamiento de los circuitos eléctricos, el campo magnético y las propiedades de las ondas.',
-    23, 1, 3, '2702', 3, NULL),
+    23, 1, 3, '2702', 3),
     (24, 'Aprendizaje y Servicio PASEC', 'Este curso combina teoría y práctica a través del aprendizaje basado 
     en servicio comunitario. Los estudiantes aplican sus conocimientos académicos en proyectos de impacto social,
     desarrollando habilidades de liderazgo y responsabilidad social. Se fomenta la reflexión crítica sobre las
-    necesidades de la comunidad y la implementación de soluciones sostenibles.', 51, 13, 3, '2000', 3, NULL),
+    necesidades de la comunidad y la implementación de soluciones sostenibles.', 51, 13, 3, '2000', 3),
     (25, 'Cultura Gastronómica', 'Un curso que explora la historia y evolución de la gastronomía a nivel mundial.
     Se estudian las influencias culturales y sociales sobre la cocina, con énfasis en la gastronomía de diferentes
     regiones del mundo. Los estudiantes analizarán la relación entre la comida y la identidad cultural, así como 
-    las tendencias actuales en la gastronomía global.', 24, 9, 6, '0010', 1, NULL),
+    las tendencias actuales en la gastronomía global.', 24, 9, 6, '0010', 1),
     (26, 'Electrónica Básica +Lab', 'Curso introductorio a los principios de la electrónica. Se estudian circuitos, 
     componentes electrónicos y su aplicación en dispositivos básicos. El laboratorio permite experimentar con 
     circuitos simples y su análisis. Los estudiantes aprenderán a diseñar y construir circuitos electrónicos básicos, 
     comprender el funcionamiento de componentes como resistencias, capacitores y transistores, y utilizar herramientas
-    de medición electrónica.', 32, 4, 3, '2001', 3, NULL),
+    de medición electrónica.', 32, 4, 3, '2001', 3),
     (27, 'Estructuras de Datos', 'Este curso cubre la implementación y análisis de estructuras de datos como listas, 
     pilas, colas, árboles y grafos. Los estudiantes aplican estos conceptos en proyectos de programación para optimizar 
     el rendimiento de algoritmos. Se enfatiza la importancia de elegir la estructura de datos adecuada para diferentes 
-    tipos de problemas y se incluyen estudios de caso para ilustrar aplicaciones prácticas.', 31, 4, 3, '3002', 3, NULL),
+    tipos de problemas y se incluyen estudios de caso para ilustrar aplicaciones prácticas.', 31, 4, 3, '3002', 3),
     (28, 'Probabilidad y Estadística +Ej', 'Curso que introduce los conceptos fundamentales de probabilidad y 
     estadística, con aplicaciones en ingeniería y ciencias. Los ejercicios prácticos refuerzan el análisis de 
     datos y la interpretación de resultados estadísticos. Se cubren temas como distribuciones de probabilidad, 
-    pruebas de hipótesis, regresión y análisis de varianza, proporcionando una base sólida para el análisis de datos.', 38, 1, 3, '2008', 3, NULL),
+    pruebas de hipótesis, regresión y análisis de varianza, proporcionando una base sólida para el análisis de datos.', 38, 1, 3, '2008', 3),
     (29, 'Teoría de la Computación', 'Este curso cubre los fundamentos teóricos de la computación, incluyendo 
     autómatas, lenguajes formales, gramáticas y la teoría de la complejidad. Los estudiantes desarrollan una 
     comprensión profunda de los límites de lo computable. Se exploran temas avanzados como la decidibilidad, 
     la reducibilidad y las clases de complejidad, preparando a los estudiantes para enfrentar problemas complejos en 
-    la computación.', 31, 4, 3, '3005', 3, NULL),
+    la computación.', 31, 4, 3, '3005', 3),
     (30, 'Programación Avanzada de Apps', 'Este curso se enfoca en el desarrollo avanzado de aplicaciones móviles,
     cubriendo técnicas como la programación en múltiples plataformas, seguridad móvil y optimización del rendimiento.
         Incluye proyectos prácticos donde los estudiantes diseñan y desarrollan aplicaciones complejas, implementando 
-        características avanzadas como notificaciones push, integración con servicios web y almacenamiento en la nube.', 31, 4, 3, '3104', 3, NULL),
+        características avanzadas como notificaciones push, integración con servicios web y almacenamiento en la nube.', 31, 4, 3, '3104', 3),
     (31, 'Organización de Computadores', 'El curso explora los componentes y la arquitectura interna de los 
     computadores, incluyendo memoria, procesadores, y buses. Los estudiantes aprenden a optimizar y diseñar sistemas 
     de hardware eficientes. Se abordan temas como la arquitectura de conjunto de instrucciones (ISA), la jerarquía de 
     memoria y la interconexión de componentes, proporcionando una comprensión integral del funcionamiento interno de 
-    los computadores.', 31, 4, 3, '3004', 3, NULL),
+    los computadores.', 31, 4, 3, '3004', 3),
     (32, 'Emprendimiento', 'Este curso ofrece las bases para la creación de nuevos negocios. Los estudiantes aprenden
     sobre planificación empresarial, financiamiento, innovación y el proceso de llevar una idea al mercado. Se 
     incluyen estudios de caso de startups exitosas y se fomenta el desarrollo de un plan de negocios completo, 
-    abarcando desde la identificación de oportunidades hasta la estrategia de salida.', 1, 2, 3, '3002', 3, NULL),
+    abarcando desde la identificación de oportunidades hasta la estrategia de salida.', 1, 2, 3, '3002', 3),
     (33, 'Diseño de Sistemas', 'Los estudiantes aprenden a diseñar sistemas complejos mediante el análisis de 
     requerimientos, modelado de sistemas y prototipado. Se enfoca en la creación de sistemas eficientes, escalables 
     y adaptables. El curso incluye el uso de herramientas de modelado y simulación, y se realizan proyectos en los 
-    que los estudiantes aplican los principios de diseño a problemas reales, desde la concepción hasta la implementación.', 31, 4, 3, '3003', 3, NULL),
+    que los estudiantes aplican los principios de diseño a problemas reales, desde la concepción hasta la implementación.', 31, 4, 3, '3003', 3),
     (34, 'Inteligencia Artificial', 'Este curso introduce los conceptos clave de la inteligencia artificial, incluyendo
     algoritmos de búsqueda, aprendizaje automático, redes neuronales y procesamiento del lenguaje natural. Los 
     estudiantes explorarán aplicaciones prácticas de la IA en diversas áreas como la visión por computadora, el 
     procesamiento del lenguaje natural y la robótica. Se enfatiza el uso de herramientas y bibliotecas modernas para 
-    implementar soluciones de IA.', 31, 4, 3, '4004', 3, NULL),
+    implementar soluciones de IA.', 31, 4, 3, '4004', 3),
     (35, 'Base de Datos', 'Se abordan los conceptos fundamentales del diseño y manejo de bases de datos, desde la 
     normalización de tablas hasta el uso de SQL. Los estudiantes practican con bases de datos relacionales y no 
     relacionales, y aprenden sobre la optimización de consultas, la gestión de transacciones y la seguridad de datos. 
-    El curso incluye proyectos prácticos para diseñar y gestionar bases de datos eficientes.', 31, 4, 3, '4002', 3, NULL),
+    El curso incluye proyectos prácticos para diseñar y gestionar bases de datos eficientes.', 31, 4, 3, '4002', 3),
     (36, 'Aprendizaje Automático', 'Este curso profundiza en las técnicas de aprendizaje automático, incluyendo 
     modelos supervisados, no supervisados y redes neuronales. Los estudiantes implementan algoritmos de clasificación
     y predicción en proyectos prácticos. Se cubren temas avanzados como el aprendizaje profundo, el procesamiento de 
     grandes volúmenes de datos y la evaluación de modelos. El curso prepara a los estudiantes para aplicar técnicas 
-    de aprendizaje automático en problemas del mundo real.', 31, 4, 3, '4002', 3, NULL),
+    de aprendizaje automático en problemas del mundo real.', 31, 4, 3, '4002', 3),
     (37, 'Redes +Lab', 'Un curso teórico y práctico sobre redes de computadores. Se cubren protocolos de red, 
         arquitectura de Internet, enrutamiento y seguridad en redes, con un componente de laboratorio para implementaciones.
     Los estudiantes aprenden a configurar y gestionar redes, solucionar problemas de conectividad y aplicar medidas 
     de seguridad para proteger la infraestructura de red. El curso incluye estudios de caso y proyectos prácticos.', 
-    31, 4, 3, '4005', 3, NULL),
+    31, 4, 3, '4005', 3),
     (38, 'Sistemas Operativos', 'Los estudiantes aprenden los principios y estructuras de los sistemas operativos, 
     incluyendo la gestión de procesos, memoria, almacenamiento y seguridad. Se incluye una perspectiva práctica de 
     la administración de sistemas. El curso cubre temas como la concurrencia, la planificación de procesos, la gestión 
     de memoria y el sistema de archivos. Los estudiantes también trabajan con sistemas operativos reales para 
-    desarrollar habilidades prácticas en administración y configuración.', 31, 4, 3, '4003', 3, NULL),
+    desarrollar habilidades prácticas en administración y configuración.', 31, 4, 3, '4003', 3),
     (39, 'Proyectos: Gerencia y Análisis', 'Este curso cubre la planificación y gestión de proyectos en el ámbito 
     de la ingeniería y computación. Los estudiantes desarrollan habilidades en análisis de requerimientos, estimación 
     de costos y gestión de riesgos. Se abordan metodologías de gestión de proyectos como Agile y Scrum, y se utilizan 
     herramientas de software para planificar y monitorear proyectos. El curso incluye estudios de caso y proyectos 
-    prácticos para aplicar los conceptos aprendidos.', 34, 4, 3, '4011', 3, NULL),
+    prácticos para aplicar los conceptos aprendidos.', 34, 4, 3, '4011', 3),
     (40, 'Práctica Pre-Profesional PASEM', 'Este curso permite a los estudiantes adquirir experiencia laboral en un 
     entorno profesional relacionado con su campo de estudio, aplicando los conocimientos académicos en proyectos 
     reales. Los estudiantes trabajan en empresas o instituciones, desarrollando habilidades prácticas y profesionales. 
     El curso incluye la elaboración de un informe final y una presentación sobre la experiencia adquirida, destacando 
-    los logros y aprendizajes.', 52, 13, 6, '4000', 5, NULL),
+    los logros y aprendizajes.', 52, 13, 6, '4000', 5),
     (41, 'Coloquios_ING', 'Un espacio para la reflexión y discusión académica en el que los estudiantes presentan y debaten
     sobre temas de interés actual en su campo de estudio. Se fomenta la participación activa y crítica. Los coloquios 
     también incluyen la participación de expertos invitados que comparten sus conocimientos y experiencias, 
-    enriqueciendo el aprendizaje de los estudiantes.', 53, 4, 6, '0001', 1, NULL),
+    enriqueciendo el aprendizaje de los estudiantes.', 53, 4, 6, '0001', 1),
     (42, 'Seguridad Informática', 'Se estudian los principios de la seguridad en sistemas informáticos, incluyendo 
     criptografía, autenticación, control de acceso y seguridad en redes. Los estudiantes aplican técnicas de protección
     y detección de intrusiones. El curso también aborda la gestión de riesgos y la implementación de políticas de 
-    seguridad para proteger la información y los sistemas contra amenazas y vulnerabilidades.', 31, 4, 3, '5006', 3, NULL),
+    seguridad para proteger la información y los sistemas contra amenazas y vulnerabilidades.', 31, 4, 3, '5006', 3),
     (43, 'Minería de Datos', 'Este curso enseña las técnicas para extraer conocimiento a partir de grandes volúmenes de
     datos. Los estudiantes trabajan con algoritmos de clasificación, clustering y análisis de datos para resolver 
     problemas reales. Se incluyen estudios de caso y proyectos prácticos que permiten a los estudiantes aplicar 
     las técnicas aprendidas en situaciones del mundo real, mejorando su capacidad para tomar decisiones basadas en 
-    datos.', 31, 4, 3, '5002', 3, NULL),
+    datos.', 31, 4, 3, '5002', 3),
     (44, 'Aplicaciones Distribuidas', 'El curso cubre el diseño y desarrollo de aplicaciones distribuidas, donde 
     múltiples sistemas interactúan a través de redes. Los estudiantes aprenden a implementar y gestionar aplicaciones
     escalables y seguras. Se abordan temas como la comunicación entre procesos, la sincronización, la tolerancia a 
     fallos y la seguridad en sistemas distribuidos, proporcionando una comprensión integral de los desafíos y 
-    soluciones en este campo.', 31, 4, 3, '5001', 3, NULL),
+    soluciones en este campo.', 31, 4, 3, '5001', 3),
     (45, 'Proyecto Integrador CMP', 'El proyecto final del programa de computación, donde los estudiantes aplican 
     sus conocimientos en el desarrollo de un sistema completo que resuelva un problema real o empresarial, integrando
     diversas áreas del campo. Los estudiantes trabajan en equipos para planificar, diseñar, implementar y evaluar 
     su proyecto, desarrollando habilidades de gestión de proyectos, trabajo en equipo y comunicación efectiva. 
-    El proyecto culmina con una presentación formal y una demostración del sistema desarrollado.', 31, 4, 3, '5992', 5, NULL),
+    El proyecto culmina con una presentación formal y una demostración del sistema desarrollado.', 31, 4, 3, '5992', 5),
     (46, 'Matematica Empresarial +Ej', 'Curso que abarca temas de matemáticas aplicados al ámbito empresarial, como 
     álgebra, funciones y análisis financiero. Incluye ejercicios prácticos para reforzar los conceptos teóricos. 
     Los estudiantes aprenderán a utilizar herramientas matemáticas para resolver problemas financieros y empresariales, 
-    desarrollando habilidades analíticas y de toma de decisiones.', 38, 1, 3, '1009', 3, NULL),
+    desarrollando habilidades analíticas y de toma de decisiones.', 38, 1, 3, '1009', 3),
     (47, 'Conceptos y Tecnicas 1', 'Este curso introduce a los estudiantes a conceptos fundamentales y técnicas de 
     cocina, incluyendo habilidades básicas de preparación de alimentos y el uso de herramientas culinarias. 
     Se enfoca en la seguridad alimentaria, la higiene en la cocina y la correcta manipulación de ingredientes. 
-    Los estudiantes practicarán técnicas de corte, cocción y presentación de platos básicos.', 24, 9, 3, '1101', 3, NULL),
+    Los estudiantes practicarán técnicas de corte, cocción y presentación de platos básicos.', 24, 9, 3, '1101', 3),
     (48, 'Principios de Administracion', 'Un curso introductorio que cubre los principios esenciales de la 
     administración, incluyendo planificación, organización, liderazgo y control en un entorno empresarial. 
     Los estudiantes aprenderán sobre la toma de decisiones estratégicas, la gestión de recursos humanos y la 
     implementación de políticas organizacionales. Se incluyen estudios de caso y ejercicios prácticos para 
-    aplicar los conceptos aprendidos.', 1, 2, 3, '1001', 3, NULL),
+    aplicar los conceptos aprendidos.', 1, 2, 3, '1001', 3),
     (49, 'Panaderia', 'Los estudiantes aprenden los principios básicos de la panadería, incluyendo la preparación
     de diferentes tipos de panes, masas fermentadas y técnicas de horneado. Se abordan temas como la selección 
     de ingredientes, el proceso de fermentación y la decoración de productos de panadería. El curso incluye 
-    sesiones prácticas donde los estudiantes elaboran una variedad de panes y productos horneados.', 24, 9, 3, '2002', 3, NULL),
+    sesiones prácticas donde los estudiantes elaboran una variedad de panes y productos horneados.', 24, 9, 3, '2002', 3),
     (50, 'Nutricion Humana +Lab', 'Este curso explora los fundamentos de la nutrición humana, con un componente 
     práctico en el laboratorio para el análisis de dietas y evaluación de necesidades nutricionales. Los estudiantes 
     aprenderán sobre los nutrientes esenciales, la digestión y el metabolismo, así como la planificación de dietas 
     equilibradas. El laboratorio permite a los estudiantes realizar análisis de alimentos y evaluar el estado 
-    nutricional de diferentes poblaciones.', 41, 3, 3, '1001', 3, NULL),
+    nutricional de diferentes poblaciones.', 41, 3, 3, '1001', 3),
     (51, 'Introduccion a la Hospitalidad', 'Los estudiantes se familiarizan con los principios fundamentales de 
     la industria de la hospitalidad, incluyendo el servicio al cliente, gestión hotelera y tendencias actuales del
     sector. Se abordan temas como la historia de la hospitalidad, la importancia de la calidad del servicio y las 
     habilidades necesarias para tener éxito en este campo. El curso también incluye estudios de caso y visitas a 
-    establecimientos de hospitalidad para proporcionar una comprensión práctica de la industria.', 26, 6, 3, '1001', 3, NULL),
+    establecimientos de hospitalidad para proporcionar una comprensión práctica de la industria.', 26, 6, 3, '1001', 3),
     (52, 'Contabilidad Empresarial', 'El curso cubre los principios básicos de la contabilidad financiera aplicada 
     a las empresas, incluyendo el registro de transacciones, balance de cuentas y preparación de informes financieros.
     Los estudiantes aprenderán a interpretar estados financieros, realizar análisis financieros y comprender la 
     importancia de la contabilidad en la toma de decisiones empresariales. Se incluyen ejercicios prácticos y 
-    estudios de caso para aplicar los conceptos aprendidos.', 22, 1, 3, '2002', 3, NULL),
+    estudios de caso para aplicar los conceptos aprendidos.', 22, 1, 3, '2002', 3),
     (53, 'Conceptos y Tecnicas 2 +PRA', 'Continuación de Conceptos y Técnicas 1, este curso avanza en habilidades
     culinarias con un enfoque en la práctica intensiva, preparando platos más complejos. Los estudiantes aprenderán 
     técnicas avanzadas de cocina, presentación de platos y gestión de tiempo en la cocina. El curso incluye sesiones 
     prácticas donde los estudiantes aplican lo aprendido en situaciones de cocina real, mejorando sus habilidades 
-    culinarias y su capacidad para trabajar bajo presión.', 24, 9, 3, '2102', 3, NULL),
+    culinarias y su capacidad para trabajar bajo presión.', 24, 9, 3, '2102', 3),
     (54, 'Practica Culinaria 1', 'Los estudiantes aplican técnicas culinarias básicas en un entorno práctico, aprendiendo
     a trabajar en equipo y a gestionar las operaciones de cocina. El curso se enfoca en la preparación de menús, la 
     organización de la cocina y la implementación de prácticas de higiene y seguridad. Los estudiantes también 
     desarrollan habilidades en la gestión de inventarios y el control de costos, preparando platos bajo la supervisión 
-    de chefs experimentados.', 24, 9, 3, '1200', 3, NULL),
+    de chefs experimentados.', 24, 9, 3, '1200', 3),
     (55, 'Administracion de A & B', 'Este curso enseña los principios de administración de alimentos y bebidas en 
     establecimientos de hospitalidad, cubriendo gestión de inventario, costos y control de calidad. Los estudiantes 
     aprenderán a planificar menús, negociar con proveedores y gestionar el personal de servicio. Se incluyen estudios 
     de caso y proyectos prácticos para aplicar los conceptos aprendidos en situaciones reales, mejorando la eficiencia 
-    y la calidad del servicio en establecimientos de alimentos y bebidas.', 26, 2, 3, '2001', 3, NULL),
+    y la calidad del servicio en establecimientos de alimentos y bebidas.', 26, 2, 3, '2001', 3),
     (56, 'Carniceria', 'Se estudian técnicas de corte de carne, manejo de diferentes tipos de carne y métodos de 
     preparación para la cocina profesional. Los estudiantes aprenderán a seleccionar, cortar y preparar carnes de 
     manera eficiente y segura, utilizando herramientas especializadas. El curso también aborda la conservación y 
-    almacenamiento adecuado de los productos cárnicos.', 24, 9, 3, '2003', 3, NULL),
+    almacenamiento adecuado de los productos cárnicos.', 24, 9, 3, '2003', 3),
     (57, 'Alta Cocina Ecuatoriana', 'Los estudiantes aprenden a preparar platos tradicionales ecuatorianos con un 
     enfoque en técnicas de alta cocina y presentación moderna. Se exploran ingredientes autóctonos y se aplican 
     técnicas culinarias avanzadas para realzar los sabores y la presentación de los platos. El curso incluye 
-    demostraciones prácticas y la creación de menús degustación.', 24, 9, 3, '3001', 3, NULL),
-    (58, 'Introduccion a la Economia', 'Curso básico que cubre los principios de la economía, incluyendo la oferta
-    y demanda, microeconomía y macroeconomía, con aplicaciones prácticas en la vida cotidiana. Los estudiantes 
-    aprenderán a analizar cómo las decisiones económicas afectan a individuos, empresas y gobiernos, y cómo 
-    utilizar herramientas económicas para resolver problemas reales.', 19, 2, 3, '1001', 3, NULL),
+    demostraciones prácticas y la creación de menús degustación.', 24, 9, 3, '3001', 3),
+    (58, 'Introducción a la Biología +Ej', 'Este curso proporciona una introducción a los principios fundamentales 
+    de la biología. Los estudiantes explorarán temas como la estructura y función de las células, la genética, la 
+    evolución, la ecología y la diversidad de los organismos vivos. Además, el curso incluye ejercicios prácticos 
+    y experimentos en laboratorio para reforzar los conceptos teóricos y desarrollar habilidades científicas 
+    básicas.', 9, 3, 3, '1101', 3),
     (59, 'Introduccion al Marketing HSP', 'Introducción al marketing en la industria de la hospitalidad, cubriendo
     conceptos como la segmentación de mercado, estrategias de precios y promoción de servicios. Los estudiantes 
     desarrollarán habilidades para crear y ejecutar planes de marketing efectivos, utilizando estudios de caso y 
-    proyectos prácticos para aplicar los conceptos aprendidos en situaciones reales.', 26, 6, 3, '2003', 3, NULL),
+    proyectos prácticos para aplicar los conceptos aprendidos en situaciones reales.', 26, 6, 3, '2003', 3),
     (60, 'Coloquios_Gastr', 'Espacio de reflexión y discusión académica en el que se presentan temas actuales del 
     campo de la hospitalidad y la gastronomía, promoviendo la participación activa. Los estudiantes tendrán la 
     oportunidad de interactuar con expertos de la industria, compartir sus ideas y debatir sobre tendencias y 
-    desafíos actuales, enriqueciendo su comprensión del campo.', 26, 6, 3, '0001', 1, NULL),
+    desafíos actuales, enriqueciendo su comprensión del campo.', 26, 6, 3, '0001', 1),
     (61, 'Alta Cocina Francesa', 'Los estudiantes aprenden las técnicas y recetas tradicionales de la cocina
     francesa, desde la preparación de salsas hasta la elaboración de platos emblemáticos. El curso incluye 
     demostraciones prácticas y sesiones de cocina donde los estudiantes aplican técnicas clásicas para crear 
     platos sofisticados. Se enfatiza la precisión y la atención al detalle en la presentación de los platos.', 
-    24, 9, 3, '3005', 3, NULL),
+    24, 9, 3, '3005', 3),
     (62, 'Pasteleria', 'Este curso enseña los fundamentos de la pastelería, incluyendo la preparación de tartas, 
     galletas y otros productos de repostería fina. Los estudiantes aprenderán técnicas de horneado, decoración y 
     presentación de postres, así como la selección y manejo adecuado de ingredientes para crear productos de alta 
-    calidad.', 24, 9, 3, '3003', 3, NULL),
+    calidad.', 24, 9, 3, '3003', 3),
     (63, 'Servicio y Protocolo', 'Se estudian los principios del servicio al cliente en la industria de la hospitalidad, 
     incluyendo las normas de protocolo y etiqueta en el servicio de alimentos y bebidas. Los estudiantes desarrollarán 
     habilidades en la atención al cliente, la organización de eventos y la gestión de situaciones de servicio, 
-    asegurando una experiencia excepcional para los clientes.', 24, 9, 3, '2001', 3, NULL),
+    asegurando una experiencia excepcional para los clientes.', 24, 9, 3, '2001', 3),
     (64, 'Practica Culinaria 2', 'Curso práctico que permite a los estudiantes desarrollar habilidades avanzadas 
     en la cocina, gestionando equipos y preparando platos sofisticados en un entorno profesional. Los estudiantes 
     trabajarán en la planificación de menús, la ejecución de técnicas culinarias avanzadas y la gestión de la cocina 
-    bajo presión, mejorando su capacidad para liderar y colaborar en un equipo culinario.', 24, 9, 3, '3200', 3, NULL),
+    bajo presión, mejorando su capacidad para liderar y colaborar en un equipo culinario.', 24, 9, 3, '3200', 3),
     (65, 'Alta Cocina Mundial', 'Un recorrido por las principales tradiciones culinarias del mundo, donde los 
     estudiantes aprenden a preparar platos de alta cocina de diversas culturas. El curso incluye la exploración de 
     ingredientes exóticos, técnicas de cocina internacional y la creación de menús temáticos, proporcionando una 
-    comprensión profunda de la diversidad culinaria global.', 24, 9, 3, '4002', 3, NULL),
+    comprensión profunda de la diversidad culinaria global.', 24, 9, 3, '4002', 3),
     (66, 'Reposteria y Chocolateria', 'Este curso cubre las técnicas avanzadas en repostería y chocolatería, 
     desde la creación de postres complejos hasta la manipulación del chocolate para productos gourmet. Los estudiantes 
     aprenderán a trabajar con diferentes tipos de chocolate, crear decoraciones elaboradas y desarrollar habilidades 
-    en la presentación de postres de alta calidad.', 24, 9, 3, '3007', 3, NULL),
+    en la presentación de postres de alta calidad.', 24, 9, 3, '3007', 3),
     (67, 'Innovacion Culinaria', 'Este curso explora técnicas innovadoras y contemporáneas en la cocina, permitiendo
     a los estudiantes desarrollar nuevos enfoques y conceptos creativos. Se hace hincapié en la experimentación con
     ingredientes, texturas y sabores para proponer platos originales. Los estudiantes también aprenden a utilizar
     herramientas tecnológicas para la innovación culinaria. Finalmente, se fomenta la creación de menús vanguardistas
-        y adaptables a tendencias globales.', 24, 9, 3, '4006', 3, NULL),
+        y adaptables a tendencias globales.', 24, 9, 3, '4006', 3),
     (68, 'Enologia y Cocteleria', 'Este curso se centra en el estudio profundo del vino, desde su producción hasta
     su correcta cata y maridaje con distintos alimentos. Además, incluye una introducción a la coctelería, donde
     los estudiantes aprenden las técnicas clásicas y modernas de preparación de cócteles. Se presta especial 
     atención a la historia y evolución de las bebidas espirituosas. Los alumnos desarrollan habilidades prácticas 
-    en la mezcla y presentación de cócteles de autor.', 24, 9, 3, '4003', 3, NULL),
+    en la mezcla y presentación de cócteles de autor.', 24, 9, 3, '4003', 3),
     (69, 'Administracion de Eventos', 'El curso proporciona una visión integral de la planificación y gestión de 
     eventos en la industria de la hospitalidad. Los estudiantes estudian desde la organización logística hasta el 
     manejo de presupuestos y recursos humanos. Se abordan técnicas para la promoción y marketing de eventos exitosos,
     considerando la satisfacción del cliente. También incluye estudios de caso de eventos internacionales de gran escala
-    para analizar sus dinámicas y gestión.', 26, 2, 3, '3002', 3, NULL),
+    para analizar sus dinámicas y gestión.', 26, 2, 3, '3002', 3),
     (70, 'Gerencia Financiera HSP', 'Este curso aborda los aspectos financieros fundamentales de la gestión en la 
     hospitalidad. Los estudiantes aprenden a desarrollar y analizar presupuestos, controlar costos, y realizar 
     proyecciones financieras para negocios en el sector. También cubre la administración de ingresos y la toma de 
     decisiones basadas en datos financieros. A lo largo del curso, los alumnos aplican herramientas de software 
-    para optimizar la rentabilidad en contextos reales.', 26, 6, 3, '4001', 3, NULL),
+    para optimizar la rentabilidad en contextos reales.', 26, 6, 3, '4001', 3),
     (71, 'Identidad Culinaria', 'El curso examina cómo la gastronomía refleja la identidad cultural de diversas 
     regiones, con un enfoque en el análisis de tradiciones culinarias. Los estudiantes investigan el impacto de 
     la globalización en la gastronomía local y las tendencias actuales que afectan el patrimonio culinario. A través
     de la investigación y el trabajo de campo, desarrollan proyectos que preservan o reinventan platos tradicionales.
-    Además, se discuten temas relacionados con la sostenibilidad y la cultura alimentaria.', 24, 9, 3, '4992', 5, NULL),
+    Además, se discuten temas relacionados con la sostenibilidad y la cultura alimentaria.', 24, 9, 3, '4992', 5),
     (72, 'Fundamentos de la Educacion', 'Esta asignatura ofrece una introducción integral a los principios básicos 
     de la educación. Los estudiantes explorarán los fundamentos históricos, filosóficos y sociales de los sistemas 
     educativos. Se analizarán las teorías pedagógicas clave y se discutirá cómo éstas han influido en las prácticas 
     educativas modernas. Además, se examinarán los desafíos actuales en la educación y el papel del docente en la 
-    sociedad.', 20, 2, 3, '1001', 3,  NULL),
+    sociedad.', 20, 2, 3, '1001', 3),
     (73, 'Teorias del Aprendizaje', 'El curso cubre las principales teorías del aprendizaje desde una perspectiva 
     psicológica y educativa. Los estudiantes estudiarán teorías como el conductismo, el cognitivismo y el 
     constructivismo, analizando cómo estas influyen en la enseñanza y el aprendizaje. Se discutirá la aplicación 
     de estas teorías en el aula y cómo los diferentes enfoques pueden adaptarse a las necesidades de diversos 
-    alumnos. El curso fomenta la comprensión crítica de cómo aprendemos.', 20, 2, 3, '1002', 3, NULL),
+    alumnos. El curso fomenta la comprensión crítica de cómo aprendemos.', 20, 2, 3, '1002', 3),
     (74, 'Desarrollo: Niño y Adolescente', 'Esta asignatura explora las etapas clave del desarrollo físico, 
     cognitivo, emocional y social en niños y adolescentes. Los estudiantes aprenderán a identificar hitos 
     importantes del desarrollo y comprenderán los factores que influyen en el crecimiento de los jóvenes. 
     Además, se abordarán los desafíos comunes que enfrentan durante estas etapas, incluyendo la adaptación 
     escolar, la identidad personal y las relaciones con sus pares. También se discutirán las estrategias 
-    educativas para apoyar el desarrollo saludable.', 45, 7, 3, '2101', 3, NULL),
+    educativas para apoyar el desarrollo saludable.', 45, 7, 3, '2101', 3),
     (75, 'Planificacion y Evaluacion 1', 'En este curso, los estudiantes aprenderán a planificar lecciones y 
     evaluar el rendimiento académico de los estudiantes de manera efectiva. Se revisarán diferentes metodologías 
     de enseñanza y evaluación, destacando la importancia de una planificación detallada para alcanzar los 
     objetivos de aprendizaje. Además, se introducirá el uso de herramientas de evaluación formativa y sumativa. 
     Los estudiantes desarrollarán habilidades para crear planes de clase que promuevan un aprendizaje efectivo.',
-     20, 2, 3, '1005', 3, NULL),
+     20, 2, 3, '1005', 3),
     (76, 'Estadistica para CCSS', 'Este curso proporciona una base en estadística aplicada a las ciencias 
     sociales. Los estudiantes aprenderán conceptos clave como la recolección de datos, análisis estadístico, y 
     la interpretación de resultados. El enfoque estará en la aplicación práctica de las técnicas estadísticas 
     para resolver problemas reales en ciencias sociales. Se abordarán temas como la regresión, correlación y 
-    pruebas de hipótesis, utilizando software especializado para realizar análisis.', 38, 1, 3, '1101', 3, NULL),
+    pruebas de hipótesis, utilizando software especializado para realizar análisis.', 38, 1, 3, '1101', 3),
     (77, 'Neurociencia y Educacion', 'La asignatura explora las conexiones entre el cerebro y el aprendizaje, 
     introduciendo a los estudiantes a los fundamentos de la neurociencia aplicada a la educación. Se estudiarán 
     cómo los procesos cerebrales influyen en la adquisición del conocimiento, la memoria y el comportamiento. 
     Además, se discutirán temas como la plasticidad cerebral y su impacto en la educación, así como estrategias 
-    basadas en la neurociencia para mejorar el aprendizaje y la enseñanza.', 20, 2, 3, '4002', 3, NULL),
+    basadas en la neurociencia para mejorar el aprendizaje y la enseñanza.', 20, 2, 3, '4002', 3),
     (78, 'Planificacion y Evaluacion 2', 'Esta asignatura es una continuación del curso de planificación y evaluación. 
     Los estudiantes profundizarán en la creación de planes de clase detallados y en el uso de diversas técnicas de 
     evaluación. Se hará énfasis en la retroalimentación y el ajuste de los planes de enseñanza en función de los resultados 
     de las evaluaciones. También se revisarán estrategias para integrar la evaluación formativa y sumativa en el proceso 
-    de enseñanza.', 20, 2, 3, '2011', 3, NULL),
+    de enseñanza.', 20, 2, 3, '2011', 3),
     (79, 'Coloquios_EDU', 'Este curso ofrece un espacio de discusión y reflexión crítica sobre temas de actualidad en 
     el ámbito de la educación. Los estudiantes participarán en debates, presentaciones y análisis de casos, 
     con el fin de desarrollar habilidades de comunicación y pensamiento crítico. Los coloquios permitirán a los estudiantes 
-    explorar diversos puntos de vista y proponer soluciones innovadoras a problemas educativos contemporáneos.', 20, 2, 3, '0001', 1, NULL),
+    explorar diversos puntos de vista y proponer soluciones innovadoras a problemas educativos contemporáneos.', 20, 2, 3, '0001', 1),
     (80, 'Ensenanza de Lenguaje', 'Este curso aborda las metodologías y estrategias para la enseñanza del lenguaje y la alfabetización. 
     Se explorarán diversas teorías sobre el desarrollo del lenguaje y se analizarán métodos prácticos para mejorar la 
     comprensión lectora y la expresión escrita. Los estudiantes aprenderán a adaptar su enseñanza a diferentes niveles 
-    y contextos, con el objetivo de desarrollar competencias comunicativas en los alumnos.', 20, 2, 3, '2003', 3, NULL),
+    y contextos, con el objetivo de desarrollar competencias comunicativas en los alumnos.', 20, 2, 3, '2003', 3),
     (81, 'Practica 1', 'La primera práctica en el campo educativo permite a los estudiantes aplicar los conocimientos teóricos adquiridos 
     en un entorno real. Durante esta experiencia supervisada, los estudiantes participarán en actividades de enseñanza y 
     apoyo dentro de un aula, bajo la orientación de un docente experimentado. Esta práctica proporciona una introducción 
-    a las dinámicas del trabajo docente y ayuda a desarrollar competencias profesionales.', 20, 2, 3, '2101', 3, NULL),
+    a las dinámicas del trabajo docente y ayuda a desarrollar competencias profesionales.', 20, 2, 3, '2101', 3),
     (82, 'Metodologias de Ensenanza', 'Este curso ofrece un análisis detallado de las diferentes metodologías de enseñanza utilizadas en la educación moderna. 
     Los estudiantes explorarán enfoques tradicionales y contemporáneos, como la enseñanza directa, el aprendizaje basado en problemas y 
     la instrucción diferenciada. A lo largo del curso, se analizarán casos prácticos y se promoverá la creación de estrategias 
-    de enseñanza adaptadas a diversas necesidades educativas.', 20, 2, 3, '2002', 3, NULL),
+    de enseñanza adaptadas a diversas necesidades educativas.', 20, 2, 3, '2002', 3),
     (83, 'Ensenanza de Matematicas', 'Este curso se enfoca en las metodologías para la enseñanza efectiva de las matemáticas. 
     Los estudiantes aprenderán a diseñar lecciones que promuevan el pensamiento lógico y crítico, utilizando ejemplos 
     prácticos y técnicas pedagógicas innovadoras. También se explorarán enfoques diferenciados para la enseñanza de 
-    conceptos matemáticos, adaptados a diversos niveles de aprendizaje.', 20, 2, 3, '3005', 3, NULL),
+    conceptos matemáticos, adaptados a diversos niveles de aprendizaje.', 20, 2, 3, '3005', 3),
     (84, 'Ensenanza de Ciencias Sociales', 'Este curso aborda las estrategias para la enseñanza de ciencias sociales en el aula. 
     Los estudiantes aprenderán a integrar la historia, la geografía, la economía y otros campos en lecciones dinámicas. 
     Se hace énfasis en el desarrollo del pensamiento crítico y en la capacidad de los alumnos para relacionar el contenido 
-    con problemas y temas sociales contemporáneos. Se explorarán casos de estudio y actividades interactivas.', 20, 2, 3, '3002', 3, NULL),
+    con problemas y temas sociales contemporáneos. Se explorarán casos de estudio y actividades interactivas.', 20, 2, 3, '3002', 3),
     (85, 'Arte y Educacion', 'Este curso explora la intersección entre las artes visuales y la educación. Los estudiantes 
     aprenderán cómo utilizar las artes para fomentar la creatividad y el pensamiento crítico en el aula. Se abordarán 
     diversas técnicas artísticas y cómo estas pueden integrarse en diferentes materias para enriquecer el proceso de 
-    aprendizaje. También se discutirá el papel del arte en el desarrollo integral del alumno.', 20, 2, 3, '2005', 3, NULL),
+    aprendizaje. También se discutirá el papel del arte en el desarrollo integral del alumno.', 20, 2, 3, '2005', 3),
     (86, 'Bilingualism', 'Este curso examina los fundamentos del bilingüismo y sus implicaciones para la educación. 
     Se explorarán las teorías del desarrollo bilingüe y las estrategias para apoyar a los estudiantes en el aprendizaje 
     de dos o más lenguas. Los estudiantes aprenderán a diseñar planes de enseñanza que promuevan el bilingüismo 
-    de manera efectiva, considerando los contextos culturales y lingüísticos de los alumnos.', 20, 12, 3, '3004', 3, NULL),
+    de manera efectiva, considerando los contextos culturales y lingüísticos de los alumnos.', 20, 12, 3, '3004', 3),
     (87, 'Practica 2', 'La segunda práctica profesional brinda a los estudiantes una oportunidad para aplicar sus conocimientos 
     en un entorno educativo real. Bajo la supervisión de un docente, los estudiantes asumirán mayores responsabilidades 
     en el aula, participando activamente en la planificación y ejecución de lecciones. Se espera que los estudiantes 
-    desarrollen habilidades pedagógicas avanzadas y reflexionen sobre su práctica docente.', 20, 2, 3, '2102', 3, NULL),
+    desarrollen habilidades pedagógicas avanzadas y reflexionen sobre su práctica docente.', 20, 2, 3, '2102', 3),
     (88, 'Ensenanza de Ciencias', 'Este curso explora las metodologías para enseñar ciencias en diversos niveles educativos. 
     Los estudiantes aprenderán a diseñar experiencias de aprendizaje que fomenten la indagación científica y el 
     pensamiento crítico. Se integran actividades prácticas y experimentales, además de la aplicación de teorías 
-    educativas para facilitar la enseñanza de las ciencias.', 20, 2, 3, '3001', 3, NULL),
+    educativas para facilitar la enseñanza de las ciencias.', 20, 2, 3, '3001', 3),
     (89, 'Ensenanza Integrada de CITIAM', 'Este curso ofrece una visión holística de la enseñanza integrada de las ciencias, 
     tecnología, ingeniería, artes y matemáticas (CITIAM). Los estudiantes aprenderán a conectar conceptos de distintas 
     disciplinas y a desarrollar planes de lecciones que promuevan el aprendizaje interdisciplinario. Se hace énfasis en 
-    la creatividad, la resolución de problemas y la innovación.', 20, 2, 3, '4008', 3, NULL),
+    la creatividad, la resolución de problemas y la innovación.', 20, 2, 3, '4008', 3),
     (90, 'Practica 3', 'En la tercera práctica profesional, los estudiantes asumirán roles más activos en la gestión de un aula, 
     aplicando sus conocimientos en un entorno educativo bajo supervisión. Se espera que los estudiantes implementen 
     proyectos educativos más complejos y refuercen sus habilidades pedagógicas, mientras reflexionan críticamente 
-    sobre su desempeño en la enseñanza.', 20, 2, 3, '3103', 3, NULL),
+    sobre su desempeño en la enseñanza.', 20, 2, 3, '3103', 3),
     (91, 'Inclusion y Diversidad', 'Este curso analiza los principios de la educación inclusiva y cómo garantizar la participación 
     de todos los estudiantes, independientemente de sus diferencias físicas, cognitivas, culturales o lingüísticas. 
     Los estudiantes aprenderán a diseñar entornos de aprendizaje que promuevan la equidad y la diversidad, con 
-    enfoques pedagógicos que respeten las particularidades de cada alumno.', 20, 2, 3, '4006', 3, NULL),
+    enfoques pedagógicos que respeten las particularidades de cada alumno.', 20, 2, 3, '4006', 3),
     (92, 'Proyecto Integrador EDU', 'Este proyecto integrador representa la culminación del programa educativo. Los estudiantes 
     trabajarán en un proyecto práctico que combina los conocimientos adquiridos a lo largo de su formación. Se espera 
     que el proyecto aborde un problema educativo real y proponga soluciones innovadoras que reflejen las competencias 
-    desarrolladas en las áreas de pedagogía y gestión educativa.', 20, 2, 3, '4991', 5, NULL),
+    desarrolladas en las áreas de pedagogía y gestión educativa.', 20, 2, 3, '4991', 5),
     (93, 'Practica 4', 'La cuarta y última práctica profesional permite a los estudiantes aplicar de manera integral sus habilidades 
     pedagógicas en un entorno real. Durante esta experiencia, se espera que los estudiantes gestionen de manera 
     autónoma el aula, diseñando e implementando planes educativos completos. Esta práctica es fundamental para 
-    prepararse para el ejercicio profesional docente.', 20, 2, 3, '4104', 6, NULL),
-    (94, 'Principios de Administracion', 'Este curso introduce los fundamentos de la administración, incluyendo planificación, 
-    organización, dirección y control de empresas. Se cubren temas como la toma de decisiones, liderazgo y la gestión 
-    eficaz de los recursos en una organización.', 1, 2, 3, '1001', 3, NULL),
-    (95, 'Contabilidad Empresarial', 'Este curso proporciona a los estudiantes una comprensión sólida de los principios contables 
-    aplicados en el entorno empresarial. Se enfoca en la contabilidad financiera, los informes y el análisis de los estados financieros.', 22, 1, 3, '2002', 3, NULL),
-    (96, 'Matematica Empresarial +Ej', 'Este curso cubre los conceptos matemáticos aplicados a los negocios, como el cálculo de intereses, 
-    descuentos, y análisis de decisiones financieras. Incluye ejercicios prácticos para aplicar las teorías matemáticas en situaciones reales.', 38, 1, 3, '1009', 3, NULL),
+    prepararse para el ejercicio profesional docente.', 20, 2, 3, '4104', 6),
+    (94, 'Zoología +Lab', 'Este curso abordará el estudio de los animales de manera científica, crítica, sistemática, actualizada y 
+    aplicada a varias carreras. Revisaremos varios grupos de animales y seguiremos sus procesos evolutivos, pasos de especialización 
+    y desarrollo, su rol eco sistémico y su relación con los humanos. Estudiaremos su taxonomía y filogenia, anatomía y fisiología 
+    básica, ecología, comportamiento y reproducción. Incluye prácticas de laboratorio y salida de campo.', 9, 3, 3, '2301', 3),    
+    (95, 'Fisiología +Lab', 'Este curso analiza las maneras en las que los seres vivos responden y se ajustan fisiológicamente a las condiciones impuestas por 
+    el ambiente físico que los rodea. Este análisis se realizará tanto en el tiempo ecológico (actual) cuanto evolutivo, bajo la hipótesis subyacente de que 
+    estas respuestas constituyen respuestas adaptativas, resultado de la acción de la selección natural. En el curso nos centraremos en la fisiología ecológica 
+    de los seres vivos. El énfasis del curso es fundamentalmente en el nivel del organismo individual, aunque en ciertos aspectos (i.e., energética), 
+    analizaremos también los niveles de poblaciones y ecosistemas. Nos enfocaremos en problemas ecológicos que demandan una respuesta fisiológica; los 
+    organismos son usados como ejemplos, son “modelos”, de lo que podría considerarse un gremio ecológico antes que de un grupo taxonómico.',
+    9, 3, 3, '2002', 3),
+    (96, 'Evolución', 'El curso de Evolución ofrece una comprensión profunda de los mecanismos y procesos que han dado forma a la 
+    diversidad de la vida en la Tierra. Los estudiantes explorarán temas como la teoría de la evolución por selección natural, la 
+    genética de poblaciones, la especiación, y la coevolución. Se analizarán las evidencias fósiles y moleculares que respaldan la 
+    teoría evolutiva, así como los patrones de evolución en diferentes linajes. Además, el curso incluye estudios de caso y ejemplos 
+    actuales de evolución en acción, proporcionando una perspectiva moderna y aplicada. Los estudiantes participarán en actividades 
+    prácticas y proyectos de investigación que les permitirán aplicar los conceptos aprendidos y desarrollar habilidades en el 
+    análisis de datos evolutivos. Este curso es fundamental para aquellos interesados en la biología, la ecología, la genética y 
+    otras ciencias de la vida, proporcionando una base sólida para estudios avanzados y carreras en estas áreas.', 9, 3, 3, '3001', 3),    
     (97, 'Principios de Marketing', 'Este curso introduce a los estudiantes en los conceptos clave del marketing, incluyendo las estrategias 
-    de promoción, investigación de mercado y comportamiento del consumidor. Se enfoca en cómo las empresas crean valor para sus clientes.', 37, 2, 3, '1001', 3, NULL),
+    de promoción, investigación de mercado y comportamiento del consumidor. Se enfoca en cómo las empresas crean valor para sus clientes.', 37, 2, 3, '1001', 3),
     (98, 'Estadistica Empresarial +Lab', 'Este curso enseña técnicas estadísticas aplicadas a la toma de decisiones empresariales. 
-    Incluye un laboratorio donde los estudiantes utilizan software estadístico para analizar datos reales y tomar decisiones informadas.', 38, 1, 3, '2009', 3, NULL),
+    Incluye un laboratorio donde los estudiantes utilizan software estadístico para analizar datos reales y tomar decisiones informadas.', 38, 1, 3, '2009', 3),
     (99, 'Gerencia de Costos', 'El curso se enfoca en la identificación, asignación y control de costos en las organizaciones. 
-    Proporciona a los estudiantes herramientas para la toma de decisiones basadas en el análisis de costos.', 22, 2, 3, '2003', 3, NULL),
+    Proporciona a los estudiantes herramientas para la toma de decisiones basadas en el análisis de costos.', 22, 2, 3, '2003', 3),
     (100, 'Principios de Seguros', 'Este curso aborda los fundamentos de los seguros, incluyendo los tipos de cobertura, 
-    la gestión de riesgos y la legislación relevante. Los estudiantes aprenderán cómo evaluar y mitigar riesgos en un entorno empresarial.', 54, 2, 3, '1001', 3, NULL),
+    la gestión de riesgos y la legislación relevante. Los estudiantes aprenderán cómo evaluar y mitigar riesgos en un entorno empresarial.', 54, 2, 3, '1001', 3),
     (101, 'Analisis de Datos', 'En este curso, los estudiantes aprenderán a aplicar técnicas de análisis de datos para extraer información 
-    relevante y tomar decisiones estratégicas. Se cubren métodos de análisis descriptivo, predictivo y prescriptivo.', 1, 1, 3, '2003', 3, NULL),
+    relevante y tomar decisiones estratégicas. Se cubren métodos de análisis descriptivo, predictivo y prescriptivo.', 1, 1, 3, '2003', 3),
     (102, 'Principios de Finanzas', 'Este curso introduce a los estudiantes en los conceptos fundamentales de las finanzas empresariales, 
-    como la gestión de activos, la estructura de capital, y la evaluación de proyectos de inversión.', 22, 1, 3, '2001', 3, NULL),
+    como la gestión de activos, la estructura de capital, y la evaluación de proyectos de inversión.', 22, 1, 3, '2001', 3),
     (103, 'Coloquios_adm', 'Este curso proporciona un espacio para la discusión y análisis de temas actuales en los negocios. 
-    Los estudiantes participarán en coloquios con expertos de la industria y académicos.', 1, 2, 1, '0001', 1, NULL),
+    Los estudiantes participarán en coloquios con expertos de la industria y académicos.', 1, 2, 1, '0001', 1),
     (104, 'Finanzas Corporativas', 'Este curso se centra en la gestión financiera dentro de las empresas. 
-    Se exploran temas como la valoración de empresas, la financiación y la estructura de capital, así como la planificación financiera a largo plazo.', 22, 1, 3, '3001', 3, NULL),
+    Se exploran temas como la valoración de empresas, la financiación y la estructura de capital, así como la planificación financiera a largo plazo.', 22, 1, 3, '3001', 3),
     (105, 'Marketing Digital', 'Este curso examina las estrategias de marketing digital, incluyendo SEO, publicidad en redes sociales 
-    y marketing de contenidos. Los estudiantes aprenderán a crear y ejecutar campañas de marketing en línea.', 37, 2, 3, '4001', 3, NULL),
+    y marketing de contenidos. Los estudiantes aprenderán a crear y ejecutar campañas de marketing en línea.', 37, 2, 3, '4001', 3),
     (106, 'Negociacion', 'Este curso proporciona a los estudiantes las herramientas necesarias para negociar con éxito en diferentes 
-    contextos empresariales. Se enfoca en técnicas de negociación, resolución de conflictos y toma de decisiones colaborativas.', 1, 2, 3, '3005', 3, NULL),
+    contextos empresariales. Se enfoca en técnicas de negociación, resolución de conflictos y toma de decisiones colaborativas.', 1, 2, 3, '3005', 3),
     (107, 'Operaciones +Lab', 'Este curso cubre los principios de gestión de operaciones, incluidos la planificación, la producción y 
-    la logística. En el laboratorio, los estudiantes aplicarán estas teorías para resolver problemas de la vida real.', 1, 1, 3, '2002', 3, NULL),
+    la logística. En el laboratorio, los estudiantes aplicarán estas teorías para resolver problemas de la vida real.', 1, 1, 3, '2002', 3),
     (108, 'Economia y Negocios', 'Este curso introduce a los estudiantes a los principios económicos y cómo estos impactan las decisiones 
-    empresariales. Se cubren tanto la microeconomía como la macroeconomía con un enfoque en aplicaciones empresariales.', 19, 1, 3, '3009', 3, NULL),
+    empresariales. Se cubren tanto la microeconomía como la macroeconomía con un enfoque en aplicaciones empresariales.', 19, 1, 3, '3009', 3),
     (109, 'Investigacion de Mercados', 'Este curso enseña a los estudiantes las técnicas y herramientas necesarias para llevar a cabo 
-    investigaciones de mercado. Se enfoca en la recopilación y análisis de datos para apoyar las decisiones estratégicas de marketing.', 37, 8, 3, '3002', 3, NULL),
+    investigaciones de mercado. Se enfoca en la recopilación y análisis de datos para apoyar las decisiones estratégicas de marketing.', 37, 8, 3, '3002', 3),
     (110, 'Creatividad Empresarial', 'Este curso se centra en fomentar la innovación dentro del entorno empresarial. 
-    Los estudiantes aprenderán técnicas para generar ideas creativas y desarrollar soluciones innovadoras a problemas comerciales.', 1, 8, 3, '4003', 3, NULL),
+    Los estudiantes aprenderán técnicas para generar ideas creativas y desarrollar soluciones innovadoras a problemas comerciales.', 1, 8, 3, '4003', 3),
     (111, 'Proyectos Empresariales', 'Este curso guía a los estudiantes a través del proceso de planificación y ejecución de proyectos empresariales. 
-    Se cubren temas como la gestión de riesgos, la asignación de recursos y la evaluación de proyectos.', 1, 8, 3, '4006', 3, NULL),
+    Se cubren temas como la gestión de riesgos, la asignación de recursos y la evaluación de proyectos.', 1, 8, 3, '4006', 3),
     (112, 'Gestion del Talento', 'Este curso aborda la gestión de recursos humanos, incluyendo la contratación, formación, 
-    y retención de empleados. Se cubren estrategias para desarrollar una fuerza laboral eficaz y motivada.', 1, 8, 3, '3001', 3, NULL),
+    y retención de empleados. Se cubren estrategias para desarrollar una fuerza laboral eficaz y motivada.', 1, 8, 3, '3001', 3),
     (113, 'Negocios Internacionales', 'Este curso se enfoca en los desafíos y oportunidades de los negocios internacionales. 
-    Los estudiantes aprenderán sobre el comercio global, la inversión extranjera y la gestión de empresas multinacionales.', 1, 8, 3, '3004', 3, NULL),
+    Los estudiantes aprenderán sobre el comercio global, la inversión extranjera y la gestión de empresas multinacionales.', 1, 8, 3, '3004', 3),
     (114, 'Innovacion y Sustentabilidad', 'Este curso explora cómo las empresas pueden ser innovadoras y sostenibles. 
-    Se cubren temas como la responsabilidad social corporativa y el desarrollo de productos sostenibles.', 1, 8, 3, '4008', 3, NULL),
+    Se cubren temas como la responsabilidad social corporativa y el desarrollo de productos sostenibles.', 1, 8, 3, '4008', 3),
     (115, 'Tributacion y Entorno Legal', 'Este curso proporciona una comprensión de los sistemas tributarios y el entorno legal 
-    que afecta a las empresas. Los estudiantes aprenderán a navegar por la legislación fiscal y a planificar estratégicamente los impuestos.', 22, 3, 3, '4008', 3, NULL),
+    que afecta a las empresas. Los estudiantes aprenderán a navegar por la legislación fiscal y a planificar estratégicamente los impuestos.', 22, 3, 3, '4008', 3),
     (116, 'Analisis Estrategico ADM', 'Este curso enseña a los estudiantes a desarrollar y ejecutar estrategias empresariales efectivas. 
-    Se enfoca en el análisis competitivo, la formulación de estrategias y la implementación de planes estratégicos.', 1, 8, 5, '4991', 5, NULL),
+    Se enfoca en el análisis competitivo, la formulación de estrategias y la implementación de planes estratégicos.', 1, 8, 5, '4991', 5),
     (117, 'Herramientas Digitales 1', 'Este curso introduce a los estudiantes a las herramientas digitales básicas utilizadas en el campo del arte. 
-    Incluye el uso de software para diseño gráfico, edición de imágenes y producción multimedia.', 18, 6, 3, '1101', 3, NULL),
-    (118, 'Fundamentos de las Artes', 'Este curso cubre los conceptos esenciales y las técnicas básicas en diversas formas de arte. Se enfoca en el desarrollo de habilidades fundamentales para la creación artística.', 7, 5, 3, '1701', 3, NULL),
-    (119, 'Composicion Visual 1', 'En este curso, los estudiantes aprenderán sobre los principios de la composición visual. Se exploran conceptos como el equilibrio, el contraste y la armonía en el arte visual.', 18, 5, 3, '1201', 3, NULL),
-    (120, 'Laboratorio de Creacion 1', 'Este laboratorio ofrece un espacio práctico para que los estudiantes experimenten y desarrollen sus habilidades artísticas mediante la creación de proyectos y la aplicación de técnicas aprendidas.', 7, 5, 3, '2701', 3, NULL),
-    (121, 'Dibujo para Arte y Diseno', 'El curso se centra en el dibujo como una herramienta fundamental para el arte y el diseño. Se abordan técnicas de dibujo que apoyan la creación y visualización de ideas artísticas y de diseño.', 7, 5, 3, '2001', 3, NULL),
-    (122, 'Fotografia 1', 'Este curso proporciona una introducción a los principios de la fotografía, incluyendo el uso de la cámara, la composición y la edición de imágenes. Los estudiantes aprenderán a capturar y procesar imágenes fotográficas.', 55, 5, 3, '2101', 3, NULL),
-    (123, 'Fundamentos de Escultura', 'En este curso se exploran las técnicas básicas de escultura. Los estudiantes aprenderán sobre los materiales, herramientas y procesos utilizados en la creación de obras escultóricas.', 7, 5, 3, '1204', 3, NULL),
-    (124, 'Teoria Critica 1: Arte & Media', 'Este curso examina las teorías críticas relacionadas con el arte y los medios de comunicación. Los estudiantes analizarán cómo el arte se relaciona con los medios y la cultura contemporánea.', 56, 2, 3, '2101', 3, NULL),
-    (125, 'Nuevos Medios', 'El curso explora el uso de nuevos medios y tecnologías en el arte contemporáneo. Se cubren temas como el arte digital, la interacción y la instalación multimedia.', 7, 5, 3, '2802', 3, NULL),
-    (126, 'Arte Contemporaneo', 'Este curso se centra en el estudio del arte contemporáneo y sus diferentes movimientos y estilos. Los estudiantes analizarán obras y artistas relevantes en el contexto actual.', 7, 5, 3, '3005', 3, NULL),
-    (127, 'Laboratorio de Creacion 2', 'En este laboratorio, los estudiantes continuarán desarrollando sus habilidades artísticas a través de la creación de proyectos más avanzados y la aplicación de técnicas complejas.', 7, 5, 3, '2702', 3, NULL),
-    (128, 'Taller de Arte 1', 'Este taller proporciona un entorno para la práctica intensiva del arte. Los estudiantes trabajarán en proyectos individuales y colaborativos para desarrollar su estilo y técnica artística.', 7, 5, 3, '1', 3, NULL),
-    (129, 'Coloquios_ART', 'El curso de coloquios ofrece un espacio para la discusión y análisis crítico de temas relacionados con el arte. Los estudiantes participarán en debates y presentaciones sobre temas actuales y relevantes.', 7, 5, 1, '0001', 1, NULL),
-    (130, 'Arte y Contexto Social', 'Este curso examina la relación entre el arte y el contexto social en el que se produce. Se analiza cómo el arte refleja y afecta las dinámicas sociales y culturales.', 7, 5, 3, '3704', 3, NULL),
-    (131, 'Taller de Investigacion', 'Este taller está diseñado para que los estudiantes realicen investigaciones en el campo del arte. Se enfoca en el desarrollo de proyectos de investigación y la aplicación de métodos académicos en la práctica artística.', 56, 2, 3, '3002', 3, NULL),
-    (132, 'Enfasis 1', 'Este curso permite a los estudiantes profundizar en un área específica del arte según su interés. Se ofrece un enfoque especializado en una disciplina o técnica particular.', 7, 5, 3, '2', 3, NULL),
-    (133, 'Taller de Arte 2', 'En este taller, los estudiantes continuarán trabajando en proyectos artísticos más complejos y avanzados. Se fomenta el desarrollo personal del estilo y la técnica de cada estudiante.', 7, 5, 3, '4', 3, NULL),
-    (134, 'Enfasis 2', 'Este curso ofrece una oportunidad para que los estudiantes se especialicen en una segunda área de interés dentro del arte, permitiendo un enfoque más profundo en una disciplina o técnica particular.', 7, 5, 3, '3', 3, NULL),
-    (135, 'Gestion y Produccion Cultural', 'El curso aborda la gestión y producción de eventos culturales y artísticos. Se cubren aspectos como la planificación, ejecución y promoción de actividades culturales.', 7, 5, 3, '3', 3, NULL),
-    (136, 'Laboratorio de Creacion 3', 'Este laboratorio proporciona a los estudiantes un espacio para la creación de proyectos artísticos avanzados. Los estudiantes tendrán la oportunidad de experimentar con técnicas y materiales innovadores.', 7, 5, 3, '4703', 3, NULL),
-    (137, 'Matematicas Cotidianas', 'Este curso cubre conceptos matemáticos aplicados a situaciones cotidianas. Se enfoca en el uso de matemáticas para resolver problemas prácticos en la vida diaria.', 38, 1, 3, '1001', 3, NULL),
-    (138, 'Enfasis 3', 'El curso permite a los estudiantes explorar una tercera área de interés dentro del arte. Se ofrece un enfoque especializado en una disciplina o técnica adicional.', 7, 5, 3, '5', 3, NULL),
-    (139, 'Taller de Arte 3', 'En este taller final, los estudiantes desarrollarán proyectos artísticos avanzados y completos. Se enfoca en la aplicación de técnicas avanzadas y la culminación del aprendizaje artístico.', 7, 5, 3, '6', 3, NULL),
-    (140, 'Arte y Educacion / Curaduria', 'Este curso explora la intersección entre el arte y la educación, así como la práctica de la curaduría en el ámbito artístico. Se enfoca en la planificación educativa y la organización de exposiciones.', 7, 5, 3, '', 3, NULL),
-    (141, 'Temas en Comunicacion y Arte', 'El curso se centra en temas contemporáneos relacionados con la comunicación y el arte. Los estudiantes examinarán cómo el arte se comunica a través de diferentes medios y contextos.', 56, 5, 3, '', 3, NULL),
-    (142, 'Produccion & Exhibicion', 'Este curso culmina con la realización de un proyecto artístico final, donde los estudiantes presentan y exhiben su trabajo. Se enfoca en la producción, presentación y evaluación de proyectos artísticos.', 7, 5, 5, '4991', 3, NULL),
+    Incluye el uso de software para diseño gráfico, edición de imágenes y producción multimedia.', 18, 6, 3, '1101', 3),
+    (118, 'Fundamentos de las Artes', 'Este curso cubre los conceptos esenciales y las técnicas básicas en diversas formas de arte. Se enfoca en el desarrollo de habilidades fundamentales para la creación artística.', 7, 5, 3, '1701', 3),
+    (119, 'Composicion Visual 1', 'En este curso, los estudiantes aprenderán sobre los principios de la composición visual. Se exploran conceptos como el equilibrio, el contraste y la armonía en el arte visual.', 18, 5, 3, '1201', 3),
+    (120, 'Laboratorio de Creacion 1', 'Este laboratorio ofrece un espacio práctico para que los estudiantes experimenten y desarrollen sus habilidades artísticas mediante la creación de proyectos y la aplicación de técnicas aprendidas.', 7, 5, 3, '2701', 3),
+    (121, 'Dibujo para Arte y Diseno', 'El curso se centra en el dibujo como una herramienta fundamental para el arte y el diseño. Se abordan técnicas de dibujo que apoyan la creación y visualización de ideas artísticas y de diseño.', 7, 5, 3, '2001', 3),
+    (122, 'Fotografia 1', 'Este curso proporciona una introducción a los principios de la fotografía, incluyendo el uso de la cámara, la composición y la edición de imágenes. Los estudiantes aprenderán a capturar y procesar imágenes fotográficas.', 55, 5, 3, '2101', 3),
+    (123, 'Fundamentos de Escultura', 'En este curso se exploran las técnicas básicas de escultura. Los estudiantes aprenderán sobre los materiales, herramientas y procesos utilizados en la creación de obras escultóricas.', 7, 5, 3, '1204', 3),
+    (124, 'Teoria Critica 1: Arte & Media', 'Este curso examina las teorías críticas relacionadas con el arte y los medios de comunicación. Los estudiantes analizarán cómo el arte se relaciona con los medios y la cultura contemporánea.', 56, 2, 3, '2101', 3),
+    (125, 'Nuevos Medios', 'El curso explora el uso de nuevos medios y tecnologías en el arte contemporáneo. Se cubren temas como el arte digital, la interacción y la instalación multimedia.', 7, 5, 3, '2802', 3),
+    (126, 'Arte Contemporaneo', 'Este curso se centra en el estudio del arte contemporáneo y sus diferentes movimientos y estilos. Los estudiantes analizarán obras y artistas relevantes en el contexto actual.', 7, 5, 3, '3005', 3),
+    (127, 'Laboratorio de Creacion 2', 'En este laboratorio, los estudiantes continuarán desarrollando sus habilidades artísticas a través de la creación de proyectos más avanzados y la aplicación de técnicas complejas.', 7, 5, 3, '2702', 3),
+    (128, 'Taller de Arte 1', 'Este taller proporciona un entorno para la práctica intensiva del arte. Los estudiantes trabajarán en proyectos individuales y colaborativos para desarrollar su estilo y técnica artística.', 7, 5, 3, '1', 3),
+    (129, 'Coloquios_ART', 'El curso de coloquios ofrece un espacio para la discusión y análisis crítico de temas relacionados con el arte. Los estudiantes participarán en debates y presentaciones sobre temas actuales y relevantes.', 7, 5, 1, '0001', 1),
+    (130, 'Arte y Contexto Social', 'Este curso examina la relación entre el arte y el contexto social en el que se produce. Se analiza cómo el arte refleja y afecta las dinámicas sociales y culturales.', 7, 5, 3, '3704', 3),
+    (131, 'Taller de Investigacion', 'Este taller está diseñado para que los estudiantes realicen investigaciones en el campo del arte. Se enfoca en el desarrollo de proyectos de investigación y la aplicación de métodos académicos en la práctica artística.', 56, 2, 3, '3002', 3),
+    (132, 'Enfasis 1', 'Este curso permite a los estudiantes profundizar en un área específica del arte según su interés. Se ofrece un enfoque especializado en una disciplina o técnica particular.', 7, 5, 3, '2', 3),
+    (133, 'Taller de Arte 2', 'En este taller, los estudiantes continuarán trabajando en proyectos artísticos más complejos y avanzados. Se fomenta el desarrollo personal del estilo y la técnica de cada estudiante.', 7, 5, 3, '4', 3),
+    (134, 'Enfasis 2', 'Este curso ofrece una oportunidad para que los estudiantes se especialicen en una segunda área de interés dentro del arte, permitiendo un enfoque más profundo en una disciplina o técnica particular.', 7, 5, 3, '3', 3),
+    (135, 'Gestion y Produccion Cultural', 'El curso aborda la gestión y producción de eventos culturales y artísticos. Se cubren aspectos como la planificación, ejecución y promoción de actividades culturales.', 7, 5, 3, '3', 3),
+    (136, 'Laboratorio de Creacion 3', 'Este laboratorio proporciona a los estudiantes un espacio para la creación de proyectos artísticos avanzados. Los estudiantes tendrán la oportunidad de experimentar con técnicas y materiales innovadores.', 7, 5, 3, '4703', 3),
+    (137, 'Matematicas Cotidianas', 'Este curso cubre conceptos matemáticos aplicados a situaciones cotidianas. Se enfoca en el uso de matemáticas para resolver problemas prácticos en la vida diaria.', 38, 1, 3, '1001', 3),
+    (138, 'Enfasis 3', 'El curso permite a los estudiantes explorar una tercera área de interés dentro del arte. Se ofrece un enfoque especializado en una disciplina o técnica adicional.', 7, 5, 3, '5', 3),
+    (139, 'Taller de Arte 3', 'En este taller final, los estudiantes desarrollarán proyectos artísticos avanzados y completos. Se enfoca en la aplicación de técnicas avanzadas y la culminación del aprendizaje artístico.', 7, 5, 3, '6', 3),
+    (140, 'Arte y Educacion / Curaduria', 'Este curso explora la intersección entre el arte y la educación, así como la práctica de la curaduría en el ámbito artístico. Se enfoca en la planificación educativa y la organización de exposiciones.', 7, 5, 3, '', 3),
+    (141, 'Temas en Comunicacion y Arte', 'El curso se centra en temas contemporáneos relacionados con la comunicación y el arte. Los estudiantes examinarán cómo el arte se comunica a través de diferentes medios y contextos.', 56, 5, 3, '', 3),
+    (142, 'Produccion & Exhibicion', 'Este curso culmina con la realización de un proyecto artístico final, donde los estudiantes presentan y exhiben su trabajo. Se enfoca en la producción, presentación y evaluación de proyectos artísticos.', 7, 5, 5, '4991', 3),
     (143, 'Programación Para Diseño 1', 
     'Este curso introduce a los estudiantes a los conceptos básicos de programación \
     aplicados al diseño. Los estudiantes aprenderán a utilizar herramientas \
     de programación para desarrollar proyectos interactivos. Se enfatiza el uso de \
     lenguajes de programación para crear interfaces dinámicas y prototipos digitales.', 
-    17, 15, 3, '1001', 3, NULL),
+    17, 15, 3, '1001', 3),
     (144, 'Programación Para Diseño 2', 
     'En este curso, los estudiantes profundizarán en técnicas avanzadas de programación \
     aplicadas al diseño. Se abordarán temas como la programación orientada a objetos, \
     el uso de bibliotecas gráficas y la optimización de código para mejorar la experiencia \
     del usuario en productos interactivos. También se explorarán lenguajes de programación \
     específicos para el diseño multimedia.', 
-    17, 15, 3, '2102', 3, NULL),
+    17, 15, 3, '2102', 3),
     (145, 'Programación Para Diseño 3', 
     'Este curso finaliza la serie de programación enfocada en diseño, cubriendo temas \
     avanzados como la creación de motores gráficos personalizados, la simulación de \
     interacciones físicas en entornos virtuales y la integración de programación con \
     software de diseño 3D. Los estudiantes aplicarán sus conocimientos en un proyecto \
     integral de diseño interactivo.', 
-    17, 15, 3, '3103', 3, NULL),
+    17, 15, 3, '3103', 3),
     (146, 'Juegos y Narrativa', 
     'Este curso explora la relación entre los videojuegos y la narrativa interactiva. \
     Los estudiantes analizarán cómo se construyen historias en entornos digitales \
     y aprenderán a diseñar juegos con un enfoque narrativo. Se estudiarán casos \
     relevantes y se realizarán proyectos que fusionen la creación de juegos con \
     la narración de historias.' , 
-    17, 15, 3, '4001', 3, NULL),
+    17, 15, 3, '4001', 3),
     (147, 'Modelado 3D 1', 
     'Este curso enseña las bases del modelado 3D para el diseño y la animación. \
     Los estudiantes aprenderán técnicas fundamentales para la creación de objetos \
     tridimensionales, trabajando con software de modelado 3D. Se explorarán conceptos \
     como la topología, las texturas y el renderizado de escenas.', 
-    3, 15, 3, '2201', 3, NULL),
+    3, 15, 3, '2201', 3),
     (148, 'Cálculo para Ciencias 1', 
     'Este curso introduce los conceptos básicos del cálculo diferencial e integral. \
     Los estudiantes aprenderán sobre límites, derivadas y su aplicación en problemas \
     de ciencias e ingeniería. También se cubren conceptos de integrales y su relación \
     con el área bajo curvas.', 
-    38, 1, 3, 1301, 4, NULL),
+    38, 1, 3, 1301, 4),
     (149, 'Teoría de Grupos', 
     'Este curso presenta una introducción formal a la teoría de grupos, una rama \
     fundamental del álgebra abstracta. Los estudiantes aprenderán sobre grupos, \
     subgrupos, homomorfismos y aplicaciones en diversas áreas de la matemática pura \
     y aplicada, así como en la física.', 
-    38, 1, 3, 3501, 3, NULL),
+    38, 1, 3, 3501, 3),
     (150, 'Variable Compleja', 
     'Este curso se enfoca en el análisis de funciones de una variable compleja. \
     Se estudiarán los números complejos, funciones holomorfas, integrales de línea \
     y series de Laurent, con aplicaciones en la resolución de problemas \
     en física y matemáticas avanzadas.', 
-    38, 1, 3, 3002, 3, NULL),
+    38, 1, 3, 3002, 3),
     (151, 'Ecuaciones Diferenciales', 
     'Este curso cubre la teoría y métodos para resolver ecuaciones diferenciales \
     ordinarias, que son fundamentales en la modelización de fenómenos \
     en ciencias e ingeniería. Los estudiantes explorarán técnicas analíticas y \
     numéricas para resolver ecuaciones de primer y segundo orden.', 
-    38, 1, 3, 2002, 3, NULL),
+    38, 1, 3, 2002, 3),
     (152, 'Cálculo para Ciencias 2', 
     'Una continuación de Cálculo para Ciencias 1, este curso profundiza en el cálculo \
     integral, cubriendo técnicas de integración más avanzadas. También se introduce \
     el cálculo vectorial, que es clave en la resolución de problemas \
     multivariables en la ciencia y la ingeniería.', 
-    38, 1, 3, 1302, 53, NULL),
+    38, 1, 3, 1302, 5),
     (153, 'Introducción a Probabilidades', 
     'Este curso introduce los conceptos fundamentales de la teoría de probabilidades, \
     incluyendo el espacio muestral, variables aleatorias, distribuciones de probabilidad \
     y el teorema central del límite. Se enfoca en aplicaciones prácticas \
     en estadísticas y modelado de incertidumbre.', 
-    38, 1, 3, 2003, 3, NULL),
+    38, 1, 3, 2003, 3),
     (154, 'Fundamentos de Geometría', 
     'Este curso presenta una introducción a la geometría euclidiana y no euclidiana. \
     Se estudiarán axiomas, teoremas y construcciones geométricas, con énfasis en \
     el razonamiento lógico y la demostración formal. Además, se exploran \
     las aplicaciones de la geometría en otras ramas de las matemáticas.', 
-    38, 1, 3, 2006, 3, NULL),
+    38, 1, 3, 2006, 3),
     (155, 'Lógica y Teoría de Conjuntos', 
     'Este curso cubre los fundamentos de la lógica matemática y la teoría de conjuntos. \
     Se introducen los sistemas formales, el razonamiento deductivo, \
     y los principios de conjuntos, relaciones, funciones y cardinalidad, \
     que son esenciales en matemáticas puras y aplicadas.', 
-    38, 1, 3, 2007, 3, NULL),
+    38, 1, 3, 2007, 3),
     (156, 'Inferencia Estadística', 
     'Este curso presenta los principios de la inferencia estadística, incluyendo \
     estimación de parámetros, pruebas de hipótesis y análisis de varianza. \
     Los estudiantes aprenderán técnicas estadísticas para el análisis \
     e interpretación de datos, aplicables en diversas disciplinas científicas.', 
-    38, 1, 3, 2010, 3, NULL),
+    38, 1, 3, 2010, 3),
     (157, 'Análisis Numérico', 
     'Este curso explora métodos numéricos para la resolución de ecuaciones \
     diferenciales, integración numérica, y álgebra lineal. Se enfatiza \
     en la implementación de algoritmos en la computadora y la \
     evaluación de la precisión de los resultados obtenidos.', 
-    38, 1, 3, 3001, 3, NULL),
+    38, 1, 3, 3001, 3),
     (158, 'Teoría de Números', 
     'Este curso presenta los conceptos fundamentales de la teoría de números, \
     con un enfoque en divisibilidad, congruencias, y funciones aritméticas. \
     Los estudiantes aprenderán sobre el teorema de los números primos \
     y aplicaciones de la teoría de números en criptografía.', 
-    38, 1, 3, 3004, 3, NULL),
+    38, 1, 3, 3004, 3),
     (159, 'Combinatoria y Grafos', 
     'Este curso cubre los principios de la combinatoria y la teoría de grafos. \
     Los estudiantes aprenderán sobre técnicas de conteo, combinaciones, \
     permutaciones y la estructura de grafos, con aplicaciones en \
     optimización y análisis de redes.', 
-    38, 1, 3, 3005, 3, NULL),
+    38, 1, 3, 3005, 3),
     (160, 'Ecuaciones Diferenciales Parciales', 
     'Este curso presenta los fundamentos de las ecuaciones diferenciales parciales, \
     que son esenciales para modelar fenómenos en física y matemáticas aplicadas. \
     Se estudiarán técnicas para resolver ecuaciones de primer y segundo orden, \
     con aplicaciones en la dinámica de fluidos y la transferencia de calor.', 
-    38, 1, 3, 3080, 3, NULL),
+    38, 1, 3, 3080, 3),
     (161, 'Álgebra Lineal 2', 
     'Este curso es una continuación de Álgebra Lineal 1, cubriendo temas avanzados \
     como espacios vectoriales, transformaciones lineales, y formas cuadráticas. \
     Los estudiantes también aprenderán sobre valores propios y vectores propios, \
     con aplicaciones en diversas áreas de las matemáticas.', 
-    38, 1, 3, 3402, 3, NULL),
+    38, 1, 3, 3402, 3),
     (162, 'Álgebra Abstracta 1', 
     'Este curso cubre los fundamentos del álgebra abstracta, con un enfoque \
     en los grupos, anillos y campos. Los estudiantes desarrollarán habilidades \
     en razonamiento abstracto y demostración matemática, aplicables en \
     áreas como la teoría de números y la geometría algebraica.', 
-    38, 1, 3, 3501, 3, NULL),
+    38, 1, 3, 3501, 3),
     (163, 'Geometría Diferencial', 
     'Este curso introduce la teoría de superficies y curvas en el espacio euclidiano. \
     Los estudiantes explorarán la geometría intrínseca y extrínseca, \
     aplicando conceptos como curvatura y torsión. La geometría diferencial \
     tiene aplicaciones en la física teórica y la ingeniería.', 
-    38, 1, 3, 4002, 3, NULL),
+    38, 1, 3, 4002, 3),
     (164, 'Análisis Funcional', 
     'Este curso se enfoca en los espacios vectoriales normados y sus aplicaciones \
     en análisis. Se cubren conceptos como espacios de Hilbert y de Banach, \
     operadores lineales y teoremas de punto fijo. Es un área crucial \
     para el análisis en espacios infinitos.', 
-    38, 1, 3, 4005, 3, NULL),
+    38, 1, 3, 4005, 3),
     (165, 'Álgebra Abstracta 2', 
     'Una continuación de Álgebra Abstracta 1, este curso cubre temas más avanzados \
     relacionados con los anillos, ideales, cuerpos y homomorfismos. Los estudiantes \
     también explorarán la teoría de Galois y sus aplicaciones en la resolución \
     de ecuaciones polinómicas.', 
-    38, 1, 3, 4502, 3, NULL),
+    38, 1, 3, 4502, 3),
     (166, 'Topología 1', 
     'Este curso introduce los conceptos básicos de topología, el estudio de \
     las propiedades geométricas que permanecen invariantes bajo deformaciones. \
     Se cubren tópicos como espacios topológicos, continuidad, y conexiones \
     con otras ramas de las matemáticas, como la geometría diferencial.', 
-    38, 1, 3, 4601, 3, NULL),
+    38, 1, 3, 4601, 3),
     (167, 'Topología 2', 
     'Una continuación de Topología 1, este curso cubre temas avanzados \
     de topología algebraica. Los estudiantes aprenderán sobre homotopía, \
     grupos fundamentales y teoría de homología, aplicando estos conceptos \
     a problemas geométricos y físicos.', 
-    38, 1, 3, 4602, 3, NULL),
+    38, 1, 3, 4602, 3),
     (168, 'Análisis Real', 
     'Este curso explora las bases del análisis real, un área clave de la matemática \
     que estudia los números reales, funciones y secuencias. Se cubren temas \
     como convergencia de series, continuidad, y derivación, con énfasis en \
     demostraciones rigurosas y aplicaciones en el cálculo avanzado.', 
-    38, 1, 3, 4003, 3, NULL),
+    38, 1, 3, 4003, 3),
     (169, 'Improvisación', 
     'Este curso introduce las técnicas de improvisación en la danza contemporánea. \
     Los estudiantes explorarán el movimiento espontáneo y la creatividad corporal \
     como herramientas para la creación artística. Se enfatiza en la conexión con \
     el espacio y los compañeros a través del movimiento libre.', 
-    57, 5, 3, 1001, 3, NULL),
+    57, 5, 3, 1001, 3),
     (170, 'Danza Moderna 2', 
     'Una continuación de Danza Moderna 1, este curso profundiza en las técnicas \
     avanzadas de la danza moderna. Los estudiantes aprenderán nuevas combinaciones \
     coreográficas y trabajarán en la expresión emocional a través del movimiento. \
     El curso enfatiza el control corporal y la técnica de salto.', 
-    57, 5, 3, 2102, 3, NULL),
+    57, 5, 3, 2102, 3),
     (171, 'Barra para danza contemporánea', 
     'Este curso se enfoca en el entrenamiento de barra adaptado a la danza contemporánea. \
     Los estudiantes practicarán ejercicios de técnica en barra, mejorando la alineación, \
     fuerza y flexibilidad. El curso busca desarrollar el control postural y \
     la precisión en los movimientos técnicos.', 
-    57, 5, 3, 3002, 3, NULL),
+    57, 5, 3, 3002, 3),
     (172, 'Composición', 
     'Este curso introduce los principios de la composición coreográfica. Los estudiantes \
     aprenderán a crear secuencias de movimientos a partir de la improvisación y la técnica. \
     Se explorarán diferentes estructuras coreográficas y estilos de composición, \
     con énfasis en la creación de piezas originales.', 
-    57, 5, 3, 3001, 3, NULL),
+    57, 5, 3, 3001, 3),
     (173, 'Performance', 
     'Este curso prepara a los estudiantes para la interpretación en vivo de una pieza \
     coreográfica. Se trabaja en el desarrollo de la presencia escénica, la conexión \
     con el público y la ejecución precisa de la coreografía. El curso incluye \
     presentaciones públicas y evaluación de la performance.', 
-    57, 5, 3, 1004, 3, NULL),
+    57, 5, 3, 1004, 3),
     (174, 'Proyecto final en Danza', 
     'El Proyecto Final en Danza es la culminación de los estudios en danza contemporánea. \
     Los estudiantes deben crear, desarrollar y presentar una obra coreográfica original, \
     aplicando los conocimientos adquiridos durante la carrera. El proyecto final \
     será evaluado por un jurado de expertos en danza.', 
-    57, 5, 3, 4002, 1, NULL),
+    57, 5, 5, 4002, 1),
     (175, 'Lenguaje del Cine', 
     'Este curso explora los fundamentos del lenguaje cinematográfico, incluyendo la \
     gramática visual y la narrativa. Los estudiantes aprenderán sobre la estructura \
     narrativa, el uso del encuadre, y cómo los elementos visuales y sonoros \
     contribuyen a la narrativa cinematográfica.', 
-    12, 5, 3, 1002, 3, NULL),
+    12, 5, 3, 1002, 3),
     (176, 'Lenguaje Visual y Montaje', 
     'En este curso, se estudian los principios del lenguaje visual y las técnicas de montaje. \
     Se analiza cómo el montaje y la edición afectan la narrativa y la percepción del espectador. \
     Los estudiantes desarrollarán habilidades prácticas en el uso del montaje para crear \
     cohesión y ritmo en sus proyectos cinematográficos.', 
-    12, 5, 3, 2007, 3, NULL),
+    12, 5, 3, 2007, 3),
     (177, 'Cinematografía', 
     'El curso de Cinematografía aborda los aspectos técnicos y artísticos de la fotografía en cine. \
     Los estudiantes aprenderán sobre iluminación, composición, y la selección de equipos para \
     capturar imágenes que apoyen la narrativa y el estilo visual de una película.', 
-    12, 5, 3, 2008, 3, NULL),
+    12, 5, 3, 2008, 3),
     (178, 'Sonido', 
     'Este curso se centra en la producción y diseño de sonido para cine. Los estudiantes \
     aprenderán a capturar, editar y mezclar sonido para complementar y enriquecer la narrativa \
     visual. Se abordarán aspectos como el diseño de efectos de sonido, la sincronización y la \
     mezcla final.', 
-    12, 5, 3, 2003, 3, NULL),
+    12, 5, 3, 2003, 3),
     (179, 'Storytelling', 
     'El curso de Storytelling enseña cómo construir y desarrollar narrativas efectivas en el cine. \
     Los estudiantes explorarán técnicas para desarrollar personajes, tramas, y conflictos, y cómo \
     estos elementos se combinan para crear una historia convincente y emocionalmente resonante.', 
-    12, 5, 3, 2006, 3, NULL),
+    12, 5, 3, 2006, 3),
     (180, 'Diseño de Producción', 
     'Este curso se enfoca en el diseño y la planificación de la producción cinematográfica. \
     Los estudiantes aprenderán a conceptualizar y diseñar los elementos visuales de una película, \
     incluyendo escenarios, decorados y vestuario, para crear una atmósfera y un estilo visual que \
     apoye la narrativa.', 
-    12, 5, 3, 2012, 3, NULL),
+    12, 5, 3, 2012, 3),
     (181, 'Inv. de Operaciones 1 +Lab', 
     'Este curso proporciona una introducción a los principios y técnicas de investigación de operaciones. \
     Incluye el estudio de modelos matemáticos y algoritmos para optimización en sistemas de producción y \
     logística. El componente de laboratorio permite a los estudiantes aplicar estos conceptos en escenarios prácticos.', 
-    34, 4, 3, 2101, 3, NULL),
+    34, 4, 3, 2101, 3),
     (182, 'Control de Producción', 
     'En este curso se estudian las técnicas y herramientas para el control y la gestión de procesos de producción. \
     Se cubren temas como la programación de la producción, el control de inventarios, y la mejora de la eficiencia. \
     Los estudiantes aprenderán a utilizar sistemas de control para garantizar la calidad y eficiencia en la producción.', 
-    34, 4, 3, 3001, 3, NULL),
+    34, 4, 3, 3001, 3),
     (183, 'Procesos, Métodos y Estándares', 
     'Este curso explora el diseño y la mejora de procesos en la industria. Los estudiantes aprenderán sobre métodos para \
     optimizar procesos, establecer estándares operativos y medir el rendimiento. Se enfoca en técnicas para mejorar la eficiencia \
     y la calidad en los procesos de producción.', 
-    34, 4, 3, 3002, 3, NULL),
+    34, 4, 3, 3002, 3),
     (184, 'Ergonomía', 
     'El curso de Ergonomía aborda el diseño de entornos de trabajo que maximicen la comodidad y la productividad. \
     Se estudian los principios de diseño ergonómico aplicados a estaciones de trabajo, herramientas y equipos. \
     Los estudiantes aprenderán a identificar y corregir problemas ergonómicos para mejorar la salud y el bienestar en el trabajo.', 
-    34, 4, 3, 3006, 3, NULL),
+    34, 4, 3, 3006, 3),
     (185, 'Ingeniería de la Calidad + Lab', 
     'Este curso se centra en los métodos y técnicas para garantizar la calidad en procesos de producción. \
     Incluye el estudio de sistemas de gestión de calidad, técnicas de control estadístico de calidad, y auditorías. \
     El componente de laboratorio proporciona experiencia práctica en la aplicación de estos métodos para asegurar la calidad.', 
-    34, 4, 3, 3007, 3, NULL),
+    34, 4, 3, 3007, 3),
     (186, 'Sistemas Lean', 
     'El curso de Sistemas Lean se enfoca en los principios y prácticas de la metodología Lean para la mejora continua en la \
     producción. Los estudiantes aprenderán sobre la eliminación de desperdicios, la mejora de procesos y la optimización de la \
     cadena de valor para aumentar la eficiencia y reducir costos.', 
-    34, 4, 3, 4010, 3, NULL);
-
+    34, 4, 3, 4010, 3);
 
 -- Insertar datos en la tabla Curso
 INSERT INTO Curso (Curso_id, Asignatura_id, Profesor_id, Horario_id, Campus_id, Modalidad_id, Edificio_id, Cupo, Aula) VALUES
@@ -4068,11 +4079,11 @@ INSERT INTO Malla_Carrera(MallaCarrera_id, Carrera_id) VALUES
     (5, 7); -- ARTES VISUALES
 
 INSERT INTO Malla_Subespecializacion (MallaSubEsp_id, SubEsp_id) VALUES
-    (1, 17), -- VIDEOJUEGOS
-    (2, 74), -- DANZA
-    (3, 61), --ING INDUSTRIAL
-    (4, 64), -- MATEMATICAS
-    (5, 9); -- CINE
+    (1, 17), # VIDEOJUEGOS
+    (2, 74), #DANZA
+    (3, 61), #ING INDUSTRIAL
+    (4, 64), # MATEMATICAS
+    (5, 9); # CINE
 
 INSERT INTO MallaCarreraAsignatura (MallaCarrera_id, Asignatura_id, Semestre_id) VALUES
     #PARA MALLA COMPUTACION
@@ -5009,4 +5020,194 @@ INSERT INTO Kardex_Asignatura (Kardex_id, Asignatura_id, Nota_id, Aprobada) VALU
     (5, 125, 1, TRUE),
     (5, 11, 1, TRUE),
     (5, 19, 1, TRUE),
-    (5, 20, 1, TRUE);
+    (5, 20, 1, TRUE),
+    (1, 122, 1, TRUE);
+    
+INSERT INTO Kardex_Asignatura (Kardex_id, Asignatura_id, Nota_id, Aprobada) VALUES
+(1, 157, 2, TRUE);
+
+INSERT INTO Malla_Extras (MallaCarrera_id, Categoria_id, Optativa, Electiva, Semestre_id) VALUES
+    #Para Computacion
+    (1, 6, FALSE, FALSE, 2), #Humanidades
+    (1, 11, FALSE, FALSE, 4), #Deportes
+    (1, 5, FALSE, FALSE, 4), #Artes
+    (1, 2, FALSE, FALSE, 5), #Ciencias Sociales
+    (1, NULL, TRUE, FALSE, 6), #Optativa
+    (1, NULL, TRUE, FALSE, 7),
+    (1, NULL, TRUE, FALSE, 7),
+    (1, NULL, FALSE, TRUE, 7), #Electiva
+    (1, NULL, FALSE, TRUE, 8),
+    #Para Gastronomia
+    (2, 2, FALSE, FALSE, 3), #Ciencias Sociales
+    (2, 6, FALSE, FALSE, 5), #Humanidades
+    (2, NULL, TRUE, FALSE, 6), #Optativa
+    (2, NULL, FALSE, TRUE, 6), #Electiva
+    (2, NULL, TRUE, FALSE, 7), #Optativa
+    (2, NULL, FALSE, TRUE, 7), #Electiva
+    (2, NULL, FALSE, TRUE, 8), #Electiva
+    (2, 11, FALSE, FALSE, 8),
+    (2, 5, FALSE, FALSE, 8),
+    #Para Administracion
+    (3, 6, FALSE, FALSE, 2), #Humanidades
+    (3, 2, FALSE, FALSE, 3), #Ciencias Sociales
+    (3, 11, FALSE, FALSE, 4), # Deportes
+    (3, NULL, FALSE, TRUE, 4), # Electiva
+    (3, 5, FALSE, FALSE, 4), # Arte
+    (3, NULL, FALSE, TRUE, 5), # Electiva
+    (3, NULL, FALSE, TRUE, 6), # Electiva
+    (3, 3, FALSE, FALSE, 6), #Ciencias Naturales
+    (3, NULL, TRUE, FALSE, 6),
+    (3, NULL, TRUE, FALSE, 7),
+    (3, NULL, TRUE, FALSE, 8),
+    #Para Educacion
+    (4, 5, FALSE, FALSE, 2), # Arte
+    (4, NULL, FALSE, TRUE, 3), # Electiva
+    (4, 6, FALSE, FALSE, 4), # Humanidades
+    (4, NULL, FALSE, TRUE, 4), # Electiva
+    (4, 11, FALSE, FALSE, 5), # Deportes
+    (4, NULL, TRUE, FALSE, 5), # Optativa
+    (4, 2, FALSE, FALSE, 5), # Ciencias Sociales
+    (4, 3, FALSE, FALSE, 6), # Ciencias Naturales
+    (4, NULL, TRUE, FALSE, 7), # Optativa
+    (4, NULL, FALSE, TRUE, 7), # Electiva
+    (4, NULL, TRUE, FALSE, 8), # Optativa
+    # Para Artes Visuales
+    (5, 3, FALSE, FALSE, 3), # Ciencias
+    (5, 6, FALSE, FALSE, 3), # Humanidades
+    (5, 11, FALSE, FALSE, 4), # Deportes
+    (5, NULL, FALSE, TRUE, 5), # Electiva
+    (5, NULL, FALSE, TRUE, 6), # Electiva
+    (5, 2, FALSE, FALSE, 6), # Ciencias Sociales
+    (5, NULL, TRUE, FALSE, 8), # Optativa
+    (5, NULL, FALSE, TRUE, 8); # Electiva
+
+INSERT INTO Prerrequisito (Asignatura_id, Grupo) VALUES
+    (6, 1), #Para Ingles 2
+    (7, 2), #Para ingles 3
+    (12, 3), #para ingles 4
+    (13, 4), #ingles 5
+    (19, 5), #ingles 6
+    (118, 6), #Lab Creacion 1 y Teoria critica y Arte contexto social y Talelr inv
+    (122, 7), #Nuevos medios
+    (120, 8), #Lab Creacion 2
+    (127, 9), #Lab Creacion 3
+    (124, 10),#Tallr de inv
+    (128, 11),#Taller Art 2
+    (133, 12),#Taller Art 3
+    (132, 13),#Enfasis 2
+    (134, 14),#Enfasis 3
+    (136, 15),#Produccion
+    (126, 16),#Produccion
+    (148, 17),#Cal integral
+    (3, 17),#Calc integral
+    (8, 18),#Prog Avanzado
+    (3, 19),#MatDiscretas
+    (148, 19),#MatDiscretas
+    (9, 20),#MatDiscretas y Fisica1 y Cal Vectorial y ProbEst
+    (148, 20),#MatDiscretas y Fisica1 y Cal Vectorial y ProbEst
+    (14, 21),#Prog Apps 
+    (17, 22),#Fisica2
+    (23, 23),#Electronica
+    (21, 24),#Estructura
+    (14, 24),#Estructura
+    (15, 25),#Teoria de la comp
+    (27, 26),#Prog avan apps y Org comp y Diseño Sis y IA y BDD
+    (28, 27),#Machine Learnig
+    (31, 28),#Redes y Sistemas
+    (37, 29),#Seguridad y Apps Distr
+    (36, 30),#Data Mining
+    (35, 31),#AppsDistru
+    (73, 32),#Neurociencia
+    (74, 33),#Neurociencia
+    (75, 34),#Plani2
+    (78, 35),#Esñ Lenguaje y Pract1 y Metodologias
+    (84, 36),#Bilingue
+    (20, 37),#Bilingue
+    (81, 38),#Practica2
+    (87, 39),#Practica3
+    (90, 40),#Practica4
+    (48, 41),#Gestion de talento
+    (97, 42),#Gestion de talento
+    (102, 43),#Gestion de talento
+    (47, 44),#Conceptos y Técnicas
+    (143, 45),#Programacion para diseño2
+    (144, 46),#Programacion apra diseño3
+    (117, 47),#Modelado 3d
+    (176, 48);#Cinematografia y Sonido
+
+INSERT INTO Grupo_Prerrequisito (Asignatura_id, Prerrequisito_id) VALUES
+    (7, 1),
+    (12, 2),
+    (13, 3),
+    (19, 4),
+    (20, 5),
+    (120, 6),
+    (124, 6),
+    (130, 6),
+    (131, 6),
+    (125, 7),
+    (127, 8),
+    (136, 9),
+    (131, 10),
+    (133, 11),
+    (139, 12),
+    (134, 13),
+    (138, 14),
+    (142, 15),
+    (142, 16),
+    (9, 17),
+    (9, 18),
+    (14, 19),
+    (15, 20),
+    (15, 21),
+    (15, 22),
+    (15, 23),
+    (17, 22),
+    (18, 22),
+    (28, 22),
+    (17, 23),
+    (18, 23),
+    (28, 23),
+    (21, 24),
+    (23, 25),
+    (26, 26),
+    (27, 27),
+    (27, 28),
+    (29, 29),
+    (30, 30),
+    (31, 30),
+    (33, 30),
+    (34, 30),
+    (35, 30),
+    (36, 31),
+    (37, 32),
+    (38, 32),
+    (42, 33),
+    (44, 33),
+    (43, 34),
+    (44, 35),
+    (77, 36),
+    (77, 37),
+    (78, 38),
+    (80, 39),
+    (81, 39),
+    (82, 39),
+    (86, 40),
+    (86, 41),
+    (87, 42),
+    (90, 43),
+    (93, 44),
+    (112, 45),
+    (112, 46),
+    (112, 47),
+    (47, 48),
+    (144, 49),
+    (145, 50),
+    (147, 51),
+    (177, 52),
+    (178, 52);
+
+INSERT INTO Correquisito (Asignatura_id, Correquisito_Asignatura_id) VALUES
+    (1, 5),
+    (10, 11),
+    (154, 155);

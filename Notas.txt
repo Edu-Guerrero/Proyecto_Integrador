@@ -1,56 +1,114 @@
-Agregado Carreras de
-    Computacion
-    Gastronomia
-    Educacion
-    Adm de Empresas
-    Artes visuales
+Hecho:
+    Agregado Carreras de
+        Computacion
+        Gastronomia
+        Educacion
+        Adm de Empresas
+        Artes visuales
 
-Agregado minors de
-    Videojuegos
-    Matematica
-    Danza
-    Ing Industrial
-    Cine
+    Agregado minors de
+        Videojuegos
+        Matematica
+        Danza
+        Ing Industrial
+        Cine
 
-Agregado Mallas de carrera
-    Computacion
-    Gastronomia
-    Adm de Empresas
-    Educacion
-    Artes visuales
-        FALTA LAS MATERIAS EN LA TABLA
+    Agregado Mallas de carrera
+        Computacion
+        Gastronomia
+        Adm de Empresas
+        Educacion
+        Artes visuales
+            FALTA LAS MATERIAS EN LA TABLA
 
-Agregado Malla de minor
-    Videojuegos
-    Danza
-    Ing Industrial
-    Matematica
-    Cine
+    Agregado Malla de minor
+        Videojuegos
+        Danza
+        Ing Industrial
+        Matematica
+        Cine
 
-Agregado asignaturas a Malla
-    Computacion
-    Gastronomia
-    Administracoi
-    Educacion
-    Artes Visuales
+    Agregado asignaturas a Malla
+        Computacion
+        Gastronomia
+        Administracoi
+        Educacion
+        Artes Visuales
 
-Agregado asignaturas a Malla minor
-    Videojuegos
-    Danza
-    Ing Industrial
-    Matematica
-    Cine
+    Agregado asignaturas a Malla minor
+        Videojuegos
+        Danza
+        Ing Industrial
+        Matematica
+        Cine
 
-Agregar Kardex de estudiantes (Minimo 5)
-    Agregado Kardex de 5 Estudiantes
+    Agregar Kardex de estudiantes (Minimo 5)
+        Agregado Kardex de 5 Estudiantes
 
-Added Palabras para los estudiantes.
+    Added Palabras para los estudiantes.
 
-Agregar pre y co requisitos
+    Modificado el 58
+    Modificado el 96
+    Modificado el 94
+    Modificado el 95
+
+    Tabla para malla cuando es ART/ENG/CCSS/ETC AGREGADO
+
+    Agregado prerrequisito
+    Agregado 3 correquisitos
+
 Agregar restricciones
-Tabla para malla cuando es ART/ENG/CCSS/ETC
+Crear Indices
+Crear triggers para log.
 
-Duplicados: Introduccion a la econ. 58 - orginal 16 - Falta cambiar la asignatura
-            Matematica empresarial. 96 - original 46 - Falta cambiar la asignatura
-            Principios de Adm 94 - original 48 - Falta cambiar la asignatura
-            Contabilidad Empresarial 95 - original 52 - Falta cambiar la asignatura.
+HAcer pruebas
+Comprobrar Prerequisitos
+Comprobar Correquisitos
+HOY 
+
+            Lab Creacion1 -> Fundamentos de las Artes
+            Teoria critica -> Fun. Comunicacion o Fund de las Artes
+            Nuevos medios -> fotografia
+            Lab Creacion 2 -> 1
+            Arte y contexto Social -> Fundamentos de las Artes
+            Taller investgacion -> (Fund Comunicaion o Fund Artes) y (Teoria critica)
+            Talleres de arte
+            Enfasis
+            Labs de creacion
+            Produccion Lab creacion 3 y Art Contemporaneo
+            Calculo integral -> Calculo para ciencias o Calculo Diferencial
+            Pro avanzad -> Prog en c++
+            Mat discretas -> (calc Diferencial y Cal Integral) o Calc Ciencias
+            Fisica -> Calculo integral o Calculo para ciencias
+            Calculo vectoria -> Calculo integal o Calculo para ciencias
+            Prog app -> Prog avanzada c++
+            Fisica 2 -> Fisica 1
+            Electronica -> Fisica 2
+            Estructura de datos -> Prog apps o Prog C++
+            Prob y Est -> Calculo Integla o Calculo ciencias 1
+            Teoria de la comp -> Matematicas discretas
+            Prog avan app -> Estructura de datos
+            Org com -> Estructura de datos
+            Diseño Sistemas -> Estructura de datos
+            Intelgenvia ar -> Estructura de datos
+            BDD -> Estructura de datos
+            Machine learning -> Prob y est
+            Redes -> org
+            Sistemas -> org
+            Seguridad -> Redes
+            Data min -> Machine
+            App distr -> Redes y BDD
+            Neurociencia y educacin -> Teorias del apr y desarrollo niño
+            Plani 2 -> Plani 1
+            Ensñ lenguaje -> Plani 2
+            Pract 1 -> Plani2
+            Metodologia -> Plani2
+            Bilingualism -> Enseñanza y Desarrollo niño y Ingles 6
+            Practicas
+            Gestio de talento -> Prin admin y princp de mrk y prin de fin
+            Tecnicas
+            Progamacion para diseños
+            Modelado 3d -> Herramientas Digitales 1
+            Cinematografia -> Lenguaje visual y montaje
+            Sonido -> Lenguaje visual y montaje
+            Ingles 6->5->4->3->2->1
