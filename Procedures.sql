@@ -689,3 +689,93 @@ BEGIN
 END //
 
 DELIMITER ;
+
+-- Ver malla Subesp
+DELIMITER //
+
+CREATE PROCEDURE getSubEspecializacion(IN p_SubEsp_id INT)
+BEGIN
+    SELECT 
+        CONCAT(c.Abreviatura, ' ', a.Numero) AS Clave,
+        a.Nombre AS Asignatura, 
+        a.Creditos AS Creditos
+    FROM
+        subespecializacion se 
+    JOIN
+        malla_subespecializacion ms ON se.SubEsp_id = ms.SubEsp_id
+    JOIN
+        mallasubesp_asignatura msa ON ms.MallaSubEsp_id = msa.MallaSubEsp_id
+    JOIN
+        asignatura a ON msa.Asignatura_id = a.Asignatura_id
+    JOIN
+        carrera c ON a.Carrera_id = c.Carrera_id
+    WHERE
+        se.SubEsp_id = p_SubEsp_id;
+END //
+
+DELIMITER ;
+
+--Ver Asignaturas restantes para la sub
+DELIMITER //
+
+CREATE PROCEDURE verSubEspRestantes(IN p_Estudiante_id INT)
+BEGIN
+    SELECT 
+        CONCAT(c.Abreviatura, ' ', a.Numero) AS Clave,
+        a.Nombre AS Asignatura, 
+        a.Creditos AS Creditos
+    FROM
+        subespecializacion se 
+    JOIN
+        malla_subespecializacion ms ON se.SubEsp_id = ms.SubEsp_id
+    JOIN
+        mallasubesp_asignatura msa ON ms.MallaSubEsp_id = msa.MallaSubEsp_id
+    JOIN
+        asignatura a ON msa.Asignatura_id = a.Asignatura_id
+    JOIN
+        carrera c ON a.Carrera_id = c.Carrera_id
+    LEFT JOIN
+        (SELECT ka.Asignatura_id
+         FROM kardex k
+         JOIN kardex_asignatura ka ON k.Kardex_id = ka.Kardex_id
+         WHERE k.Estudiante_id = p_Estudiante_id
+           AND ka.Aprobada = 1) AS kardex_tomado ON kardex_tomado.Asignatura_id = a.Asignatura_id
+    WHERE
+        se.SubEsp_id = (SELECT e.SubEsp_id FROM estudiante e WHERE e.Estudiante_id = p_Estudiante_id)
+        AND kardex_tomado.Asignatura_id IS NULL;
+END //
+
+DELIMITER ;
+
+--Ver Asignaturas tomadas para la sub
+DELIMITER //
+
+CREATE PROCEDURE verSubEspTomadas(IN p_Estudiante_id INT)
+BEGIN
+    SELECT 
+        CONCAT(c.Abreviatura, ' ', a.Numero) as Clave,
+        a.Nombre as Asignatura, 
+        a.Creditos as Creditos
+    FROM
+        subespecializacion se 
+    JOIN
+        malla_subespecializacion ms ON se.SubEsp_id = ms.SubEsp_id
+    JOIN
+        mallasubesp_asignatura msa ON ms.MallaSubEsp_id = msa.MallaSubEsp_id
+    JOIN
+        asignatura a ON msa.Asignatura_id = a.Asignatura_id
+    JOIN
+        carrera c ON a.Carrera_id = c.Carrera_id
+    JOIN
+        estudiante e ON e.SubEsp_id = se.SubEsp_id
+    JOIN
+        kardex k ON e.Estudiante_id = k.Estudiante_id
+    JOIN 
+        kardex_asignatura ka ON k.Kardex_id = ka.Kardex_id
+        AND ka.Asignatura_id = a.Asignatura_id
+    WHERE
+        e.Estudiante_id = p_Estudiante_id
+        AND ka.Aprobada = 1;
+END //
+
+DELIMITER ;

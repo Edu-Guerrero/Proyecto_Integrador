@@ -69,8 +69,8 @@ Hecho:
 
     Creado Indices
 
-HAcer pruebas
-HOY 
+
+
 
     Lab Creacion1 -> Fundamentos de las Artes
     Teoria critica -> Fund de las Artes
@@ -118,3 +118,32 @@ HOY
             Cinematografia -> Lenguaje visual y montaje
             Sonido -> Lenguaje visual y montaje
             Ingles 6->5->4->3->2->1
+
+Conteo de elementos en tablas
+Asignatura: 186
+Campus: 3 Cumbaya-Galapagos-Tiputini
+Carrera: 57
+Categoria: 15
+Colegio: 11
+Correquisit: 3
+Curso: 930 (5 por cada Asignatura)
+Dias: 7
+Dias Asign: 1816, Cada asignatura tiene una probabilidad de tener 2 dias o 1 dia
+Edificio: 22
+Estudainte: 101 - 00999999 Es de prueba
+Horario: 10 de 7:00-8:20 hasta 8:30 - 9:50pm
+Kardex: 5
+Kardex Asignatura: 125
+Keywords: 50 - Ninguna funcional
+Malla_Carrera: 5 (Compu, Gast, Edu, Adm, ArtesVisuales)
+Malla_Extras: 48
+Malla_Sub: 5 (Vodejuego, Cine, Danza, IngIndustrial, Mat)
+Modalidad: 4 (Oresencia, hibrido, virtual, en linea)
+Notas: 6 A-B-C-D-F-P
+Palabra_Estudainte:505, 5 por est
+prerrequisito: 64
+Profesor: 212
+Restricciones: 49. 
+Semestre: 12
+Subespc: 74
+
