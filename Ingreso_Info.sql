@@ -5140,7 +5140,8 @@ INSERT INTO Prerrequisito (Asignatura_id, Dependencia_id) VALUES
     (12, 7),
     (13, 12),
     (19, 13),
-    (20, 19);
+    (20, 19),
+    (186, 185);
 
 INSERT INTO Correquisito (Asignatura_id, Correquisito_Asignatura_id) VALUES
     (1, 5),
@@ -5194,4 +5195,6 @@ INSERT INTO Restricciones (Asignatura_id, Carrera_id, Colegio_id, Semestre_id) V
     (182, NULL, NULL, 4),
     (183, NULL, NULL, 4),
     (184, NULL, NULL, 4),
-    (185, NULL, NULL, 4);
+    (185, NULL, NULL, 4),
+    (186, NULL, NULL, 5),
+    (181, NULL, NULL, 6);

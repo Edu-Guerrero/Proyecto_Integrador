@@ -59,12 +59,15 @@ Hecho:
 
     Agregado Triggers
 
-Agregar restricciones
-Crear Indices
-Entregar Optativas
-Entregar Electivas
-Verificar restricciones
+    Agreagado restricciones
 
+    Verificar Restricciones
+
+    Entregar Optativas y Electivas
+
+    Ver cursos
+
+    Creado Indices
 
 HAcer pruebas
 HOY 

@@ -1,7 +1,11 @@
 Call ObtenerAsignaturasRestantes(00999999);
 Call ObtenerKardexEst(00999999);
 Call GetMallaCarrera(31);
-Call ObtenerDetallesAsignatura(14);
-CALL VerificarPrerrequisitos(00999999, 14);
-CALL ObtenerCorrequisitos(3);
-CALL ObtenerInformacionAsignatura(45);
+Call ObtenerDetallesAsignatura(186);
+CALL VerificarPrerrequisitos(00999999, 186);
+CALL ObtenerCorrequisitos(5);
+CALL ObtenerInformacionAsignatura(186);
+Call VerificarRestriccionesEstudiante(00999999, 186);
+CALL getOptativas(00999999);
+CALL GetElectivas(00999999);
+CALL VerCursos(57);
