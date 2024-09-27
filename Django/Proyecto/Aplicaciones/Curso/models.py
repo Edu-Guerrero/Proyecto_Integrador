@@ -51,3 +51,16 @@ class CustomUser(AbstractBaseUser):
 
     def __str__(self):
         return self.username
+
+class Estudiante(models.Model):
+    Estudiante_id = models.IntegerField(primary_key=True)  # Identificador único del estudiante
+    Nombres = models.CharField(max_length=255)  # Nombres del estudiante
+    Apellidos = models.CharField(max_length=255)  # Apellidos del estudiante
+    Correo = models.EmailField(max_length=255, unique=True)  # Correo institucional
+    Password = models.CharField(max_length=255)  # Contraseña del estudiante (se manejará cifrada)
+
+    def __str__(self):
+        return f'{self.Nombres} {self.Apellidos}'
+
+    class Meta:
+        db_table = 'Estudiante'

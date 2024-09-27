@@ -1,0 +1,244 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Cursos</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}" >
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding-top: 60px;
+            height: calc(100vh - 60px);
+            overflow-y: auto;
+        }
+        .banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: gray;
+            padding: 10px 20px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+        .banner h1 {
+            margin: 0;
+            color: white;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+        .user-info h1 {
+            margin-right: 20px;
+            font-size: 1.2em;
+        }
+        .logout-button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .logout-button:hover {
+            background-color: darkred;
+        }
+        .info-box {
+            padding: 20px;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #999;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: center; /* Centra los títulos de las columnas */
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .info-button {
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            font-size: 18px;
+            line-height: 25px;
+            text-align: center;
+            cursor: pointer;
+            display: inline-block;
+        }
+        .pagination {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .pagination button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .pagination button:hover {
+            background-color: #0056b3;
+        }
+        .course-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .course-info span {
+            margin-bottom: 5px;
+        }
+        .course-name {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="banner">
+    <h1>Buscador de Cursos</h1>
+    <div class="user-info">
+        <h1>Bienvenido</h1>
+        <button class="logout-button">Salir</button>
+    </div>
+</div>
+
+<div class="info-box">
+    <h2>Información Adicional</h2>
+    
+    <div>
+        <h3>Nombres</h3>
+        <h3>Carrera</h3>
+        <h3>Semestre</h3>
+    </div>
+
+    <div class="table-container">
+        <table id="courseTable">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>NRC</th>
+                    <th>Curso</th>
+                    <th>Cupos</th>
+                    <th>Ver Más</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be added through JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="pagination">
+        <button id="prevPage" onclick="changePage(-1)" style="display: none;">Anterior</button>
+        <span id="pageInfo"></span>
+        <button id="nextPage" onclick="changePage(1)" style="display: none;">Siguiente</button>
+    </div>
+</div>
+
+<script>
+    const totalRows = 100;
+    const rowsPerPage = 10;
+    let currentPage = 1;
+
+    const campuses = ['Central', 'Norte', 'Sur', 'Este', 'Oeste'];
+    const days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'];
+    const buildings = ['A', 'B', 'C', 'D', 'E'];
+    const modalities = ['Presencial', 'Virtual', 'Híbrido'];
+
+    function getRandomElement(array) {
+        return array[Math.floor(Math.random() * array.length)];
+    }
+
+    function getRandomTime() {
+        const hour = Math.floor(Math.random() * 12) + 7; // 7 AM to 6 PM
+        const minute = Math.random() < 0.5 ? '00' : '30';
+        return `${hour}:${minute}`;
+    }
+
+    function loadTable(page) {
+        const tableBody = document.getElementById('courseTable').getElementsByTagName('tbody')[0];
+        tableBody.innerHTML = ''; 
+
+        const start = (page - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+
+        for (let i = start + 1; i <= end && i <= totalRows; i++) {
+            const day = getRandomElement(days);
+            const startTime = getRandomTime();
+            const endTime = getRandomTime();
+            const row = `<tr>
+                            <td>COD${i.toString().padStart(3, '0')}</td>
+                            <td>NRC${Math.floor(Math.random() * 10000).toString().padStart(4, '0')}</td>
+                            <td>
+                                <div class="course-info">
+                                    <span class="course-name">Curso ${i}</span>
+                                    <span><strong>Profesor:</strong> Profesor ${i}</span>
+                                    <span><strong>Campus:</strong> ${getRandomElement(campuses)}</span>
+                                    <span><strong>Día - Horario:</strong> ${day} - ${startTime} a ${endTime}</span>
+                                    <span><strong>Edificio:</strong> Edificio ${getRandomElement(buildings)}</span>
+                                    <span><strong>Modalidad:</strong> ${getRandomElement(modalities)}</span>
+                                </div>
+                            </td>
+                            <td>${Math.floor(Math.random() * 30) + 10}</td>
+                            <td><button class="info-button" onclick="openDialog('Información del curso: ${i}')">+</button></td>
+                        </tr>`;
+            tableBody.insertAdjacentHTML('beforeend', row);
+        }
+
+        document.getElementById('pageInfo').textContent = `Página ${currentPage} de ${Math.ceil(totalRows / rowsPerPage)}`;
+        
+        document.getElementById('prevPage').style.display = currentPage === 1 ? 'none' : 'inline';
+        document.getElementById('nextPage').style.display = currentPage === Math.ceil(totalRows / rowsPerPage) ? 'none' : 'inline';
+    }
+
+    function changePage(direction) {
+        currentPage += direction;
+        loadTable(currentPage);
+    }
+
+    function openDialog(info) {
+    const dialog = document.getElementById('infoDialog');
+    const dialogContent = document.getElementById('dialogContent');
+    dialogContent.innerHTML = info;
+    dialog.style.display = 'block';
+    }
+
+    function closeDialog() {
+        const dialog = document.getElementById('infoDialog');
+        dialog.style.display = 'none';
+    }
+
+    loadTable(currentPage);
+</script>
+<div id="infoDialog" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2000; background-color: white; border: 2px solid gray; padding: 20px; max-width: 500px;">
+    <h2>Información del Curso</h2>
+    <p id="dialogContent"></p>
+    <button onclick="closeDialog()">Cerrar</button>
+</div>
+</body>
+</html>
