@@ -1,9 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscador de Cursos</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}" >
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -66,7 +68,7 @@
         }
         th {
             background-color: #f2f2f2;
-            text-align: center;
+            text-align: center; /* Centra los títulos de las columnas */
         }
         tr:nth-child(even) {
             background-color: #f9f9f9;
@@ -171,73 +173,32 @@
             border: 0.5px solid #4CAF50; /* Add border on hover */
         }
 
-        .results{
-            display: none;
+        .save-keywords-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
         }
-
-        .results.active{
-            display: block;
+        .save-keywords-button:hover {
+            background-color: #45a049;
         }
-
-        .all-results {
-        display: none;
-        margin-top: 10px;
-        }
-
-        .all-results.active {
-            display: block;
-        }
-
-        .results-button {
-        margin-top: 10px;
-        }
-
-        .results-dropdown {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 200px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        max-height: 210px; /* Adjust height to show 10 items at once */
-        overflow-y: auto; /* Add scrollbar */
-        }
-
-        .checkbox-list {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .checkbox-list label {
-            display: flex;
-            align-items: center;
-        }
-
-        .checkbox-list input[type="checkbox"] {
-            margin-right: 10px;
-        }
-        .bubble-container {
+        .selected-keywords {
+        margin-top: 10px; /* Adjust based on your layout */
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 10px;
+        gap: 5px;
         }
 
-        .result-bubble {
-            background-color: #e0e0e0;
-            border-radius: 15px;
-            padding: 5px 10px;
-            font-size: 14px;
-            display: inline-block;
-        }
-
-        .checked-results {
-            margin-top: 20px;
-        }
+        .keyword-bubble {
+        background-color: #e0e0e0;
+        border-radius: 15px;
+        padding: 5px 10px;
+        font-size: 14px;
+        display: inline-block;
+    }
     </style>
 </head>
 <body>
@@ -246,44 +207,39 @@
     <h1>Buscador de Cursos</h1>
     <div class="user-info">
         <h1>Bienvenido</h1>
-        <button class="logout-button">Salir</button>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="logout-button">Salir</button>
+        </form>
     </div>
 </div>
 
-<div class="keyword-container">
-    <button class="keyword-button" onclick="toggleKeywordDropdown()">Keywords</button>
-    <div class="keyword-dropdown" id="keywordDropdown">
-        {% for keyword in keyword %}
-            <label>
-                <input type="checkbox" value="{{ keyword.Palabra }}" onchange="limitKeywords(this)"> {{ keyword.Palabra }}
-            </label>
-        {% endfor %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="keyword-container">
+        <button class="keyword-button" type="button" onclick="toggleKeywordDropdown()">Keywords</button>
+            <!-- Botón para guardar las palabras clave seleccionadas -->
+        <button class="save-keywords-button" type="submit" name="save_keywords">Guardar Palabras Clave</button>
+        <div class="keyword-dropdown" id="keywordDropdown">
+            {% for kw in keyword %}
+                <label>
+                    <input type="checkbox" name="keyword" value="{{ kw.keyword_id }}" 
+                    {% if kw.keyword_id in selected_keywords %} checked {% endif %}
+                    onchange="limitKeywords(this)"> {{ kw.Palabra }}
+                </label>
+            {% endfor %}
+        </div>
+        <p id="error-message" style="color: red; display: none;">No puedes seleccionar más de 5 palabras clave.</p>
     </div>
-    <p id="error-message" style="color: red; display: none;">No puedes seleccionar más de 5 palabras clave.</p>
-</div>
+</form>
 
-<!-- Button to toggle between filtered results and all results -->
-<button class="results-button" type="button" onclick="toggleResults()">Show All Results</button>
-
-<!-- Results list for all results -->
-<div class="results-dropdown" id="resultsDropdown">
-    <h3>All Results:</h3>
-    <div class="checkbox-list">
-        {% for row in results %}
-            <label>
-                <input type="checkbox" name="all_results" value="{{ row.1 }} - {{ row.3 }}" 
-                {% if row in filtered_results %} checked {% endif %} onchange="updateCheckedResults()">
-                {{ row.1 }} - {{ row.3 }}
-            </label>
-        {% endfor %}
-    </div>
-</div>
-
-<div id="checkedResults" class="checked-results">
-    <h3>Currently Selected:</h3>
-    <div class="bubble-container" id="bubbleContainer">
-        <!-- Bubbles will be dynamically added here -->
-    </div>
+<!-- Display selected keywords -->
+<div class="selected-keywords">
+    {% for kw in keyword %}
+        {% if kw.keyword_id in selected_keywords %}
+            <span class="keyword-bubble">{{ kw.Palabra }}</span>
+        {% endif %}
+    {% endfor %}
 </div>
 
 
@@ -291,16 +247,16 @@
     <h2>Información Adicional</h2>
     
     <div>
-        <h3>Nombres</h3>
-        <h3>Carrera</h3>
-        <h3>Semestre</h3>
+        <h3>{{ estudiante.Nombres }} {{ estudiante.Apellidos }}</h3>
+        <h3>{{ carrera.Nombre }}</h3>
+        <h3>{{ semestre.Nombre }}</h3>
     </div>
 
     <div>
         <button class="cute-button" onclick="showTable()">Cursos para tu carrera</button>
     </div>
 
-    <div class="table-container" id="tableContainer">
+    <div class="table-container">
         <table id="courseTable">
             <thead>
                 <tr>
@@ -385,8 +341,11 @@
         loadTable(currentPage);
     }
 
-    function openDialog(message) {
-        alert(message);
+    function openDialog(info) {
+    const dialog = document.getElementById('infoDialog');
+    const dialogContent = document.getElementById('dialogContent');
+    dialogContent.innerHTML = info;
+    dialog.style.display = 'block';
     }
 
     let selectedCount = 0;
@@ -412,10 +371,10 @@
         setTimeout(() => {
             errorMessage.style.display = 'none';
         }, 3500);
-    } else {
-        document.getElementById('error-message').style.display = 'none'; // Hide error message
+        } else {
+            document.getElementById('error-message').style.display = 'none'; // Hide error message
+        }
     }
-}
 
     // Close dropdown when clicking outside
     window.addEventListener('click', function(e) {
@@ -428,45 +387,17 @@
         document.getElementById('tableContainer').style.display = 'block';
     }
 
-    function toggleResults() {
-        var resultsDropdown = document.getElementById('resultsDropdown');
-        var button = document.querySelector('.results-button');
-
-        if (resultsDropdown.style.display === 'block') {
-            resultsDropdown.style.display = 'none';
-            button.textContent = 'Show All Results';
-        } else {
-            resultsDropdown.style.display = 'block';
-            button.textContent = 'Hide All Results';
-        }
+    function closeDialog() {
+        const dialog = document.getElementById('infoDialog');
+        dialog.style.display = 'none';
     }
 
-    function updateCheckedResults() {
-        var checkboxes = document.querySelectorAll('input[name="all_results"]:checked');
-        var bubbleContainer = document.getElementById('bubbleContainer');
-        bubbleContainer.innerHTML = ''; // Clear existing bubbles
-
-        checkboxes.forEach(function(checkbox) {
-            var bubble = document.createElement('span');
-            bubble.className = 'result-bubble';
-            bubble.textContent = checkbox.value;
-            bubbleContainer.appendChild(bubble);
-        });
-    }
-
-    // Close the dropdown if the user clicks outside of it
-    window.addEventListener('click', function(e) {
-        if (!e.target.matches('.results-button') && !e.target.closest('.results-dropdown')) {
-            document.getElementById('resultsDropdown').style.display = 'none';
-        }
-    });
     loadTable(currentPage);
-
-    // Automatically update checked results on page load
-    document.addEventListener('DOMContentLoaded', function() {
-        updateCheckedResults();
-    });
 </script>
-
+<div id="infoDialog" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2000; background-color: white; border: 2px solid gray; padding: 20px; max-width: 500px;">
+    <h2>Información del Curso</h2>
+    <p id="dialogContent"></p>
+    <button onclick="closeDialog()">Cerrar</button>
+</div>
 </body>
 </html>

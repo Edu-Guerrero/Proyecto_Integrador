@@ -52,15 +52,61 @@ class CustomUser(AbstractBaseUser):
     def __str__(self):
         return self.username
 
+class Carrera(models.Model):
+    Carrera_id = models.AutoField(primary_key=True)  # Identificador único de la carrera
+    Colegio_id = models.IntegerField()  # FK hacia el Colegio (se define como IntegerField si Colegio está en otra app/tablas no gestionadas por Django)
+    Abreviatura = models.CharField(max_length=10)  # Abreviatura de la carrera
+    Nombre = models.CharField(max_length=255)  # Nombre completo de la carrera
+
+    class Meta:
+        db_table = 'Carrera'  # Nombre de la tabla en la base de datos
+
+    def __str__(self):
+        return self.Nombre
+    
+class Semestre(models.Model):
+    Semestre_id = models.IntegerField(primary_key=True)  # Identificador único del semestre
+    Nombre = models.CharField(max_length=255)  # Nombre del semestre
+
+    class Meta:
+        db_table = 'Semestre'  # Nombre de la tabla en la base de datos
+
+    def __str__(self):
+        return self.Nombre
+
 class Estudiante(models.Model):
     Estudiante_id = models.IntegerField(primary_key=True)  # Identificador único del estudiante
     Nombres = models.CharField(max_length=255)  # Nombres del estudiante
     Apellidos = models.CharField(max_length=255)  # Apellidos del estudiante
     Correo = models.EmailField(max_length=255, unique=True)  # Correo institucional
     Password = models.CharField(max_length=255)  # Contraseña del estudiante (se manejará cifrada)
+    Carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE, default=1, db_column='Carrera_id')  # FK hacia la carrera
+    Semestre = models.ForeignKey(Semestre, on_delete=models.CASCADE, default=1, db_column='Semestre_id')  # FK hacia el semestre
 
     def __str__(self):
         return f'{self.Nombres} {self.Apellidos}'
 
     class Meta:
         db_table = 'Estudiante'
+
+class KeyWords(models.Model):
+    keyword_id = models.AutoField(primary_key=True)  # Automatically increments for each keyword
+    Palabra = models.CharField(max_length=255)       # Keyword field with a maximum length of 255 characters
+
+    def __str__(self):
+        return self.palabra  # Return the keyword as the string representation of the object
+    
+    class Meta:
+        db_table = 'KeyWords'
+
+
+class PalabraEstudiante(models.Model):
+    palabra_estudiante_id = models.AutoField(primary_key=True)
+    keyword = models.ForeignKey(KeyWords, on_delete=models.CASCADE)  # Relación con la tabla KeyWords
+    estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)  # Relación con la tabla Estudiante
+
+    def __str__(self):
+        return f"{self.estudiante} - {self.keyword}"
+    
+    class Meta:
+        db_table = 'Palabra_Estudiante'

@@ -1,8 +1,11 @@
 # views.py
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from .forms import UserRegistrationForm
-from .models import CustomUser, Estudiante
+from .models import CustomUser, Estudiante, KeyWords, PalabraEstudiante
+from django.urls import reverse
+from django.db import connection
 
 def login_view(request):
     if request.method == 'POST':
@@ -12,7 +15,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home')  # Redirige a la página principal después del inicio de sesión
+            return redirect('table_user')  # Redirige a la página principal después del inicio de sesión
         else:
             return render(request, 'login.html', {'error': 'Credenciales incorrectas'})
     return render(request, 'login.html')
@@ -37,4 +40,87 @@ def home(request):
 
 def table(request):
     # Renderizar el template con la lista de estudiantes
-    return render(request, 'table.html')
+    keyword = KeyWords.objects.all()
+    total_keywords = keyword.count()  # Get the total number of keywords
+    # Call the stored procedure
+    with connection.cursor() as cursor:
+        cursor.callproc('ObtenerAsignaturasRestantes', [999999])  # Replace with your stored procedure name and parameters
+        results = cursor.fetchall()
+    
+    filtered_results = []
+    total_sum = 0
+
+    for row in results:
+        if total_sum + row[3] <= 16:
+            filtered_results.append(row)
+            total_sum += row[3]
+        else:
+            break  # Stop adding once the sum exceeds 16
+
+    return render(request, 'table.html', {
+        'keyword': keyword, 
+        'total_keywords': total_keywords,
+        'results': results,
+        'filtered_results': filtered_results,
+        })
+
+@login_required
+def table_User(request):
+
+    if request.method == 'POST' and 'logout' in request.POST:
+        logout(request)
+        return redirect(reverse('login'))  # Redirect to login page after logout
+    
+    correo_usuario = request.user.email
+
+    # Buscar al estudiante correspondiente en la tabla Estudiante
+    try:
+        estudiante = Estudiante.objects.get(Correo=correo_usuario)
+    except Estudiante.DoesNotExist:
+        estudiante = None
+
+    # Si se envía el formulario con las palabras clave seleccionadas
+    if request.method == 'POST' and 'save_keywords' in request.POST:
+        selected_keywords = request.POST.getlist('keyword')  # Obtener las keywords seleccionadas del formulario
+
+        # Eliminar todas las palabras clave actuales del estudiante
+        PalabraEstudiante.objects.filter(estudiante_id=estudiante).delete()
+
+        # Guardar las nuevas palabras clave seleccionadas
+        for id in selected_keywords:
+            keyword_instance = KeyWords.objects.get(keyword_id=id)
+            PalabraEstudiante.objects.create(estudiante=estudiante, keyword=keyword_instance)
+
+    # Obtener el nombre de la carrera y del semestre si el estudiante existe
+    carrera = estudiante.Carrera if estudiante else None
+    semestre = estudiante.Semestre if estudiante else None
+
+    keyword = KeyWords.objects.all()
+    total_keywords = keyword.count()  # Get the total number of keywords
+
+    # Obtener las palabras clave seleccionadas por el estudiante (si el estudiante existe)
+    selected_keywords = []
+    if estudiante:
+        selected_keywords = PalabraEstudiante.objects.filter(estudiante=estudiante).values_list('keyword_id', flat=True)
+
+    # Call the stored procedure
+    with connection.cursor() as cursor:
+        cursor.callproc('ObtenerAsignaturasRestantes', [estudiante.Estudiante_id])  # Replace with your stored procedure name and parameters
+        results = cursor.fetchall()
+    
+    for row in results:
+        print(row[4])
+
+    # Renderizar el template con la lista de estudiantes
+    return render(request, 'table_user.html', {
+        'estudiante': estudiante,
+        'carrera': carrera,
+        'semestre': semestre,
+        'keyword': keyword, 
+        'total_keywords': total_keywords,
+        'selected_keywords': selected_keywords,  # Pasar los IDs de las palabras clave seleccionadas
+    })
+
+def logout_view(request):
+    logout(request)
+    return redirect(reverse('login'))  # Redirect to login page after logout

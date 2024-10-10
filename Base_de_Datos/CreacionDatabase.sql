@@ -1,6 +1,5 @@
 -- Active: 1726172189649@@127.0.0.1@3306@proyectointegrador
 DROP DATABASE IF EXISTS ProyectoIntegrador;
-#BD LOGROS COLECCIONABLES
 -- Crear la base de datos
 CREATE DATABASE IF NOT EXISTS ProyectoIntegrador;
 USE ProyectoIntegrador;
