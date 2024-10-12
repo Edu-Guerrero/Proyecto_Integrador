@@ -2,6 +2,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.template.loader import render_to_string
+from django.http import HttpResponse
 from .forms import UserRegistrationForm
 from .models import CustomUser, Estudiante, KeyWords, PalabraEstudiante
 from django.urls import reverse
@@ -46,22 +48,84 @@ def table(request):
     with connection.cursor() as cursor:
         cursor.callproc('ObtenerAsignaturasRestantes', [999999])  # Replace with your stored procedure name and parameters
         results = cursor.fetchall()
+        cursor.close()
     
+    with connection.cursor() as cursor:
+        cursor.callproc('verSubEspRestantes', [777152])
+        subEsP = cursor.fetchall()
+        cursor.close()
+    
+    sub_esp = []
     filtered_results = []
     total_sum = 0
 
+    results_2 = []
     for row in results:
+        if row[0] is not None:
+            results_2.append(row)
+
+    for row in results_2:
         if total_sum + row[3] <= 16:
             filtered_results.append(row)
             total_sum += row[3]
         else:
             break  # Stop adding once the sum exceeds 16
 
+    # Call another stored procedure for each value in row[1] of filtered_results
+    asignaturas = []  # Initialize an empty list
+
+    for row in results_2:
+        with connection.cursor() as cursor:
+            cursor.callproc('verCursos', [row[0]])  # Call the stored procedure
+            result = cursor.fetchall()  # Fetch the results
+            asignaturas.extend(result)  # Append the result to the existing list
+
+    for row in subEsP:
+        with connection.cursor() as cursor:
+            cursor.callproc('verCursos', [row[3]])
+            result = cursor.fetchall()
+            asignaturas.extend(result)
+
+    if request.method == 'POST' and 'update_filter' in request.POST:
+        selected_courses = request.POST.getlist('all_results')
+        print(selected_courses)
+        
+        # Filter asignaturas based on selected_courses
+        asignaturas = []
+        for row in results_2:
+            if row[1] in selected_courses:
+                with connection.cursor() as cursor:
+                    cursor.callproc('verCursos', [row[0]])
+                    result = cursor.fetchall()
+                    asignaturas.extend(result)
+
+        for row in subEsP:
+            if row[1] in selected_courses:
+                with connection.cursor() as cursor:
+                    cursor.callproc('verCursos', [row[3]])
+                    result = cursor.fetchall()
+                    asignaturas.extend(result)
+
+        context = {
+            'filtered_results': selected_courses,
+            'asignaturas': asignaturas,
+        }
+
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+            html = render_to_string('table_content.html', context)
+            print('AJAX request')
+            return HttpResponse(html)
+        else:
+            print('Not an AJAX request')
+            return render(request, 'table.html', context)
+
     return render(request, 'table.html', {
         'keyword': keyword, 
         'total_keywords': total_keywords,
-        'results': results,
+        'results': results_2,
         'filtered_results': filtered_results,
+        'asignaturas': asignaturas,
+        'sub_esp': subEsP
         })
 
 @login_required

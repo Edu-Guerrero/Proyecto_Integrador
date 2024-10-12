@@ -1,0 +1,49 @@
+<table id="courseTable">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>NRC</th>
+            <th>Curso</th>
+            <th>Cupos</th>
+            <th>Ver Más</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for asignatura in asignaturas %}
+        <tr>
+            <td>{{ asignatura.0 }}</td>
+            <td>{{ asignatura.2 }}</td>
+            <td>
+                <div class="course-info">
+                    <span class="course-name">{{ asignatura.1 }}</span>
+                    <span><strong>Profesor:</strong> {{ asignatura.6 }}</span>
+                    <span><strong>Campus:</strong> {{ asignatura.7 }}</span>
+                    <span><strong>Día:</strong>{{ asignatura.4 }}</span>
+                    <span><strong>Horario:</strong> {{ asignatura.5 }}</span>
+                    <span><strong>Edificio:</strong> {{ asignatura.8 }}</span>
+                    <span><strong>Modalidad:</strong> {{ asignatura.3 }}</span>
+                </div>
+            </td>
+            <td>{{ asignatura.11 }}</td>
+            <td>
+                <button class="info-button" 
+                    onclick="openCustomDialog('{{ asignatura.1 }}', '{{ asignatura.12 }}', '{{ asignatura.9 }}')"
+                    data-course="{{ asignatura.1 }}"
+                    data-college="{{ asignatura.12 }}"
+                    data-credits="{{ asignatura.9 }}">
+                    i
+                </button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script>
+    function openCustomDialog(courseName, college, credits) {
+            document.getElementById('dialogCourseName').textContent = courseName;
+            document.getElementById('dialogCollege').textContent = college;
+            document.getElementById('dialogCredits').textContent = credits;
+            document.getElementById('customDialog').style.display = 'flex';
+        }
+</script>
