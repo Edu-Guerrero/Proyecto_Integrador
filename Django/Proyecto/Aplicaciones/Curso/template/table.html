@@ -238,37 +238,74 @@
         .checked-results {
             margin-top: 20px;
         }
-    .custom-dialog {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,0.4);
-        justify-content: center;
-        align-items: center;
-    }
+        .custom-dialog {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+            justify-content: center;
+            align-items: center;
+        }
 
-    .dialog-content {
-        background-color: #fefefe;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 300px;
-        border-radius: 5px;
-    }
+        .dialog-content {
+            background-color: #fefefe;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+            border-radius: 5px;
+        }
 
-    .dialog-buttons {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 20px;
-    }
+        .dialog-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
 
-    .dialog-buttons button {
-        padding: 10px 20px;
-        cursor: pointer;
-    }
+        .dialog-buttons button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .subesp-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Estilos para el contenido del dropdown */
+        .dropdown-content {
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            max-height: 210px; /* Adjust height to show 10 items at once */
+            overflow-y: auto; /* Add scrollbar */
+        }
+
+        /* Estilos para las opciones del dropdown */
+        .radio-option {
+            margin-bottom: 8px;
+        }
+
+        .radio-option input {
+            margin-right: 8px;
+        }
+
+        .radio-option label {
+            cursor: pointer;
+        }
+
+        /* Cambiar el estilo del botón al abrir el dropdown */
+        .subesp-button:focus {
+            background-color: #f1f1f1;
+        }
+
 
     </style>
 </head>
@@ -340,7 +377,25 @@
         <h3>Nombres</h3>
         <h3>Carrera</h3>
         <h3>Semestre</h3>
+        <h3>SubEspecializacion: 
+            <!-- Agrega el contenedor para el botón y la lista de subespecializaciones -->
+            <div class="subesp-container">
+                <!-- Botón para mostrar las subespecializaciones -->
+                <button class="subesp-button" onclick="toggleSubEspecializaciones()">Show Sub-Specializations</button>
+            
+                <!-- Contenedor para mostrar las subespecializaciones como un dropdown -->
+                <div id="subEspecializacionesList" class="dropdown-content" style="display: none;">
+                    {% for subesp in SubEspecializacion %}
+                        <div class="radio-option">
+                            <input type="radio" id="subesp{{ forloop.counter }}" name="subesp" value="{{ subesp.id }}">
+                            <label for="subesp{{ forloop.counter }}">{{ subesp.nombre }}</label>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </h3>
     </div>
+
 
     <div class="table-container" id="tableContainer">
         <table id="courseTable">
@@ -571,6 +626,29 @@
         // Add your enrollment logic here
         alert('Course enrolled!');
         closeCustomDialog();
+    }
+
+    // Función para mostrar/ocultar el dropdown de subespecializaciones
+    function toggleSubEspecializaciones() {
+        var subEspecializacionesList = document.getElementById("subEspecializacionesList");
+        if (subEspecializacionesList.style.display === "none" || subEspecializacionesList.style.display === "") {
+            subEspecializacionesList.style.display = "block";
+        } else {
+            subEspecializacionesList.style.display = "none";
+        }
+    }
+
+    // Cerrar el dropdown si se hace clic fuera de él
+    window.onclick = function(event) {
+        if (!event.target.matches('.subesp-button')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.style.display === "block") {
+                    openDropdown.style.display = "none";
+                }
+            }
+        }
     }
 
     // Close the dialog when clicking outside of it

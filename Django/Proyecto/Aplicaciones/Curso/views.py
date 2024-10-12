@@ -4,8 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.template.loader import render_to_string
 from django.http import HttpResponse
-from .forms import UserRegistrationForm
-from .models import CustomUser, Estudiante, KeyWords, PalabraEstudiante
+from .models import Estudiante, KeyWords, PalabraEstudiante, SubEspecializacion
 from django.urls import reverse
 from django.db import connection
 
@@ -118,15 +117,20 @@ def table(request):
         else:
             print('Not an AJAX request')
             return render(request, 'table.html', context)
+    
+    Minors = SubEspecializacion.objects.all()
 
-    return render(request, 'table.html', {
+    context = {
         'keyword': keyword, 
         'total_keywords': total_keywords,
         'results': results_2,
         'filtered_results': filtered_results,
         'asignaturas': asignaturas,
-        'sub_esp': subEsP
-        })
+        'sub_esp': subEsP,
+        'SubEspecializacion': Minors
+    }
+
+    return render(request, 'table.html', context)
 
 @login_required
 def table_User(request):

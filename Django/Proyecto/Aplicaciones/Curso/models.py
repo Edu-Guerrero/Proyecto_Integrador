@@ -110,3 +110,14 @@ class PalabraEstudiante(models.Model):
     
     class Meta:
         db_table = 'Palabra_Estudiante'
+
+class SubEspecializacion(models.Model):
+    subesp_id = models.AutoField(primary_key=True)  # Identificador único
+    Colegio_id = models.IntegerField()  # FK del colegio, con eliminación en cascada
+    nombre = models.CharField(max_length=255)  # Nombre del minor
+
+    def __str__(self):
+        return self.nombre
+    
+    class Meta:
+        db_table = 'SubEspecializacion'
