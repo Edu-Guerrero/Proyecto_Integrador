@@ -198,7 +198,142 @@
         padding: 5px 10px;
         font-size: 14px;
         display: inline-block;
-    }
+        }
+
+        .results{
+            display: none;
+        }
+
+        .results.active{
+            display: block;
+        }
+
+        .all-results {
+        display: none;
+        margin-top: 10px;
+        }
+
+        .all-results.active {
+            display: block;
+        }
+
+        .results-button {
+        margin-top: 10px;
+        }
+
+        .results-dropdown {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 200px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        max-height: 210px; /* Adjust height to show 10 items at once */
+        overflow-y: auto; /* Add scrollbar */
+        }
+
+        .checkbox-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .checkbox-list label {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-list input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .bubble-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+        }
+
+        .result-bubble {
+            background-color: #e0e0e0;
+            border-radius: 15px;
+            padding: 5px 10px;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        .checked-results {
+            margin-top: 20px;
+        }
+        .custom-dialog {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dialog-content {
+            background-color: #fefefe;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+            border-radius: 5px;
+        }
+
+        .dialog-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .dialog-buttons button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .subesp-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Estilos para el contenido del dropdown */
+        .dropdown-content {
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            max-height: 210px; /* Adjust height to show 10 items at once */
+            overflow-y: auto; /* Add scrollbar */
+        }
+
+        /* Estilos para las opciones del dropdown */
+        .radio-option {
+            margin-bottom: 8px;
+        }
+
+        .radio-option input {
+            margin-right: 8px;
+        }
+
+        .radio-option label {
+            cursor: pointer;
+        }
+
+        /* Cambiar el estilo del botón al abrir el dropdown */
+        .subesp-button:focus {
+            background-color: #f1f1f1;
+        }
     </style>
 </head>
 <body>
@@ -242,21 +377,73 @@
     {% endfor %}
 </div>
 
+<!-- Button to toggle between filtered results and all results -->
+<button class="results-button" type="button" onclick="toggleResults()">Show All Results</button>
+
+<form id="course-filter-form" method="POST" action="{% url 'table_user' %}">
+    {% csrf_token %}
+    <button type="button" id="ActualizarCursos" name="update_filter" onclick="updateCourses()">Actualizar Cursos</button>
+    <!-- Results list for all results -->
+    <div class="results-dropdown" id="resultsDropdown">
+        <h3>Para tu Carrera:</h3>
+        <div class="checkbox-list">
+            {% for row in results %}
+                <label>
+                    <input type="checkbox" name="all_results" value="{{ row.1 }}" 
+                    {% if row in filtered_results %} checked {% endif %} onchange="updateCheckedResults()">
+                    {{ row.1 }}
+                </label>
+            {% endfor %}
+        </div>
+        <h3>Para tu SubEspecializacion</h3>
+        <div class="checkbox-list">
+            {% for row in sub_esp %}
+                <label>
+                    <input type="checkbox" name="all_results" value="{{ row.1 }}" 
+                    {% if row in filtered_results %} checked {% endif %} onchange="updateCheckedResults()">
+                    {{ row.1 }}
+                </label>
+            {% endfor %}
+        </div>
+    </div>
+</form>
+
+<div id="checkedResults" class="checked-results">
+    <h3>Currently Selected:</h3>
+    <div class="bubble-container" id="bubbleContainer">
+        <!-- Bubbles will be dynamically added here -->
+    </div>
+</div>
+
+
 
 <div class="info-box">
     <h2>Información Adicional</h2>
     
     <div>
-        <h3>{{ estudiante.Nombres }} {{ estudiante.Apellidos }}</h3>
-        <h3>{{ carrera.Nombre }}</h3>
-        <h3>{{ semestre.Nombre }}</h3>
+        <h3><strong>Nombre:</strong>{{ estudiante.Nombres }} {{ estudiante.Apellidos }}</h3>
+        <h3><strong>Carrera:</strong>{{ carrera.Nombre }}</h3>
+        <h3><strong>Semestre:</strong>{{ semestre.Nombre }}</h3>
+        <h3><strong>SubEspecializacion:</strong>{{ subespec.nombre }}
+            <!-- Agrega el contenedor para el botón y la lista de subespecializaciones -->
+            <div class="subesp-container">
+                <!-- Botón para mostrar las subespecializaciones -->
+                <button class="subesp-button" onclick="toggleSubEspecializaciones()">Show Sub-Specializations</button>
+            
+                <!-- Contenedor para mostrar las subespecializaciones como un dropdown -->
+                <div id="subEspecializacionesList" class="dropdown-content" style="display: none;">
+                    {% for subesp in SubEspecializacion %}
+                        <div class="radio-option">
+                            <input type="radio" id="subesp{{ forloop.counter }}" name="subesp" value="{{ subesp.id }}">
+                            <label for="subesp{{ forloop.counter }}">{{ subesp.nombre }}</label>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </h3>
     </div>
 
-    <div>
-        <button class="cute-button" onclick="showTable()">Cursos para tu carrera</button>
-    </div>
-
-    <div class="table-container">
+    <div class="table-container" id="tableContainer">
         <table id="courseTable">
             <thead>
                 <tr>
@@ -268,9 +455,52 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Rows will be added through JavaScript -->
+                {% for asignatura in asignaturas %}
+                {% for filter_result in filtered_results %}
+                {% if asignatura.1 == filter_result.1 %}
+                <tr>
+                    <td>{{ asignatura.0 }}</td>
+                    <td>{{ asignatura.2 }}</td>
+                    <td>
+                        <div class="course-info">
+                            <span class="course-name">{{ asignatura.1 }}</span>
+                            <span><strong>Profesor:</strong> {{ asignatura.6 }}</span>
+                            <span><strong>Campus:</strong> {{ asignatura.7 }}</span>
+                            <span><strong>Día:</strong>{{ asignatura.4 }}</span>
+                            <span><strong>Horario:</strong> {{ asignatura.5 }}</span>
+                            <span><strong>Edificio:</strong> {{ asignatura.8 }}</span>
+                            <span><strong>Modalidad:</strong> {{ asignatura.3 }}</span>
+                        </div>
+                    </td>
+                    <td>{{ asignatura.11 }}</td>
+                    <td>
+                        <button class="info-button" 
+                            onclick="openCustomDialog('{{ asignatura.1 }}', '{{ asignatura.12 }}', '{{ asignatura.9 }}')"
+                            data-course="{{ asignatura.1 }}"
+                            data-college="{{ asignatura.12 }}"
+                            data-credits="{{ asignatura.9 }}">
+                            i
+                        </button>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
             </tbody>
         </table>
+    </div>
+
+    <!-- Custom Dialog -->
+    <div id="customDialog" class="custom-dialog" style="display: none;">
+        <div class="dialog-content">
+            <h2 id="dialogCourseName" style="text-align: center;"></h2>
+            <p><strong>Colegio:</strong> <span id="dialogCollege"></span></p>
+            <p><strong>Créditos:</strong> <span id="dialogCredits"></span></p>
+            <div class="dialog-buttons">
+                <button onclick="closeCustomDialog()">Cerrar</button>
+                <button onclick="enrollCourse()">Inscribir</button>
+            </div>
+        </div>
     </div>
 
     <div class="pagination">
@@ -281,14 +511,25 @@
 </div>
 
 <script>
-    const totalRows = parseInt('{{ total_keywords|default:"0" }}');
     const rowsPerPage = 10;
     let currentPage = 1;
+    const totalRows = document.querySelectorAll("#courseTable tbody tr").length; // Total de filas en la tabla
 
-    const campuses = ['Central', 'Norte', 'Sur', 'Este', 'Oeste'];
-    const days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'];
-    const buildings = ['A', 'B', 'C', 'D', 'E'];
-    const modalities = ['Presencial', 'Virtual', 'Híbrido'];
+    function loadTable(page) {
+        const startRow = (page - 1) * rowsPerPage;
+        const endRow = startRow + rowsPerPage;
+        const rows = document.querySelectorAll("#courseTable tbody tr");
+        
+        rows.forEach((row, index) => {
+            if (index >= startRow && index < endRow) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+        
+        updatePagination();
+    }
 
     function getRandomElement(array) {
         return array[Math.floor(Math.random() * array.length)];
@@ -300,52 +541,19 @@
         return `${hour}:${minute}`;
     }
 
-    function loadTable(page) {
-        const tableBody = document.getElementById('courseTable').getElementsByTagName('tbody')[0];
-        tableBody.innerHTML = ''; 
-
-        const start = (page - 1) * rowsPerPage;
-        const end = start + rowsPerPage;
-
-        for (let i = start + 1; i <= end && i <= totalRows; i++) {
-            const day = getRandomElement(days);
-            const startTime = getRandomTime();
-            const endTime = getRandomTime();
-            const row = `<tr>
-                            <td>COD${i.toString().padStart(3, '0')}</td>
-                            <td>NRC${Math.floor(Math.random() * 10000).toString().padStart(4, '0')}</td>
-                            <td>
-                                <div class="course-info">
-                                    <span class="course-name">Curso ${i}</span>
-                                    <span><strong>Profesor:</strong> Profesor ${i}</span>
-                                    <span><strong>Campus:</strong> ${getRandomElement(campuses)}</span>
-                                    <span><strong>Día - Horario:</strong> ${day} - ${startTime} a ${endTime}</span>
-                                    <span><strong>Edificio:</strong> Edificio ${getRandomElement(buildings)}</span>
-                                    <span><strong>Modalidad:</strong> ${getRandomElement(modalities)}</span>
-                                </div>
-                            </td>
-                            <td>${Math.floor(Math.random() * 30) + 10}</td>
-                            <td><button class="info-button" onclick="openDialog('Información del curso: ${i}')">+</button></td>
-                        </tr>`;
-            tableBody.insertAdjacentHTML('beforeend', row);
-        }
-
-        document.getElementById('pageInfo').textContent = `Página ${currentPage} de ${Math.ceil(totalRows / rowsPerPage)}`;
-        
-        document.getElementById('prevPage').style.display = currentPage === 1 ? 'none' : 'inline';
-        document.getElementById('nextPage').style.display = currentPage === Math.ceil(totalRows / rowsPerPage) ? 'none' : 'inline';
-    }
-
     function changePage(direction) {
+        const totalRows = document.querySelectorAll("#courseTable tbody tr").length;
+        const totalPages = Math.ceil(totalRows / rowsPerPage);
+        
         currentPage += direction;
+        if (currentPage < 1) currentPage = 1;
+        if (currentPage > totalPages) currentPage = totalPages;
+        
         loadTable(currentPage);
     }
 
-    function openDialog(info) {
-    const dialog = document.getElementById('infoDialog');
-    const dialogContent = document.getElementById('dialogContent');
-    dialogContent.innerHTML = info;
-    dialog.style.display = 'block';
+    function openDialog(message) {
+        alert(message);
     }
 
     let selectedCount = 0;
@@ -386,18 +594,135 @@
     function showTable() {
         document.getElementById('tableContainer').style.display = 'block';
     }
+    
+    function updateCourses() {
+        const form = document.getElementById('course-filter-form');
+        const formData = new FormData(form);
+        formData.append('update_filter', 'true');
+        
+        fetch('{% url "table" %}', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRFToken': formData.get('csrfmiddlewaretoken')
+            }
+        })
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('tableContainer').innerHTML = html;
+            currentPage = 1;  // Reset to first page
+            updatePagination();
+            loadTable(currentPage);  // Reload the table
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    function updatePagination() {
+        const totalRows = document.querySelectorAll("#courseTable tbody tr").length;
+        const totalPages = Math.ceil(totalRows / rowsPerPage);
+        
+        const prevButton = document.getElementById('prevPage');
+        const nextButton = document.getElementById('nextPage');
+        const pageInfo = document.getElementById('pageInfo');
+        
+        prevButton.style.display = currentPage > 1 ? 'inline' : 'none';
+        nextButton.style.display = currentPage < totalPages ? 'inline' : 'none';
+        pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+    }
+
+    function toggleResults() {
+        var resultsDropdown = document.getElementById('resultsDropdown');
+        var button = document.querySelector('.results-button');
+
+        if (resultsDropdown.style.display === 'block') {
+            resultsDropdown.style.display = 'none';
+            button.textContent = 'Show All Results';
+        } else {
+            resultsDropdown.style.display = 'block';
+            button.textContent = 'Hide All Results';
+        }
+    }
+
+    function updateCheckedResults() {
+        var checkboxes = document.querySelectorAll('input[name="all_results"]:checked');
+        var bubbleContainer = document.getElementById('bubbleContainer');
+        bubbleContainer.innerHTML = ''; // Clear existing bubbles
+
+        checkboxes.forEach(function(checkbox) {
+            var bubble = document.createElement('span');
+            bubble.className = 'result-bubble';
+            bubble.textContent = checkbox.value;
+            bubbleContainer.appendChild(bubble);
+        });
+    }
+
+    function openCustomDialog(courseName, college, credits) {
+        document.getElementById('dialogCourseName').textContent = courseName;
+        document.getElementById('dialogCollege').textContent = college;
+        document.getElementById('dialogCredits').textContent = credits;
+        document.getElementById('customDialog').style.display = 'flex';
+    }
+
+    function closeCustomDialog() {
+        document.getElementById('customDialog').style.display = 'none';
+    }
+
+    function enrollCourse() {
+        // Add your enrollment logic here
+        alert('Course enrolled!');
+        closeCustomDialog();
+    }
+
+    // Función para mostrar/ocultar el dropdown de subespecializaciones
+    function toggleSubEspecializaciones() {
+        var subEspecializacionesList = document.getElementById("subEspecializacionesList");
+        if (subEspecializacionesList.style.display === "none" || subEspecializacionesList.style.display === "") {
+            subEspecializacionesList.style.display = "block";
+        } else {
+            subEspecializacionesList.style.display = "none";
+        }
+    }
+
+    // Cerrar el dropdown si se hace clic fuera de él
+    window.onclick = function(event) {
+        if (!event.target.matches('.subesp-button')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.style.display === "block") {
+                    openDropdown.style.display = "none";
+                }
+            }
+        }
+    }
+
+    // Close the dialog when clicking outside of it
+    window.onclick = function(event) {
+        var dialog = document.getElementById('customDialog');
+        if (event.target == dialog) {
+            closeCustomDialog();
+        }
+    }
 
     function closeDialog() {
         const dialog = document.getElementById('infoDialog');
         dialog.style.display = 'none';
     }
 
-    loadTable(currentPage);
+        // Close the dropdown if the user clicks outside of it
+        window.addEventListener('click', function(e) {
+        if (!e.target.matches('.results-button') && !e.target.closest('.results-dropdown')) {
+            document.getElementById('resultsDropdown').style.display = 'none';
+        }
+    });
+
+    // Automatically update checked results on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        updateCheckedResults();
+        updatePagination();
+        loadTable(currentPage);
+    });
 </script>
-<div id="infoDialog" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2000; background-color: white; border: 2px solid gray; padding: 20px; max-width: 500px;">
-    <h2>Información del Curso</h2>
-    <p id="dialogContent"></p>
-    <button onclick="closeDialog()">Cerrar</button>
-</div>
 </body>
 </html>

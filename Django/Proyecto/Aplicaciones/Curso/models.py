@@ -74,6 +74,18 @@ class Semestre(models.Model):
     def __str__(self):
         return self.Nombre
 
+
+class SubEspecializacion(models.Model):
+    subesp_id = models.AutoField(primary_key=True)  # Identificador único
+    Colegio_id = models.IntegerField()  # FK del colegio, con eliminación en cascada
+    nombre = models.CharField(max_length=255)  # Nombre del minor
+
+    def __str__(self):
+        return self.nombre
+    
+    class Meta:
+        db_table = 'SubEspecializacion'
+
 class Estudiante(models.Model):
     Estudiante_id = models.IntegerField(primary_key=True)  # Identificador único del estudiante
     Nombres = models.CharField(max_length=255)  # Nombres del estudiante
@@ -82,6 +94,7 @@ class Estudiante(models.Model):
     Password = models.CharField(max_length=255)  # Contraseña del estudiante (se manejará cifrada)
     Carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE, default=1, db_column='Carrera_id')  # FK hacia la carrera
     Semestre = models.ForeignKey(Semestre, on_delete=models.CASCADE, default=1, db_column='Semestre_id')  # FK hacia el semestre
+    Subespecializacion = models.ForeignKey(SubEspecializacion, on_delete=models.CASCADE, default=1, db_column='SubEsp_id')  # FK hacia la subespecialización
 
     def __str__(self):
         return f'{self.Nombres} {self.Apellidos}'
@@ -110,14 +123,3 @@ class PalabraEstudiante(models.Model):
     
     class Meta:
         db_table = 'Palabra_Estudiante'
-
-class SubEspecializacion(models.Model):
-    subesp_id = models.AutoField(primary_key=True)  # Identificador único
-    Colegio_id = models.IntegerField()  # FK del colegio, con eliminación en cascada
-    nombre = models.CharField(max_length=255)  # Nombre del minor
-
-    def __str__(self):
-        return self.nombre
-    
-    class Meta:
-        db_table = 'SubEspecializacion'
