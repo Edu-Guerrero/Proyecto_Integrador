@@ -158,6 +158,16 @@ def table_User(request):
             keyword_instance = KeyWords.objects.get(keyword_id=id)
             PalabraEstudiante.objects.create(estudiante=estudiante, keyword=keyword_instance)
 
+    if request.method == 'POST' and 'saveSub' in request.POST:
+        subesp_id = request.POST.get('subesp')
+        print(subesp_id)
+        if subesp_id:
+            subesp = SubEspecializacion.objects.get(subesp_id=subesp_id)
+            estudiante.Subespecializacion = subesp
+        else:
+            estudiante.Subespecializacion = None
+        estudiante.save()
+
     # Obtener el nombre de la carrera y del semestre si el estudiante existe
     carrera = estudiante.Carrera if estudiante else None
     semestre = estudiante.Semestre if estudiante else None
@@ -210,7 +220,64 @@ def table_User(request):
             cursor.callproc('verCursos', [row[3]])
             result = cursor.fetchall()
             asignaturas.extend(result)
+
     
+    prereq = []
+    coreq = []
+    restr = []
+    cumplePre = []
+    cumpleRest = []
+
+    for row in results_2:
+        with connection.cursor() as cursor:
+            cursor.callproc('ObtenerDetallesAsignatura', [row[0]])
+            prereq.extend(cursor.fetchall())
+
+    for row in results_2:
+        with connection.cursor() as cursor:
+            cursor.callproc('ObtenerCorrequisitos', [row[0]])
+            coreq.extend(cursor.fetchall())
+
+    for row in results_2:
+        with connection.cursor() as cursor:
+            cursor.callproc('ObtenerInformacionAsignatura', [row[0]])
+            restr.extend(cursor.fetchall())
+
+    for row in results_2:
+        with connection.cursor() as cursor:
+            cursor.callproc('VerificarPrerrequisitos', [estudiante.Estudiante_id, row[0]])
+            cumplePre.extend(cursor.fetchall())
+
+    for row in results_2:
+        with connection.cursor() as cursor:
+            cursor.callproc('VerificarRestriccionesEstudiante', [estudiante.Estudiante_id, row[0]])
+            cumpleRest.extend(cursor.fetchall())
+    
+    for row in subEsP:
+        with connection.cursor() as cursor:
+            cursor.callproc('ObtenerDetallesAsignatura', [row[3]])
+            prereq.extend(cursor.fetchall())
+
+    for row in subEsP:
+        with connection.cursor() as cursor:
+            cursor.callproc('ObtenerCorrequisitos', [row[3]])
+            coreq.extend(cursor.fetchall())
+
+    for row in subEsP:
+        with connection.cursor() as cursor:
+            cursor.callproc('ObtenerInformacionAsignatura', [row[3]])
+            restr.extend(cursor.fetchall())
+
+    for row in subEsP:
+        with connection.cursor() as cursor:
+            cursor.callproc('VerificarPrerrequisitos', [estudiante.Estudiante_id, row[3]])
+            cumplePre.extend(cursor.fetchall())
+
+    for row in subEsP:
+        with connection.cursor() as cursor:
+            cursor.callproc('VerificarRestriccionesEstudiante', [estudiante.Estudiante_id, row[3]])
+            cumpleRest.extend(cursor.fetchall())
+
     if request.method == 'POST' and 'update_filter' in request.POST:
         selected_courses = request.POST.getlist('all_results')
         print(selected_courses)
@@ -223,6 +290,7 @@ def table_User(request):
                     cursor.callproc('verCursos', [row[0]])
                     result = cursor.fetchall()
                     asignaturas.extend(result)
+                    cursor.close()
 
         for row in subEsP:
             if row[1] in selected_courses:
@@ -230,10 +298,15 @@ def table_User(request):
                     cursor.callproc('verCursos', [row[3]])
                     result = cursor.fetchall()
                     asignaturas.extend(result)
-
+                    cursor.close()
         context = {
             'filtered_results': selected_courses,
             'asignaturas': asignaturas,
+            'prereq': prereq,
+            'coreq': coreq,
+            'restr': restr,
+            'cumplePre': cumplePre,
+            'cumpleRest': cumpleRest
         }
 
         if request.headers.get('x-requested-with') == 'XMLHttpRequest':
@@ -259,6 +332,11 @@ def table_User(request):
         'sub_esp': subEsP,
         'SubEspecializacion': Minors,
         'selected_keywords': selected_keywords,  # Pasar los IDs de las palabras clave seleccionadas
+        'prereq': prereq,
+        'coreq': coreq,
+        'restr': restr,
+        'cumplePre': cumplePre,
+        'cumpleRest': cumpleRest
     }
 
     # Renderizar el template con la lista de estudiantes

@@ -308,7 +308,7 @@
         .dropdown-content {
             position: absolute;
             background-color: white;
-            min-width: 200px;
+            min-width: 400px;
             box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
             z-index: 1;
             padding: 10px;
@@ -333,6 +333,36 @@
         /* Cambiar el estilo del botón al abrir el dropdown */
         .subesp-button:focus {
             background-color: #f1f1f1;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-left: 10px;
+        }
+
+        .subesp-button, .save-info-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .subesp-button:hover, .save-info-button:hover {
+            background-color: #0056b3;
+        }
+
+        .save-info-button {
+            background-color: #28a745;  /* Different color for the save button */
+        }
+
+        .save-info-button:hover {
+            background-color: #218838;
         }
     </style>
 </head>
@@ -429,16 +459,21 @@
             <div class="subesp-container">
                 <!-- Botón para mostrar las subespecializaciones -->
                 <button class="subesp-button" onclick="toggleSubEspecializaciones()">Show Sub-Specializations</button>
-            
                 <!-- Contenedor para mostrar las subespecializaciones como un dropdown -->
+                <form id="saveSub" method="POST">
+                {% csrf_token %}
                 <div id="subEspecializacionesList" class="dropdown-content" style="display: none;">
                     {% for subesp in SubEspecializacion %}
                         <div class="radio-option">
-                            <input type="radio" id="subesp{{ forloop.counter }}" name="subesp" value="{{ subesp.id }}">
+                            <input type="radio" id="subesp{{ forloop.counter }}" name="subesp" value="{{ subesp.subesp_id }}"
+                            onclick="handleRadioClick(this)"
+                            {% if subesp.nombre == subespec.nombre %}checked{% endif %}>
                             <label for="subesp{{ forloop.counter }}">{{ subesp.nombre }}</label>
                         </div>
                     {% endfor %}
                 </div>
+                <button class="save-info-button" name="saveSub" onclick="saveInformation()">Guardar Información</button>
+                </form>
             </div>
         </h3>
     </div>
@@ -474,12 +509,20 @@
                     </td>
                     <td>{{ asignatura.11 }}</td>
                     <td>
+                        
                         <button class="info-button" 
-                            onclick="openCustomDialog('{{ asignatura.1 }}', '{{ asignatura.12 }}', '{{ asignatura.9 }}')"
+                            onclick="openCustomDialog('{{ asignatura.1 }}', '{{ asignatura.12 }}', '{{ asignatura.9 }}', 
+                            '{% for requisito in prereq %}{% if requisito.0 == asignatura.10 %}{{ requisito.3 }}{% endif %}{% endfor %}',
+                            '{% for requisito in coreq %}{% if requisito.0 == asignatura.1 %}{{ requisito.1 }}{% endif %}{% endfor %}',
+                            '{% for restriccion in restr %}{% if restriccion.0 == asignatura.1 %}{{ restriccion.1 }}{% endif %}{% endfor %}',
+                            '{% for restriccion in restr %}{% if restriccion.0 == asignatura.1 %}{{ restriccion.2 }}{% endif %}{% endfor %}',
+                            '{% for restriccion in restr %}{% if restriccion.0 == asignatura.1 %}{{ restriccion.3 }}{% endif %}{% endfor %}',
+                            '{% for cumpleP in cumplePre %}{% if cumpleP.1 == asignatura.10 %}{{ cumpleP.0 }}{% endif %}{% endfor %}',
+                            '{% for cumpleR in cumpleRest %}{% if cumpleR.1 == asignatura.10 %}{{ cumpleR.0 }}{% endif %}{% endfor %}')"
                             data-course="{{ asignatura.1 }}"
                             data-college="{{ asignatura.12 }}"
                             data-credits="{{ asignatura.9 }}">
-                            i
+                            +
                         </button>
                     </td>
                 </tr>
@@ -496,9 +539,13 @@
             <h2 id="dialogCourseName" style="text-align: center;"></h2>
             <p><strong>Colegio:</strong> <span id="dialogCollege"></span></p>
             <p><strong>Créditos:</strong> <span id="dialogCredits"></span></p>
-            <div class="dialog-buttons">
-                <button onclick="closeCustomDialog()">Cerrar</button>
-                <button onclick="enrollCourse()">Inscribir</button>
+            <p><strong>Prerrequisitos:</strong> <span id="dialogPrerrequisites"></span></p>
+            <p><strong>Correquisitos:</strong> <span id="dialogCorrequisites"></span></p>
+            <p><strong>Restricción de Carrera:</strong> <span id="dialogCarreraRest"></span></p>
+            <p><strong>Restricción de Colegio:</strong> <span id="dialogColegioRest"></span></p>
+            <p><strong>Restricción de Semestre:</strong> <span id="dialogSemestreRest"></span></p>
+            <p><span id="dialogAlertaPrereq"></span></p>
+            <p><span id="dialogAlertaRest"></span></p>
             </div>
         </div>
     </div>
@@ -600,7 +647,7 @@
         const formData = new FormData(form);
         formData.append('update_filter', 'true');
         
-        fetch('{% url "table" %}', {
+        fetch('{% url "table_user" %}', {
             method: 'POST',
             body: formData,
             headers: {
@@ -657,15 +704,69 @@
         });
     }
 
-    function openCustomDialog(courseName, college, credits) {
+    function openCustomDialog(courseName, college, credits, prerreq, correq, carr, coleg, semes, cumpleP, cumpleR) {
         document.getElementById('dialogCourseName').textContent = courseName;
         document.getElementById('dialogCollege').textContent = college;
         document.getElementById('dialogCredits').textContent = credits;
+        if (prerreq == '') {
+            document.getElementById('dialogPrerrequisites').textContent = "No existen prerrequisitos";
+        }
+        else {
+            document.getElementById('dialogPrerrequisites').textContent = prerreq;
+        }
+
+        if (correq == '') {
+            document.getElementById('dialogCorrequisites').textContent = "No existen correquisitos";
+        }
+        else {
+            document.getElementById('dialogCorrequisites').textContent = correq;
+        }
+
+        if (carr == '' || carr == 'None') {
+            document.getElementById('dialogCarreraRest').textContent = "No hay restricciones de carrera";
+        }
+        else {
+            document.getElementById('dialogCarreraRest').textContent = carr;
+        }
+
+        if (coleg == '' || coleg == 'None') {
+            document.getElementById('dialogColegioRest').textContent = "No hay restricciones de colegio";
+        }
+        else {
+            document.getElementById('dialogColegioRest').textContent = coleg;
+        }
+
+        if (semes == '' || semes == 'None') {
+            document.getElementById('dialogSemestreRest').textContent = "No hay restricciones de semestre";
+        }
+        else {
+            document.getElementById('dialogSemestreRest').textContent = semes;
+        }
+
+        if (cumpleP == 'Cumple con los prerrequisitos') {
+            document.getElementById('dialogAlertaPrereq').textContent = "Si cumple los prerrequisitos";
+        }
+        else {
+            document.getElementById('dialogAlertaPrereq').innerHTML = "<span style='color: red;'>No se cumple con los prerrequisitos</span>";
+        }
+
+        if (cumpleR == 'El estudiante cumple con todas las restricciones para tomar la asignatura.') {
+            document.getElementById('dialogAlertaRest').textContent = "Si cumple con las restricciones";
+        }
+        else {
+            document.getElementById('dialogAlertaRest').innerHTML = "<span style='color: red;'>No se cumple con las restricciones</span>";
+        }
+
         document.getElementById('customDialog').style.display = 'flex';
     }
 
     function closeCustomDialog() {
         document.getElementById('customDialog').style.display = 'none';
+    }
+
+    function showRequisites() {
+        // Aquí puedes reemplazar los prerrequisitos con los datos obtenidos desde el servidor o hardcoded
+        code = document.getElementById('dialogCourseName').textContent;
     }
 
     function enrollCourse() {
@@ -708,6 +809,19 @@
     function closeDialog() {
         const dialog = document.getElementById('infoDialog');
         dialog.style.display = 'none';
+    }
+
+    let previousRadio = document.querySelector('input[name="subesp"]:checked');
+
+    function handleRadioClick(radioButton) {
+        if (previousRadio === radioButton) {
+            // If clicking the same radio button that was already checked
+            radioButton.checked = false;
+            previousRadio = null;
+        } else {
+            // If clicking a different radio button
+            previousRadio = radioButton;
+        }
     }
 
         // Close the dropdown if the user clicks outside of it

@@ -27,11 +27,18 @@
             <td>{{ asignatura.11 }}</td>
             <td>
                 <button class="info-button" 
-                    onclick="openCustomDialog('{{ asignatura.1 }}', '{{ asignatura.12 }}', '{{ asignatura.9 }}')"
+                    onclick="openCustomDialog('{{ asignatura.1 }}', '{{ asignatura.12 }}', '{{ asignatura.9 }}', 
+                    '{% for requisito in prereq %}{% if requisito.0 == asignatura.10 %}{{ requisito.3 }}{% endif %}{% endfor %}',
+                    '{% for requisito in coreq %}{% if requisito.0 == asignatura.1 %}{{ requisito.1 }}{% endif %}{% endfor %}',
+                    '{% for restriccion in restr %}{% if restriccion.0 == asignatura.1 %}{{ restriccion.1 }}{% endif %}{% endfor %}',
+                    '{% for restriccion in restr %}{% if restriccion.0 == asignatura.1 %}{{ restriccion.2 }}{% endif %}{% endfor %}',
+                    '{% for restriccion in restr %}{% if restriccion.0 == asignatura.1 %}{{ restriccion.3 }}{% endif %}{% endfor %}',
+                    '{% for cumpleP in cumplePre %}{% if cumpleP.1 == asignatura.10 %}{{ cumpleP.0 }}{% endif %}{% endfor %}',
+                    '{% for cumpleR in cumpleRest %}{% if cumpleR.1 == asignatura.10 %}{{ cumpleR.0 }}{% endif %}{% endfor %}')"
                     data-course="{{ asignatura.1 }}"
                     data-college="{{ asignatura.12 }}"
                     data-credits="{{ asignatura.9 }}">
-                    i
+                    +
                 </button>
             </td>
         </tr>
@@ -40,10 +47,54 @@
 </table>
 
 <script>
-    function openCustomDialog(courseName, college, credits) {
-            document.getElementById('dialogCourseName').textContent = courseName;
-            document.getElementById('dialogCollege').textContent = college;
-            document.getElementById('dialogCredits').textContent = credits;
-            document.getElementById('customDialog').style.display = 'flex';
+    function openCustomDialog(courseName, college, credits, prerreq, correq, carr, coleg, semes) {
+        document.getElementById('dialogCourseName').textContent = courseName;
+        document.getElementById('dialogCollege').textContent = college;
+        document.getElementById('dialogCredits').textContent = credits;
+        if (prerreq == '') {
+            document.getElementById('dialogPrerrequisites').textContent = "No existen prerrequisitos";
         }
+        else {
+            document.getElementById('dialogPrerrequisites').textContent = prerreq;
+        }
+        if (correq == '') {
+            document.getElementById('dialogCorrequisites').textContent = "No existen correquisitos";
+        }
+        else {
+            document.getElementById('dialogCorrequisites').textContent = correq;
+        }
+        if (carr == '' || carr == 'None') {
+            document.getElementById('dialogCarreraRest').textContent = "No hay restricciones de carrera";
+        }
+        else {
+            document.getElementById('dialogCarreraRest').textContent = carr;
+        }
+        if (coleg == '' || coleg == 'None') {
+            document.getElementById('dialogColegioRest').textContent = "No hay restricciones de colegio";
+        }
+        else {
+            document.getElementById('dialogColegioRest').textContent = coleg;
+        }
+        if (semes == '' || semes == 'None') {
+            document.getElementById('dialogSemestreRest').textContent = "No hay restricciones de semestre";
+        }
+        else {
+            document.getElementById('dialogSemestreRest').textContent = semes;
+        }
+
+        if (cumpleP == 'Cumple con los prerrequisitos') {
+            document.getElementById('dialogAlertaPrereq').textContent = "Si cumple los prerrequisitos";
+        }
+        else {
+            document.getElementById('dialogAlertaPrereq').innerHTML = "<span style='color: red;'>No se cumple con los prerrequisitos</span>";
+        }
+
+        if (cumpleR == 'El estudiante cumple con todas las restricciones para tomar la asignatura.') {
+            document.getElementById('dialogAlertaRest').textContent = "Si cumple con las restricciones";
+        }
+        else {
+            document.getElementById('dialogAlertaRest').innerHTML = "<span style='color: red;'>No se cumple con las restricciones</span>";
+        }
+        document.getElementById('customDialog').style.display = 'flex';
+    }
 </script>
