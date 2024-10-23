@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscador de Cursos</title>
@@ -15,22 +16,24 @@
             overflow-y: auto;
         }
         .banner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: gray;
-            padding: 10px 20px;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            box-sizing: border-box;
-        }
-        .banner h1 {
-            margin: 0;
-            color: white;
-        }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #9B0000;    /* Darker red for main background */
+    padding: 10px 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+    border-bottom: 1px solid #750000;  /* Even darker red for border */
+}
+
+.banner h1 {
+    margin: 0;
+    color: #FFFFFF;
+}
         .user-info {
             display: flex;
             align-items: center;
@@ -40,14 +43,11 @@
             font-size: 1.2em;
         }
         .logout-button {
-            background-color: red;
-            color: white;
-            border: none;
+            background-color: #ED1C24; /* Updated background color */
+            color: #FFFFFF;           /* Text color */
+            border: 1px solid #C41B1E;
             padding: 10px 20px;
             cursor: pointer;
-        }
-        .logout-button:hover {
-            background-color: darkred;
         }
         .info-box {
             padding: 20px;
@@ -91,18 +91,18 @@
             display: flex;
             justify-content: center;
             gap: 15px;
+            padding-bottom: 15px;
         }
+
         .pagination button {
             padding: 10px 15px;
-            border: none;
-            background-color: #007bff;
-            color: white;
+            background-color: #ED1C24; /* Updated background color */
+            color: #FFFFFF;           /* Text color */
+            border: 1px solid #C41B1E;
             cursor: pointer;
             border-radius: 5px;
         }
-        .pagination button:hover {
-            background-color: #0056b3;
-        }
+
         .course-info {
             display: flex;
             flex-direction: column;
@@ -116,18 +116,10 @@
             margin-bottom: 10px;
         }
         .keyword-container {
-            position: fixed;
+            position: absolute;
             top: 70px;
             right: 20px;
-            z-index: 1000;
-        }
-        .keyword-button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
+            padding-left: 15px;    /* Padding to push bubbles to the right */
         }
         .keyword-dropdown {
             display: none;
@@ -140,7 +132,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             padding: 10px;
             width: 200px;
-            max-height: 110px; /* Adjust height to show 10 items at once */
+            max-height: 150px; /* Adjust height to show 10 items at once */
             overflow-y: auto; /* Add scrollbar */
         }
         .keyword-dropdown label {
@@ -151,53 +143,26 @@
         .keyword-button {
         cursor: pointer; /* Pointer cursor for button */
         }
-        .cute-button {
-        background-color: #4CAF50; /* Green background */
-        border: none; /* No border */
-        color: white; /* White text */
-        padding: 10px 20px; /* Padding for a nice size */
-        text-align: center; /* Centered text */
-        text-decoration: none; /* No underline */
-        display: inline-block; /* Inline block to fit content */
-        font-size: 16px; /* Font size */
-        margin: 4px 2px; /* Margin for spacing */
-        transition-duration: 0.4s; /* Transition for hover effects */
-        cursor: pointer; /* Pointer cursor on hover */
-        border-radius: 8px; /* Rounded corners */
-        }
 
-        /* Hover effect */
-        .cute-button:hover {
-            background-color: white; /* Change background on hover */
-            color: #4CAF50; /* Change text color on hover */
-            border: 0.5px solid #4CAF50; /* Add border on hover */
-        }
-
-        .save-keywords-button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-        .save-keywords-button:hover {
-            background-color: #45a049;
-        }
         .selected-keywords {
         margin-top: 10px; /* Adjust based on your layout */
         display: flex;
         flex-wrap: wrap;
         gap: 5px;
+        padding-top: 10px;
+        padding-left: 15px;    /* Padding to push bubbles to the right */
         }
 
         .keyword-bubble {
-        background-color: #e0e0e0;
-        border-radius: 15px;
-        padding: 5px 10px;
-        font-size: 14px;
-        display: inline-block;
+            background-color: #1A1A1A; /* Background color matching the palette */
+            color: #FFFFFF;            /* Text color */
+            border: 1px solid #000000; /* Matching border color */
+            border-radius: 15px;       /* Rounded corners for the bubble shape */
+            padding: 5px 10px;         /* Padding for a nice bubble size */
+            font-size: 14px;           /* Font size */
+            margin-right: 5px;         /* Space between bubbles */
+            display: inline-block;      /* Ensure it remains a bubble-like element */
+            
         }
 
         .results{
@@ -217,8 +182,33 @@
             display: block;
         }
 
-        .results-button {
-        margin-top: 10px;
+        .results-button, .subesp-button, .save-info-button, .actualizar-button, .keyword-button, .save-keywords-button {
+            background-color: #ED1C24;
+            color: #FFFFFF;
+            border: 1px solid #C41B1E;
+            padding: 8px 16px;        /* Reduced padding */
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 14px;         /* Control text size */
+            line-height: 1.4;        /* Control line height */
+            width: auto;             /* Prevent stretching */
+            height: auto;            /* Prevent stretching */
+            display: inline-block;   /* Prevent full-width behavior */
+            min-width: unset;        /* Override any minimum width */
+            max-width: none;         /* Override any maximum width */
+        }
+
+        .results-button:hover, 
+        .subesp-button:hover, 
+        .save-info-button:hover, 
+        .actualizar-button:hover, 
+        .keyword-button:hover, 
+        .save-keywords-button:hover,
+        .logout-button:hover {
+            background-color: #9B0000;    /* Darker red on hover */
+            border: 1px solid #750000;    /* Darker border on hover */
+            transition: all 0.3s ease;    /* Smooth transition for both background and border */
         }
 
         .results-dropdown {
@@ -231,7 +221,7 @@
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 5px;
-        max-height: 210px; /* Adjust height to show 10 items at once */
+        max-height: 260px; /* Adjust height to show 10 items at once */
         overflow-y: auto; /* Add scrollbar */
         }
 
@@ -249,23 +239,28 @@
         .checkbox-list input[type="checkbox"] {
             margin-right: 10px;
         }
+        
         .bubble-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
         }
 
         .result-bubble {
-            background-color: #e0e0e0;
-            border-radius: 15px;
-            padding: 5px 10px;
-            font-size: 14px;
-            display: inline-block;
+            background-color: #000000;  /* Black background */
+            color: #FFFFFF;             /* White text */
+            border: 1px solid #1A1A1A;  /* Darker black border */
+            border-radius: 15px;        /* Rounded corners for the bubble shape */
+            padding: 5px 10px;          /* Padding for a nice bubble size */
+            font-size: 14px;            /* Font size */
+            margin-right: 5px;          /* Space between bubbles */
+            display: inline-block;      /* Ensure it remains a bubble-like element */
         }
 
         .checked-results {
             margin-top: 20px;
+            padding-left: 20px;
         }
         .custom-dialog {
             display: none;
@@ -288,17 +283,6 @@
             border-radius: 5px;
         }
 
-        .dialog-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-
-        .dialog-buttons button {
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-
         .subesp-container {
             position: relative;
             display: inline-block;
@@ -313,7 +297,7 @@
             z-index: 1;
             padding: 10px;
             border: 1px solid #ddd;
-            max-height: 210px; /* Adjust height to show 10 items at once */
+            max-height: 250px; /* Adjust height to show 10 items at once */
             overflow-y: auto; /* Add scrollbar */
         }
 
@@ -330,40 +314,13 @@
             cursor: pointer;
         }
 
-        /* Cambiar el estilo del botón al abrir el dropdown */
-        .subesp-button:focus {
-            background-color: #f1f1f1;
-        }
-
         .button-group {
             display: flex;
-            gap: 10px;
+            gap: 20px;
             align-items: center;
-            margin-left: 10px;
+            padding-left: 20px;
         }
 
-        .subesp-button, .save-info-button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background-color 0.3s;
-        }
-
-        .subesp-button:hover, .save-info-button:hover {
-            background-color: #0056b3;
-        }
-
-        .save-info-button {
-            background-color: #28a745;  /* Different color for the save button */
-        }
-
-        .save-info-button:hover {
-            background-color: #218838;
-        }
     </style>
 </head>
 <body>
@@ -407,48 +364,8 @@
     {% endfor %}
 </div>
 
-<!-- Button to toggle between filtered results and all results -->
-<button class="results-button" type="button" onclick="toggleResults()">Show All Results</button>
-
-<form id="course-filter-form" method="POST" action="{% url 'table_user' %}">
-    {% csrf_token %}
-    <button type="button" id="ActualizarCursos" name="update_filter" onclick="updateCourses()">Actualizar Cursos</button>
-    <!-- Results list for all results -->
-    <div class="results-dropdown" id="resultsDropdown">
-        <h3>Para tu Carrera:</h3>
-        <div class="checkbox-list">
-            {% for row in results %}
-                <label>
-                    <input type="checkbox" name="all_results" value="{{ row.1 }}" 
-                    {% if row in filtered_results %} checked {% endif %} onchange="updateCheckedResults()">
-                    {{ row.1 }}
-                </label>
-            {% endfor %}
-        </div>
-        <h3>Para tu SubEspecializacion</h3>
-        <div class="checkbox-list">
-            {% for row in sub_esp %}
-                <label>
-                    <input type="checkbox" name="all_results" value="{{ row.1 }}" 
-                    {% if row in filtered_results %} checked {% endif %} onchange="updateCheckedResults()">
-                    {{ row.1 }}
-                </label>
-            {% endfor %}
-        </div>
-    </div>
-</form>
-
-<div id="checkedResults" class="checked-results">
-    <h3>Currently Selected:</h3>
-    <div class="bubble-container" id="bubbleContainer">
-        <!-- Bubbles will be dynamically added here -->
-    </div>
-</div>
-
-
-
 <div class="info-box">
-    <h2>Información Adicional</h2>
+    <h2>Tu Información</h2>
     
     <div>
         <h3><strong>Nombre:</strong>{{ estudiante.Nombres }} {{ estudiante.Apellidos }}</h3>
@@ -458,6 +375,7 @@
             <!-- Agrega el contenedor para el botón y la lista de subespecializaciones -->
             <div class="subesp-container">
                 <!-- Botón para mostrar las subespecializaciones -->
+                <div class="button-group">
                 <button class="subesp-button" onclick="toggleSubEspecializaciones()">Show Sub-Specializations</button>
                 <!-- Contenedor para mostrar las subespecializaciones como un dropdown -->
                 <form id="saveSub" method="POST">
@@ -474,10 +392,52 @@
                 </div>
                 <button class="save-info-button" name="saveSub" onclick="saveInformation()">Guardar Información</button>
                 </form>
+                </div>
             </div>
         </h3>
     </div>
+</div>
 
+<div class="button-group">
+    <button class="results-button" type="button" onclick="toggleResults()">Otros Cursos</button>
+
+    <form id="course-filter-form" method="POST" action="{% url 'table_user' %}">
+        {% csrf_token %}
+        <button type="button" class="actualizar-button"  id="ActualizarCursos" name="update_filter" onclick="updateCourses()">Actualizar</button>
+        <!-- Results list for all results -->
+        <div class="results-dropdown" id="resultsDropdown">
+            <h3>Para tu Carrera:</h3>
+            <div class="checkbox-list">
+                {% for row in results %}
+                    <label>
+                        <input type="checkbox" name="all_results" value="{{ row.1 }}" 
+                        {% if row in filtered_results %} checked {% endif %} onchange="updateCheckedResults()">
+                        {{ row.1 }}
+                    </label>
+                {% endfor %}
+            </div>
+            <h3>Para tu SubEspecializacion</h3>
+            <div class="checkbox-list">
+                {% for row in sub_esp %}
+                    <label>
+                        <input type="checkbox" name="all_results" value="{{ row.1 }}" 
+                        {% if row in filtered_results %} checked {% endif %} onchange="updateCheckedResults()">
+                        {{ row.1 }}
+                    </label>
+                {% endfor %}
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="checkedResults" class="checked-results">
+    <h3>Currently Selected:</h3>
+    <div class="bubble-container" id="bubbleContainer">
+        <!-- Bubbles will be dynamically added here -->
+    </div>
+</div>
+
+<div class="info-box">
     <div class="table-container" id="tableContainer">
         <table id="courseTable">
             <thead>
@@ -684,10 +644,9 @@
 
         if (resultsDropdown.style.display === 'block') {
             resultsDropdown.style.display = 'none';
-            button.textContent = 'Show All Results';
-        } else {
+        } 
+        else {
             resultsDropdown.style.display = 'block';
-            button.textContent = 'Hide All Results';
         }
     }
 
