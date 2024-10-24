@@ -1,6 +1,5 @@
 -- Active: 1726172189649@@127.0.0.1@3306@proyectointegrador
 DROP DATABASE IF EXISTS ProyectoIntegrador;
-#BD LOGROS COLECCIONABLES
 -- Crear la base de datos
 CREATE DATABASE IF NOT EXISTS ProyectoIntegrador;
 USE ProyectoIntegrador;
@@ -136,7 +135,7 @@ CREATE TABLE Estudiante (
     Nombres VARCHAR(255) NOT NULL,      -- Nombres del estudiante
     Apellidos VARCHAR(255) NOT NULL,    -- Apellidos del estudiante
     Correo VARCHAR(255) NOT NULL,       -- Correo institucional
-    Contraseña VARCHAR(255) NOT NULL,   -- Contraseña del estudiante
+    Password VARCHAR(255) NOT NULL,   -- Contraseña del estudiante
     Carrera_id INT NOT NULL, 
     Semestre_id INT NOT NULL,
     SubEsp_id INT NULL,

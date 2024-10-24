@@ -43,6 +43,7 @@ BEGIN
         -- Common Table Expression (CTE) for MateriasRestantes
         WITH MateriasRestantes AS (
             SELECT 
+				a.Asignatura_id AS 'Asignatura_id',  -- Agregar el ID de la asignatura
                 a.Nombre AS 'Nombre Asignatura',
                 CONCAT(c.Abreviatura, '-', a.Numero) AS 'Codigo Asignatura',
                 a.Creditos AS 'Numero de Creditos',
@@ -69,6 +70,7 @@ BEGIN
                 AND ka.Asignatura_id IS NULL
             UNION ALL
             SELECT
+				NULL AS 'Asignatura_id',  -- Agregar un valor nulo para coincidir con la cantidad de columnas
                 CASE 
                     WHEN me.Optativa = 1 THEN 'Optativa'
                     WHEN me.Electiva = 1 THEN 'Electiva'
@@ -187,10 +189,12 @@ BEGIN
     SELECT *
     FROM (
         SELECT 
+			mr.Asignatura_id,  -- Agregar aquí el ID de la asignatura
             mr.`Nombre Asignatura`,
             mr.`Codigo Asignatura`,
             mr.`Numero de Creditos`,
             mr.Semestre,
+            mr.Semestre_id,
             CASE 
                 WHEN mr.`Nombre Asignatura` = 'Electiva' THEN
                     CASE
@@ -224,7 +228,7 @@ BEGIN
     WHERE
         Estado = 'No Tomada' -- Filtrar resultados
     ORDER BY
-        Semestre;
+        Semestre_id;
 
     SET @tomadasElec := NULL; -- Resetear la variable después de la consulta si es necesario
     SET @tomadasOpt := NULL; -- Resetear la variable después de la consulta si es necesario
@@ -365,7 +369,8 @@ BEGIN
         CASE 
             WHEN COUNT(p.Dependencia_id) = 0 THEN 'Cumple con los prerrequisitos'
             ELSE 'No cumple con los prerrequisitos'
-        END AS Estado
+        END AS Estado,
+        p_Asignatura_id AS `Asignatura_id`
     FROM 
         Asignatura a
     JOIN 
@@ -455,7 +460,6 @@ BEGIN
     DECLARE estudianteCarrera INT;
     DECLARE estudianteColegio INT;
     DECLARE estudianteSemestre INT;
-
     -- Obtener la carrera, colegio y semestre del estudiante
     SELECT 
         c.Carrera_id, 
@@ -475,7 +479,6 @@ BEGIN
         Semestre s ON e.Semestre_id = s.Semestre_id
     WHERE 
         e.Estudiante_id = estudianteID;
-
     -- Verificar si la asignatura tiene restricciones
     IF EXISTS (
         SELECT 1
@@ -492,7 +495,6 @@ BEGIN
         ) THEN
             SET cumple = FALSE;
         END IF;
-
         -- Verificar si el estudiante cumple con las restricciones de colegio
         IF EXISTS (
             SELECT 1
@@ -503,7 +505,6 @@ BEGIN
         ) THEN
             SET cumple = FALSE;
         END IF;
-
         -- Verificar si el estudiante cumple con la restricción de semestre
         IF EXISTS (
             SELECT 1
@@ -515,14 +516,14 @@ BEGIN
             SET cumple = FALSE;
         END IF;
     END IF;
-
     -- Mostrar si el estudiante cumple con las restricciones o no
     IF cumple THEN
-        SELECT 'El estudiante cumple con todas las restricciones para tomar la asignatura.' AS Resultado;
+        SELECT 'El estudiante cumple con todas las restricciones para tomar la asignatura.' AS Resultado,
+        asignaturaID AS Asignatura_id;
     ELSE
-        SELECT 'El estudiante NO cumple con las restricciones para tomar la asignatura.' AS Resultado;
+        SELECT 'El estudiante NO cumple con las restricciones para tomar la asignatura.' AS Resultado,
+        asignaturaID AS Asignatura_id;
     END IF;
-
 END //
 
 DELIMITER ;
@@ -660,8 +661,11 @@ BEGIN
         h.`Hora` AS `Schedule`,
         p.Nombre AS `Professor`,
         ca.Nombre AS `Campus`,
-        CONCAT(edf.Nombre, ' ', cu.Aula) AS `Location`,
-        a.`Creditos` AS `Credits`
+        CONCAT(edf.Abreviatura, '-', cu.Aula) AS `Location`,
+        a.`Creditos` AS `Credits`,
+        a.`Asignatura_id`,
+        cu.`Cupo` AS `Cupos`,
+        co.Nombre AS `Colegio`
     FROM
         Asignatura a
     JOIN
@@ -682,6 +686,8 @@ BEGIN
         dias_asignatura da ON cu.curso_id = da.Curso_id
     JOIN
         Dias d ON da.Dia_id = d.Dia_id
+	JOIN
+		Colegio co ON co.Colegio_id = c.Colegio_id
     WHERE
         a.`Asignatura_id` = asignaturaId
     GROUP BY
@@ -723,7 +729,8 @@ BEGIN
     SELECT 
         CONCAT(c.Abreviatura, ' ', a.Numero) AS Clave,
         a.Nombre AS Asignatura, 
-        a.Creditos AS Creditos
+        a.Creditos AS Creditos,
+        a.Asignatura_id AS AsignaturaID
     FROM
         subespecializacion se 
     JOIN

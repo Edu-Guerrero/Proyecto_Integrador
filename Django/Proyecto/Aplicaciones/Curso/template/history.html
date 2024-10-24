@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de asignaturas</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding-top: 100px; /* Keep the top padding for the fixed banner */
+            min-height: 100vh; /* Use min-height instead of fixed height */
+            overflow-y: auto;
+        }
+        
+        .banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #9B0000;
+            padding: 10px 20px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+            border-bottom: 1px solid #750000;
+        }
+
+        .banner h1 {
+            margin: 0;
+            color: #FFFFFF;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-info h1 {
+            margin-right: 20px;
+            font-size: 1.2em;
+        }
+
+        .logout-button {
+            background-color: #ED1C24;
+            color: #FFFFFF;
+            border: 1px solid #C41B1E;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .logout-button:hover {
+            background-color: #9B0000;
+            border: 1px solid #750000;
+            transition: all 0.3s ease;
+        }
+
+        .table-container {
+            width: 95%;
+            margin: 20px auto;
+            margin-bottom: 100px; /* Increase bottom margin significantly */
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%; /* Asegúrate de que la tabla ocupe todo el contenedor */
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .text-red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <h1>Historial de asignaturas</h1>
+        <div class="user-info">
+            <h1>Bienvenido</h1>
+            <button class="logout-button" onclick="window.close();">Cerrar</button>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table id="historyTable">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Nota</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in history %}
+                <tr>
+                    <td>{{row.1}}</td>
+                    <td>{{row.0}}</td>
+                    <td>{{row.2}}</td>
+                    <td class="{% if row.3 != 'Aprobada' %}text-red{% endif %}">
+                        {{ row.3 }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#historyTable').DataTable(); // Inicializa DataTables
+        });
+    </script>
+</body>
+</html>
