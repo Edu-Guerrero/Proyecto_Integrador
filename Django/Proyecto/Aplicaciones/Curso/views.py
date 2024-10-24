@@ -25,19 +25,6 @@ def logout_view(request):
     logout(request)
     return redirect('login')  # Redirige al inicio de sesión
 
-def home(request):
-    # Obtener el correo del usuario autenticado
-    correo_usuario = request.user.email
-
-    # Buscar al estudiante correspondiente en la tabla Estudiante
-    try:
-        estudiante = Estudiante.objects.get(Correo=correo_usuario)
-        nombre_estudiante = f"{estudiante.Nombres} {estudiante.Apellidos}"
-    except Estudiante.DoesNotExist:
-        nombre_estudiante = "Estudiante no encontrado"
-
-    # Renderizar el template con el nombre del estudiante
-    return render(request, 'home.html', {'nombre_estudiante': nombre_estudiante})
 
 def table(request):
     # Renderizar el template con la lista de estudiantes
@@ -345,3 +332,26 @@ def table_User(request):
 def logout_view(request):
     logout(request)
     return redirect(reverse('login'))  # Redirect to login page after logout
+
+@login_required
+def class_history(request):
+    correo_usuario = request.user.email
+    # Buscar al estudiante correspondiente en la tabla Estudiante
+    try:
+        estudiante = Estudiante.objects.get(Correo=correo_usuario)
+    except Estudiante.DoesNotExist:
+        estudiante = None
+    
+    history = []
+    with connection.cursor() as cursor:
+        cursor.callproc('ObtenerKardexEst', [estudiante.Estudiante_id])
+        history.extend(cursor.fetchall())
+    
+    for row in history:
+        print(row)
+    
+    context = {
+        'history':history
+    }
+
+    return render(request, 'history.html', context)

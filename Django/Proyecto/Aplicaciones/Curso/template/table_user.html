@@ -182,7 +182,13 @@
             display: block;
         }
 
-        .results-button, .subesp-button, .save-info-button, .actualizar-button, .keyword-button, .save-keywords-button {
+        .results-button, 
+        .subesp-button, 
+        .save-info-button, 
+        .actualizar-button, 
+        .keyword-button, 
+        .save-keywords-button, 
+        .seecourses-button {
             background-color: #ED1C24;
             color: #FFFFFF;
             border: 1px solid #C41B1E;
@@ -205,7 +211,8 @@
         .actualizar-button:hover, 
         .keyword-button:hover, 
         .save-keywords-button:hover,
-        .logout-button:hover {
+        .logout-button:hover,
+        .seecourses-button:hover {
             background-color: #9B0000;    /* Darker red on hover */
             border: 1px solid #750000;    /* Darker border on hover */
             transition: all 0.3s ease;    /* Smooth transition for both background and border */
@@ -262,6 +269,7 @@
             margin-top: 20px;
             padding-left: 20px;
         }
+
         .custom-dialog {
             display: none;
             position: fixed;
@@ -279,7 +287,7 @@
             background-color: #fefefe;
             padding: 20px;
             border: 1px solid #888;
-            width: 300px;
+            width: 450px;
             border-radius: 5px;
         }
 
@@ -395,6 +403,12 @@
                 </div>
             </div>
         </h3>
+        <h3>
+            <button class="seecourses-button" 
+                onclick="window.open('/history/', '_blank');">
+                Ver tus asignaturas previas
+            </button>
+        </h3>
     </div>
 </div>
 
@@ -465,20 +479,32 @@
                             <span><strong>Horario:</strong> {{ asignatura.5 }}</span>
                             <span><strong>Edificio:</strong> {{ asignatura.8 }}</span>
                             <span><strong>Modalidad:</strong> {{ asignatura.3 }}</span>
+                            {% for cumpleP in cumplePre %}
+                                {% if cumpleP.1 == asignatura.10 %}
+                                    {% if cumpleP.0 == 'No cumple con los prerrequisitos' %}
+                                        <span style="color: red;">No se cumple con los prerrequisitos</span>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+
+                            {% for cumpleR in cumpleRest %}
+                                {% if cumpleR.1 == asignatura.10 %}
+                                    {% if cumpleR.0 == 'El estudiante NO cumple con las restricciones para tomar la asignatura.' %}
+                                        <span style="color: red;">No se cumple con las restricciones</span>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
                         </div>
                     </td>
                     <td>{{ asignatura.11 }}</td>
-                    <td>
-                        
+                    <td style="text-align: center;">
                         <button class="info-button" 
                             onclick="openCustomDialog('{{ asignatura.1 }}', '{{ asignatura.12 }}', '{{ asignatura.9 }}', 
                             '{% for requisito in prereq %}{% if requisito.0 == asignatura.10 %}{{ requisito.3 }}{% endif %}{% endfor %}',
                             '{% for requisito in coreq %}{% if requisito.0 == asignatura.1 %}{{ requisito.1 }}{% endif %}{% endfor %}',
                             '{% for restriccion in restr %}{% if restriccion.0 == asignatura.1 %}{{ restriccion.1 }}{% endif %}{% endfor %}',
                             '{% for restriccion in restr %}{% if restriccion.0 == asignatura.1 %}{{ restriccion.2 }}{% endif %}{% endfor %}',
-                            '{% for restriccion in restr %}{% if restriccion.0 == asignatura.1 %}{{ restriccion.3 }}{% endif %}{% endfor %}',
-                            '{% for cumpleP in cumplePre %}{% if cumpleP.1 == asignatura.10 %}{{ cumpleP.0 }}{% endif %}{% endfor %}',
-                            '{% for cumpleR in cumpleRest %}{% if cumpleR.1 == asignatura.10 %}{{ cumpleR.0 }}{% endif %}{% endfor %}')"
+                            '{% for restriccion in restr %}{% if restriccion.0 == asignatura.1 %}{{ restriccion.3 }}{% endif %}{% endfor %}')"
                             data-course="{{ asignatura.1 }}"
                             data-college="{{ asignatura.12 }}"
                             data-credits="{{ asignatura.9 }}">
@@ -504,8 +530,6 @@
             <p><strong>Restricción de Carrera:</strong> <span id="dialogCarreraRest"></span></p>
             <p><strong>Restricción de Colegio:</strong> <span id="dialogColegioRest"></span></p>
             <p><strong>Restricción de Semestre:</strong> <span id="dialogSemestreRest"></span></p>
-            <p><span id="dialogAlertaPrereq"></span></p>
-            <p><span id="dialogAlertaRest"></span></p>
             </div>
         </div>
     </div>
@@ -538,16 +562,6 @@
         updatePagination();
     }
 
-    function getRandomElement(array) {
-        return array[Math.floor(Math.random() * array.length)];
-    }
-
-    function getRandomTime() {
-        const hour = Math.floor(Math.random() * 12) + 7; // 7 AM to 6 PM
-        const minute = Math.random() < 0.5 ? '00' : '30';
-        return `${hour}:${minute}`;
-    }
-
     function changePage(direction) {
         const totalRows = document.querySelectorAll("#courseTable tbody tr").length;
         const totalPages = Math.ceil(totalRows / rowsPerPage);
@@ -557,10 +571,6 @@
         if (currentPage > totalPages) currentPage = totalPages;
         
         loadTable(currentPage);
-    }
-
-    function openDialog(message) {
-        alert(message);
     }
 
     let selectedCount = 0;
@@ -575,20 +585,20 @@
     const checkboxes = document.querySelectorAll('#keywordDropdown input[type="checkbox"]');
 
     function limitKeywords(checkbox) {
-    const checkedCheckboxes = Array.from(checkboxes).filter(chk => chk.checked);
-    
-    if (checkedCheckboxes.length > 5) {
-        checkbox.checked = false; // Deselect the checkbox if limit exceeded
-        const errorMessage = document.getElementById('error-message');
-        errorMessage.style.display = 'block'; // Show error message
+        const checkedCheckboxes = Array.from(checkboxes).filter(chk => chk.checked);
         
-        // Hide the error message after 5 seconds
-        setTimeout(() => {
-            errorMessage.style.display = 'none';
-        }, 3500);
-        } else {
-            document.getElementById('error-message').style.display = 'none'; // Hide error message
-        }
+        if (checkedCheckboxes.length > 5) {
+            checkbox.checked = false; // Deselect the checkbox if limit exceeded
+            const errorMessage = document.getElementById('error-message');
+            errorMessage.style.display = 'block'; // Show error message
+            
+            // Hide the error message after 5 seconds
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+            }, 3500);
+            } else {
+                document.getElementById('error-message').style.display = 'none'; // Hide error message
+            }
     }
 
     // Close dropdown when clicking outside
@@ -597,10 +607,6 @@
             document.getElementById('keywordDropdown').style.display = 'none';
         }
     });
-
-    function showTable() {
-        document.getElementById('tableContainer').style.display = 'block';
-    }
     
     function updateCourses() {
         const form = document.getElementById('course-filter-form');
@@ -701,37 +707,11 @@
         else {
             document.getElementById('dialogSemestreRest').textContent = semes;
         }
-
-        if (cumpleP == 'Cumple con los prerrequisitos') {
-            document.getElementById('dialogAlertaPrereq').textContent = "Si cumple los prerrequisitos";
-        }
-        else {
-            document.getElementById('dialogAlertaPrereq').innerHTML = "<span style='color: red;'>No se cumple con los prerrequisitos</span>";
-        }
-
-        if (cumpleR == 'El estudiante cumple con todas las restricciones para tomar la asignatura.') {
-            document.getElementById('dialogAlertaRest').textContent = "Si cumple con las restricciones";
-        }
-        else {
-            document.getElementById('dialogAlertaRest').innerHTML = "<span style='color: red;'>No se cumple con las restricciones</span>";
-        }
-
         document.getElementById('customDialog').style.display = 'flex';
     }
 
     function closeCustomDialog() {
         document.getElementById('customDialog').style.display = 'none';
-    }
-
-    function showRequisites() {
-        // Aquí puedes reemplazar los prerrequisitos con los datos obtenidos desde el servidor o hardcoded
-        code = document.getElementById('dialogCourseName').textContent;
-    }
-
-    function enrollCourse() {
-        // Add your enrollment logic here
-        alert('Course enrolled!');
-        closeCustomDialog();
     }
 
     // Función para mostrar/ocultar el dropdown de subespecializaciones
@@ -763,11 +743,6 @@
         if (event.target == dialog) {
             closeCustomDialog();
         }
-    }
-
-    function closeDialog() {
-        const dialog = document.getElementById('infoDialog');
-        dialog.style.display = 'none';
     }
 
     let previousRadio = document.querySelector('input[name="subesp"]:checked');

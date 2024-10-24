@@ -22,19 +22,32 @@
                     <span><strong>Horario:</strong> {{ asignatura.5 }}</span>
                     <span><strong>Edificio:</strong> {{ asignatura.8 }}</span>
                     <span><strong>Modalidad:</strong> {{ asignatura.3 }}</span>
+                    {% for cumpleP in cumplePre %}
+                        {% if cumpleP.1 == asignatura.10 %}
+                            {% if cumpleP.0 == 'No cumple con los prerrequisitos' %}
+                                <span style="color: red;">No se cumple con los prerrequisitos</span>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {% for cumpleR in cumpleRest %}
+                        {% if cumpleR.1 == asignatura.10 %}
+                            {% if cumpleR.0 == 'El estudiante NO cumple con las restricciones para tomar la asignatura.' %}
+                                <span style="color: red;">No se cumple con las restricciones</span>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
                 </div>
             </td>
             <td>{{ asignatura.11 }}</td>
-            <td>
+            <td style="text-align: center;">
                 <button class="info-button" 
                     onclick="openCustomDialog('{{ asignatura.1 }}', '{{ asignatura.12 }}', '{{ asignatura.9 }}', 
                     '{% for requisito in prereq %}{% if requisito.0 == asignatura.10 %}{{ requisito.3 }}{% endif %}{% endfor %}',
                     '{% for requisito in coreq %}{% if requisito.0 == asignatura.1 %}{{ requisito.1 }}{% endif %}{% endfor %}',
                     '{% for restriccion in restr %}{% if restriccion.0 == asignatura.1 %}{{ restriccion.1 }}{% endif %}{% endfor %}',
                     '{% for restriccion in restr %}{% if restriccion.0 == asignatura.1 %}{{ restriccion.2 }}{% endif %}{% endfor %}',
-                    '{% for restriccion in restr %}{% if restriccion.0 == asignatura.1 %}{{ restriccion.3 }}{% endif %}{% endfor %}',
-                    '{% for cumpleP in cumplePre %}{% if cumpleP.1 == asignatura.10 %}{{ cumpleP.0 }}{% endif %}{% endfor %}',
-                    '{% for cumpleR in cumpleRest %}{% if cumpleR.1 == asignatura.10 %}{{ cumpleR.0 }}{% endif %}{% endfor %}')"
+                    '{% for restriccion in restr %}{% if restriccion.0 == asignatura.1 %}{{ restriccion.3 }}{% endif %}{% endfor %}')"
                     data-course="{{ asignatura.1 }}"
                     data-college="{{ asignatura.12 }}"
                     data-credits="{{ asignatura.9 }}">
@@ -80,20 +93,6 @@
         }
         else {
             document.getElementById('dialogSemestreRest').textContent = semes;
-        }
-
-        if (cumpleP == 'Cumple con los prerrequisitos') {
-            document.getElementById('dialogAlertaPrereq').textContent = "Si cumple los prerrequisitos";
-        }
-        else {
-            document.getElementById('dialogAlertaPrereq').innerHTML = "<span style='color: red;'>No se cumple con los prerrequisitos</span>";
-        }
-
-        if (cumpleR == 'El estudiante cumple con todas las restricciones para tomar la asignatura.') {
-            document.getElementById('dialogAlertaRest').textContent = "Si cumple con las restricciones";
-        }
-        else {
-            document.getElementById('dialogAlertaRest').innerHTML = "<span style='color: red;'>No se cumple con las restricciones</span>";
         }
         document.getElementById('customDialog').style.display = 'flex';
     }
