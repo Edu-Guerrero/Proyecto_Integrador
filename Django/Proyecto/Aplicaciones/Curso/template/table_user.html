@@ -347,7 +347,7 @@
 <form method="POST">
     {% csrf_token %}
     <div class="keyword-container">
-        <button class="keyword-button" type="button" onclick="toggleKeywordDropdown()">Keywords</button>
+        <button class="keyword-button" type="button" onclick="toggleKeywordDropdown()">Palabras Clave</button>
             <!-- Botón para guardar las palabras clave seleccionadas -->
         <button class="save-keywords-button" type="submit" name="save_keywords">Guardar Palabras Clave</button>
         <div class="keyword-dropdown" id="keywordDropdown">
@@ -384,7 +384,7 @@
             <div class="subesp-container">
                 <!-- Botón para mostrar las subespecializaciones -->
                 <div class="button-group">
-                <button class="subesp-button" onclick="toggleSubEspecializaciones()">Show Sub-Specializations</button>
+                <button class="subesp-button" onclick="toggleSubEspecializaciones()">Ver SubEspecializacion</button>
                 <!-- Contenedor para mostrar las subespecializaciones como un dropdown -->
                 <form id="saveSub" method="POST">
                 {% csrf_token %}
@@ -445,7 +445,7 @@
 </div>
 
 <div id="checkedResults" class="checked-results">
-    <h3>Currently Selected:</h3>
+    <h3>Seleccionado actualmente:</h3>
     <div class="bubble-container" id="bubbleContainer">
         <!-- Bubbles will be dynamically added here -->
     </div>
