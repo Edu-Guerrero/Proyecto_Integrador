@@ -1,0 +1,4 @@
+Introduction to the basic concepts of linear algebra, including matrices, 
+determinants, vectors, and vector spaces. Practical exercises are included to apply these concepts 
+to engineering and science problems. Students will learn to solve systems of linear equations, 
+perform linear transformations, and understand the theory of vector spaces.

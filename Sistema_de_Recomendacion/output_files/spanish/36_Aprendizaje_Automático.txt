@@ -1,0 +1,5 @@
+Este curso profundiza en las técnicas de aprendizaje automático, incluyendo 
+    modelos supervisados, no supervisados y redes neuronales. Los estudiantes implementan algoritmos de clasificación
+    y predicción en proyectos prácticos. Se cubren temas avanzados como el aprendizaje profundo, el procesamiento de 
+    grandes volúmenes de datos y la evaluación de modelos. El curso prepara a los estudiantes para aplicar técnicas 
+    de aprendizaje automático en problemas del mundo real.

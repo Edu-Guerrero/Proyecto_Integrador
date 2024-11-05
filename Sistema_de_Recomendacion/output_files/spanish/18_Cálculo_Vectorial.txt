@@ -1,0 +1,3 @@
+Este curso aborda el cálculo en varias variables, incluyendo la diferenciación e 
+    integración de funciones vectoriales. Se estudian conceptos como campos vectoriales, integrales de línea y de 
+    superficie, con aplicaciones en física e ingeniería.

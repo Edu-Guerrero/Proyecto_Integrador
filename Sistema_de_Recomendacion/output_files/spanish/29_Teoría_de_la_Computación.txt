@@ -1,0 +1,5 @@
+Este curso cubre los fundamentos teóricos de la computación, incluyendo 
+    autómatas, lenguajes formales, gramáticas y la teoría de la complejidad. Los estudiantes desarrollan una 
+    comprensión profunda de los límites de lo computable. Se exploran temas avanzados como la decidibilidad, 
+    la reducibilidad y las clases de complejidad, preparando a los estudiantes para enfrentar problemas complejos en 
+    la computación.

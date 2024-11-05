@@ -1,0 +1,4 @@
+This course covers the fundamentals of abstract algebra, with a focus on 
+groups, rings, and fields. Students will develop skills in 
+abstract reasoning and mathematical proof, applicable in areas such as 
+number theory and algebraic geometry.

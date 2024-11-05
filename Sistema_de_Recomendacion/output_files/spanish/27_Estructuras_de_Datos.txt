@@ -1,0 +1,4 @@
+Este curso cubre la implementación y análisis de estructuras de datos como listas, 
+    pilas, colas, árboles y grafos. Los estudiantes aplican estos conceptos en proyectos de programación para optimizar 
+    el rendimiento de algoritmos. Se enfatiza la importancia de elegir la estructura de datos adecuada para diferentes 
+    tipos de problemas y se incluyen estudios de caso para ilustrar aplicaciones prácticas.

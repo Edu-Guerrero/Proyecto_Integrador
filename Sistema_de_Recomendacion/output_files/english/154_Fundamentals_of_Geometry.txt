@@ -1,0 +1,4 @@
+This course presents an introduction to Euclidean and non-Euclidean geometry. 
+Axioms, theorems, and geometric constructions will be studied, with an emphasis on 
+logical reasoning and formal proof. In addition, applications of geometry in other branches of mathematics 
+are explored.

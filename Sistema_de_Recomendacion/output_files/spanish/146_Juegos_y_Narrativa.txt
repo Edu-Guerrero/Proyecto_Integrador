@@ -1,0 +1,5 @@
+Este curso explora la relación entre los videojuegos y la narrativa interactiva. 
+    Los estudiantes analizarán cómo se construyen historias en entornos digitales 
+    y aprenderán a diseñar juegos con un enfoque narrativo. Se estudiarán casos 
+    relevantes y se realizarán proyectos que fusionen la creación de juegos con 
+    la narración de historias.

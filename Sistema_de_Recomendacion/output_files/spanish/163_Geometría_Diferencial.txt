@@ -1,0 +1,4 @@
+Este curso introduce la teoría de superficies y curvas en el espacio euclidiano. 
+    Los estudiantes explorarán la geometría intrínseca y extrínseca, 
+    aplicando conceptos como curvatura y torsión. La geometría diferencial 
+    tiene aplicaciones en la física teórica y la ingeniería.

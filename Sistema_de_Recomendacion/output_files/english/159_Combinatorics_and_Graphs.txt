@@ -1,0 +1,4 @@
+This course covers the principles of combinatorics and graph theory. 
+Students will learn about counting techniques, combinations, 
+permutations, and the structure of graphs, with applications in 
+optimization and network analysis.

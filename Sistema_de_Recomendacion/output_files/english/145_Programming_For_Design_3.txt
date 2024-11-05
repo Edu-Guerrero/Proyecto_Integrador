@@ -1,0 +1,1 @@
+This course concludes the design-focused programming series, covering advanced topics such as creating custom graphics engines, simulating physical interactions in virtual environments, and integrating programming with 3D design software. Students will apply their knowledge to a comprehensive interactive design project.

@@ -1,0 +1,4 @@
+Este curso presenta los conceptos fundamentales de la teoría de números, 
+    con un enfoque en divisibilidad, congruencias, y funciones aritméticas. 
+    Los estudiantes aprenderán sobre el teorema de los números primos 
+    y aplicaciones de la teoría de números en criptografía.

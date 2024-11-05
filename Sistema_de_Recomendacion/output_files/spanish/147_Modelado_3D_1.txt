@@ -1,0 +1,4 @@
+Este curso enseña las bases del modelado 3D para el diseño y la animación. 
+    Los estudiantes aprenderán técnicas fundamentales para la creación de objetos 
+    tridimensionales, trabajando con software de modelado 3D. Se explorarán conceptos 
+    como la topología, las texturas y el renderizado de escenas.

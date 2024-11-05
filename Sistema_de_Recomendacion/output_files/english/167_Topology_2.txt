@@ -1,0 +1,4 @@
+A continuation of Topology 1, this course covers advanced topics 
+in algebraic topology. Students will learn about homotopy, 
+fundamental groups, and homology theory, applying these concepts 
+to geometric and physical problems.

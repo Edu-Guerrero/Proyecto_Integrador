@@ -1,0 +1,1 @@
+Fundamental concepts of database design and management are covered, from table normalization to using SQL. Students practice with relational and non-relational databases, and learn about query optimization, transaction management, and data security. The course includes hands-on projects to design and manage efficient databases.

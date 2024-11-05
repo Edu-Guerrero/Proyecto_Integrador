@@ -1,0 +1,4 @@
+Una continuación de Topología 1, este curso cubre temas avanzados 
+    de topología algebraica. Los estudiantes aprenderán sobre homotopía, 
+    grupos fundamentales y teoría de homología, aplicando estos conceptos 
+    a problemas geométricos y físicos.

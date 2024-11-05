@@ -1,0 +1,5 @@
+En este curso, los estudiantes profundizarán en técnicas avanzadas de programación 
+    aplicadas al diseño. Se abordarán temas como la programación orientada a objetos, 
+    el uso de bibliotecas gráficas y la optimización de código para mejorar la experiencia 
+    del usuario en productos interactivos. También se explorarán lenguajes de programación 
+    específicos para el diseño multimedia.

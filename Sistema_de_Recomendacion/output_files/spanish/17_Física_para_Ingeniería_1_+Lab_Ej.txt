@@ -1,0 +1,3 @@
+Este curso introduce los principios de la física aplicados a la 
+    ingeniería, cubriendo temas como la mecánica clásica, cinemática, y dinámica. Incluye un componente de laboratorio 
+    para aplicar los conocimientos teóricos a experimentos prácticos.

@@ -1,0 +1,4 @@
+This course introduces the fundamental concepts of number theory, 
+with a focus on divisibility, congruences, and arithmetic functions. 
+Students will learn about the prime number theorem 
+and applications of number theory in cryptography.

@@ -1,0 +1,3 @@
+This course provides an introduction to the principles and techniques of operations research. 
+It includes the study of mathematical models and algorithms for optimization in production and logistics 
+systems. The laboratory component allows students to apply these concepts in practical scenarios.

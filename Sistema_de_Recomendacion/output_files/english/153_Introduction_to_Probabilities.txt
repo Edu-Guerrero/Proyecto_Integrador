@@ -1,0 +1,4 @@
+This course introduces the fundamental concepts of probability theory, 
+including sample space, random variables, probability distributions 
+and the central limit theorem. It focuses on practical applications 
+in statistics and uncertainty modeling.

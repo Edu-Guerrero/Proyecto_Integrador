@@ -1,0 +1,4 @@
+Se estudian los principios de la seguridad en sistemas informáticos, incluyendo 
+    criptografía, autenticación, control de acceso y seguridad en redes. Los estudiantes aplican técnicas de protección
+    y detección de intrusiones. El curso también aborda la gestión de riesgos y la implementación de políticas de 
+    seguridad para proteger la información y los sistemas contra amenazas y vulnerabilidades.

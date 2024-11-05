@@ -1,0 +1,4 @@
+Este curso presenta una introducción formal a la teoría de grupos, una rama 
+    fundamental del álgebra abstracta. Los estudiantes aprenderán sobre grupos, 
+    subgrupos, homomorfismos y aplicaciones en diversas áreas de la matemática pura 
+    y aplicada, así como en la física.

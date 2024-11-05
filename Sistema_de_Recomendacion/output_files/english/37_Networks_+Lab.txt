@@ -1,0 +1,2 @@
+A theoretical and practical course on computer networks. Network protocols, Internet architecture, routing, and network security are covered, with a laboratory component for implementations.
+Students learn to configure and manage networks, troubleshoot connectivity problems, and apply security measures to protect the network infrastructure. The course includes case studies and hands-on projects.

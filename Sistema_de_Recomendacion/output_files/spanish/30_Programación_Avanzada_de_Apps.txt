@@ -1,0 +1,4 @@
+Este curso se enfoca en el desarrollo avanzado de aplicaciones móviles,
+    cubriendo técnicas como la programación en múltiples plataformas, seguridad móvil y optimización del rendimiento.
+        Incluye proyectos prácticos donde los estudiantes diseñan y desarrollan aplicaciones complejas, implementando 
+        características avanzadas como notificaciones push, integración con servicios web y almacenamiento en la nube.

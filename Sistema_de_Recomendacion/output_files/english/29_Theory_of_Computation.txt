@@ -1,0 +1,5 @@
+This course covers the theoretical foundations of computation, including 
+automata, formal languages, grammars, and complexity theory. Students develop a 
+deep understanding of the limits of computability. Advanced topics such as decidability, 
+reducibility, and complexity classes are explored, preparing students to tackle complex 
+problems in computation.

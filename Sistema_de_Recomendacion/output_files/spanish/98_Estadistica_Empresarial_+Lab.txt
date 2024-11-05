@@ -1,0 +1,2 @@
+Este curso enseña técnicas estadísticas aplicadas a la toma de decisiones empresariales. 
+    Incluye un laboratorio donde los estudiantes utilizan software estadístico para analizar datos reales y tomar decisiones informadas.

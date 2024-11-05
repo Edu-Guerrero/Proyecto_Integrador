@@ -1,0 +1,1 @@
+This course introduces the principles of statistical inference, including parameter estimation, hypothesis testing, and analysis of variance. Students will learn statistical techniques for data analysis and interpretation, applicable across a variety of scientific disciplines.

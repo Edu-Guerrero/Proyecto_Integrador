@@ -1,0 +1,4 @@
+Este curso presenta los principios de la inferencia estadística, incluyendo 
+    estimación de parámetros, pruebas de hipótesis y análisis de varianza. 
+    Los estudiantes aprenderán técnicas estadísticas para el análisis 
+    e interpretación de datos, aplicables en diversas disciplinas científicas.

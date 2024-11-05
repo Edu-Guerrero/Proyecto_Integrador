@@ -1,0 +1,4 @@
+Students learn to design complex systems through requirements analysis, 
+system modeling, and prototyping. The focus is on creating efficient, scalable, and adaptable 
+systems. The course includes the use of modeling and simulation tools, and projects are conducted in which 
+students apply design principles to real-world problems, from conception to implementation.

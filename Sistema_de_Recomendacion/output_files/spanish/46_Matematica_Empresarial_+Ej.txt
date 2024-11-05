@@ -1,0 +1,4 @@
+Curso que abarca temas de matemáticas aplicados al ámbito empresarial, como 
+    álgebra, funciones y análisis financiero. Incluye ejercicios prácticos para reforzar los conceptos teóricos. 
+    Los estudiantes aprenderán a utilizar herramientas matemáticas para resolver problemas financieros y empresariales, 
+    desarrollando habilidades analíticas y de toma de decisiones.

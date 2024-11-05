@@ -1,0 +1,4 @@
+This course introduces the theory of surfaces and curves in Euclidean space. 
+Students will explore intrinsic and extrinsic geometry, 
+applying concepts such as curvature and torsion. Differential geometry 
+has applications in theoretical physics and engineering.

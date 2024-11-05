@@ -1,0 +1,4 @@
+Este curso cubre los fundamentos del álgebra abstracta, con un enfoque 
+    en los grupos, anillos y campos. Los estudiantes desarrollarán habilidades 
+    en razonamiento abstracto y demostración matemática, aplicables en 
+    áreas como la teoría de números y la geometría algebraica.

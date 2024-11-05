@@ -1,0 +1,4 @@
+Este curso presenta una introducción a la geometría euclidiana y no euclidiana. 
+    Se estudiarán axiomas, teoremas y construcciones geométricas, con énfasis en 
+    el razonamiento lógico y la demostración formal. Además, se exploran 
+    las aplicaciones de la geometría en otras ramas de las matemáticas.

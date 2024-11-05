@@ -1,0 +1,3 @@
+En este curso se estudian las técnicas y herramientas para el control y la gestión de procesos de producción. 
+    Se cubren temas como la programación de la producción, el control de inventarios, y la mejora de la eficiencia. 
+    Los estudiantes aprenderán a utilizar sistemas de control para garantizar la calidad y eficiencia en la producción.

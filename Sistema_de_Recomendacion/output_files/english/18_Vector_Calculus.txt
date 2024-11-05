@@ -1,0 +1,1 @@
+This course covers calculus in several variables, including differentiation and integration of vector-valued functions. Concepts such as vector fields, line integrals, and surface integrals are studied, with applications in physics and engineering.

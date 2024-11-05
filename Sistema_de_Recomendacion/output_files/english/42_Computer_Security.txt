@@ -1,0 +1,4 @@
+The principles of computer system security are studied, including 
+cryptography, authentication, access control, and network security. Students apply intrusion protection and 
+detection techniques. The course also addresses risk management and the implementation of security 
+policies to protect information and systems against threats and vulnerabilities.

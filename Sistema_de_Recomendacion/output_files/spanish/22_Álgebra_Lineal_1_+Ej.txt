@@ -1,0 +1,4 @@
+Introducción a los conceptos básicos de álgebra lineal, incluyendo matrices, 
+    determinantes, vectores y espacios vectoriales. Se incluyen ejercicios prácticos para aplicar estos conceptos 
+    a problemas de ingeniería y ciencias. Los estudiantes aprenderán a resolver sistemas de ecuaciones lineales, 
+    realizar transformaciones lineales y comprender la teoría de espacios vectoriales.

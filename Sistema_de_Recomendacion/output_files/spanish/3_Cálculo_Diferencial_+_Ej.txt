@@ -1,0 +1,3 @@
+Este curso introduce los conceptos fundamentales del cálculo diferencial, como 
+    límites, derivadas y aplicaciones de la derivada en problemas de optimización y análisis de funciones. 
+    Se complementa con ejercicios prácticos para aplicar los conceptos. Es esencial en la formación de ingenieros.

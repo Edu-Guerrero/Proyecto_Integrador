@@ -1,0 +1,5 @@
+El curso explora los componentes y la arquitectura interna de los 
+    computadores, incluyendo memoria, procesadores, y buses. Los estudiantes aprenden a optimizar y diseñar sistemas 
+    de hardware eficientes. Se abordan temas como la arquitectura de conjunto de instrucciones (ISA), la jerarquía de 
+    memoria y la interconexión de componentes, proporcionando una comprensión integral del funcionamiento interno de 
+    los computadores.

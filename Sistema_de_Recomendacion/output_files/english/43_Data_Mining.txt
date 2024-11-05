@@ -1,0 +1,3 @@
+This course teaches the techniques for extracting knowledge from large volumes of
+data. Students work with classification, clustering, and data analysis algorithms to solve real-world
+problems. Case studies and hands-on projects are included that allow students to apply the techniques learned in real-world situations, improving their ability to make data-driven decisions.

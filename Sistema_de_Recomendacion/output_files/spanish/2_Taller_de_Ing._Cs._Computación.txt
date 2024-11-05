@@ -1,0 +1,6 @@
+En esta asignatura se imparten conocimientos prácticos sobre el desarrollo
+    de proyectos en el campo de la ingeniería de software. Los estudiantes trabajarán en equipos para diseñar, 
+    implementar y probar soluciones a problemas reales usando herramientas de programación. El taller también aborda 
+    metodologías ágiles y el ciclo de vida del desarrollo de software. Se fomenta el uso de mejores prácticas de 
+    codificación y documentación. Los proyectos involucran la integración de conocimientos teóricos en escenarios 
+    prácticos.

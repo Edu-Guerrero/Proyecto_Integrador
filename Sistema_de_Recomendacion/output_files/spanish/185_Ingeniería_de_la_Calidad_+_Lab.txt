@@ -1,0 +1,3 @@
+Este curso se centra en los métodos y técnicas para garantizar la calidad en procesos de producción. 
+    Incluye el estudio de sistemas de gestión de calidad, técnicas de control estadístico de calidad, y auditorías. 
+    El componente de laboratorio proporciona experiencia práctica en la aplicación de estos métodos para asegurar la calidad.

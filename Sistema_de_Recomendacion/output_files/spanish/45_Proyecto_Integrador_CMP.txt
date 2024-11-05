@@ -1,0 +1,5 @@
+El proyecto final del programa de computación, donde los estudiantes aplican 
+    sus conocimientos en el desarrollo de un sistema completo que resuelva un problema real o empresarial, integrando
+    diversas áreas del campo. Los estudiantes trabajan en equipos para planificar, diseñar, implementar y evaluar 
+    su proyecto, desarrollando habilidades de gestión de proyectos, trabajo en equipo y comunicación efectiva. 
+    El proyecto culmina con una presentación formal y una demostración del sistema desarrollado.
