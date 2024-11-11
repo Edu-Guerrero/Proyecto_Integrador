@@ -1,3 +1,4 @@
+Top 70 Keywords (Augmented TF, Normal IDF):
 student: 10.88
 course: 9.84
 technique: 7.11

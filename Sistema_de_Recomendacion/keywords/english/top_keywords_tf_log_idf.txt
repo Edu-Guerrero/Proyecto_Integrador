@@ -1,4 +1,3 @@
-Top 70 Keywords (Logarithm TF, Normal IDF):
 student: 10.70
 course: 10.07
 learn: 7.28

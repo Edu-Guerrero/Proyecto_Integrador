@@ -1,4 +1,3 @@
-Top 70 Keywords (Logarithm TF, Normal IDF):
 student: 10.16
 course: 9.53
 technique: 6.92

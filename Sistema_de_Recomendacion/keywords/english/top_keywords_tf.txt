@@ -1,4 +1,3 @@
-Top 70 Keywords by Term Frequency:
 student: 188
 course: 186
 learn: 84
