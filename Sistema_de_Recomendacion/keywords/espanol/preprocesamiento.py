@@ -20,7 +20,7 @@ def preprocess_text(text):
     text = text.lower()
     transltable = str.maketrans('áéíóúüñ', 'aeiouun')
     text = text.translate(transltable)
-    text = re.sub(r'[^a-z\s]', '', text) # Elimina toda la puntuación
+    text = re.sub(r'[^a-záéíóúüñ\s]', '', text)# Elimina toda la puntuación
     text = re.sub(r'\s+', ' ', text).strip()
     
     # Tokenizar el texto, eliminar las stopwords y la puntuación
@@ -30,6 +30,9 @@ def preprocess_text(text):
     # Lemmatizar los tokens
     doc = nlp(' '.join(tokens))
     tokens = [token.lemma_.lower() for token in doc]
+
+    for token in tokens:
+        token = token.translate(transltable)
     
     return ' '.join(tokens)
 
