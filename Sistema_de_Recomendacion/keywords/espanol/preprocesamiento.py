@@ -1,11 +1,8 @@
 import spacy
 import os
 import pandas as pd
-import nltk
 import re
 from nltk.corpus import stopwords
-import unicodedata
-
 
 # # Download necessary resources
 # nltk.download('punkt')
