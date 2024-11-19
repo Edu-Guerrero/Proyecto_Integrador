@@ -1,5 +1,28 @@
 # Proyecto Integrador - Eduardo Guerrero A. #
 
+## Table of Contents
+1. [Introducción](#introducción)
+    - [Orden de las carpetas](#orden-de-las-carpetas)
+    - [Especificaciones Utilizadas](#especificaciones-utilizadas)
+        - [Librerías de Python](#librerias-de-python)
+2. [Base de Datos](#base-de-datos)
+    - [Detalle de las tablas](#detalle-de-las-tablas)
+    - [Detalles de los datos insertados](#detalles-de-los-datos-insertados)
+    - [Stored Procedures](#stored-procedures)
+    - [Índices](#índices)
+    - [Triggers](#triggers)
+    - [Diagrama de Entidades](#diagrama-de-entidades)
+    - [Modelo Relacional](#modelo-relacional)
+3. [Django y Bootstrap](#django-y-bootstrap)
+    - [Crear Proyecto](#crear-proyecto)
+    - [Crear Aplicación](#crear-aplicación)
+    - [Modelos](#modelos)
+    - [Vistas](#vistas)
+    - [Templates](#templates)
+4. [Sistema de Recomendacion](#sistema-de-recomendacion)
+    - [Variantes de tf_idf utilizadas](#variantes-de-tf_idf-utilizadas)
+    - [Modelos de Keybert utilizados](#modelos-de-keybert-utilizados)
+
 ## Introducción ##
 
 El siguiente repositorio contiene el código utilizado para realizar el proyecto integrador **"Diseño e implementación de una guía curricular basada en inteligencia artificial"**. Para eso, el repositorio cuenta con tres carpetas que dividen el proyecto en sus tres grandes componentes. Además, se encuentran en el orden en el cual fueron implementados.
