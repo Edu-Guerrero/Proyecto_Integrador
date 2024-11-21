@@ -1,0 +1,5 @@
+Este curso enseña el diseño y desarrollo de aplicaciones móviles. Los 
+    estudiantes aprenden a programar interfaces de usuario, gestionar bases de datos móviles y optimizar la
+    experiencia del usuario en entornos móviles. Se cubren temas como la integración de servicios web, el 
+    uso de APIs y la implementación de características avanzadas como notificaciones push y almacenamiento 
+    en la nube.

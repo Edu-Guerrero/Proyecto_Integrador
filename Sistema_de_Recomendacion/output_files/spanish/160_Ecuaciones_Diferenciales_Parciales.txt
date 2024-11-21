@@ -1,0 +1,4 @@
+Este curso presenta los fundamentos de las ecuaciones diferenciales parciales, 
+    que son esenciales para modelar fenómenos en física y matemáticas aplicadas. 
+    Se estudiarán técnicas para resolver ecuaciones de primer y segundo orden, 
+    con aplicaciones en la dinámica de fluidos y la transferencia de calor.

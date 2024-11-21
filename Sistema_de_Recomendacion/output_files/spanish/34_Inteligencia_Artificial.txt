@@ -1,0 +1,5 @@
+Este curso introduce los conceptos clave de la inteligencia artificial, incluyendo
+    algoritmos de búsqueda, aprendizaje automático, redes neuronales y procesamiento del lenguaje natural. Los 
+    estudiantes explorarán aplicaciones prácticas de la IA en diversas áreas como la visión por computadora, el 
+    procesamiento del lenguaje natural y la robótica. Se enfatiza el uso de herramientas y bibliotecas modernas para 
+    implementar soluciones de IA.

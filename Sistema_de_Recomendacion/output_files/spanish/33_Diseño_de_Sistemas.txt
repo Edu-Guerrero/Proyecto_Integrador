@@ -1,0 +1,4 @@
+Los estudiantes aprenden a diseñar sistemas complejos mediante el análisis de 
+    requerimientos, modelado de sistemas y prototipado. Se enfoca en la creación de sistemas eficientes, escalables 
+    y adaptables. El curso incluye el uso de herramientas de modelado y simulación, y se realizan proyectos en los 
+    que los estudiantes aplican los principios de diseño a problemas reales, desde la concepción hasta la implementación.

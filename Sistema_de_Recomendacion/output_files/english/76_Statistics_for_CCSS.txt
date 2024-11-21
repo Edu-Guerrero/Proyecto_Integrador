@@ -1,0 +1,6 @@
+This course provides a foundation in applied statistics for the social sciences. 
+Students will learn key concepts such as data collection, statistical analysis, and 
+interpretation of results. The focus will be on the practical application of statistical 
+techniques to solve real-world problems in the social sciences. Topics such as regression, 
+correlation, and hypothesis testing will be addressed, using specialized software to 
+perform analysis.

@@ -1,0 +1,4 @@
+Este curso cubre los principios de la combinatoria y la teoría de grafos. 
+    Los estudiantes aprenderán sobre técnicas de conteo, combinaciones, 
+    permutaciones y la estructura de grafos, con aplicaciones en 
+    optimización y análisis de redes.

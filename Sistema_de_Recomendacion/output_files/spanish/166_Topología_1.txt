@@ -1,0 +1,4 @@
+Este curso introduce los conceptos básicos de topología, el estudio de 
+    las propiedades geométricas que permanecen invariantes bajo deformaciones. 
+    Se cubren tópicos como espacios topológicos, continuidad, y conexiones 
+    con otras ramas de las matemáticas, como la geometría diferencial.

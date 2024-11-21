@@ -1,0 +1,4 @@
+Se abordan los conceptos fundamentales del diseño y manejo de bases de datos, desde la 
+    normalización de tablas hasta el uso de SQL. Los estudiantes practican con bases de datos relacionales y no 
+    relacionales, y aprenden sobre la optimización de consultas, la gestión de transacciones y la seguridad de datos. 
+    El curso incluye proyectos prácticos para diseñar y gestionar bases de datos eficientes.

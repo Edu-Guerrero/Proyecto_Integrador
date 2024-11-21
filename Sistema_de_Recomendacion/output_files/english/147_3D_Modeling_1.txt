@@ -1,0 +1,4 @@
+This course teaches the basics of 3D modeling for design and animation. 
+Students will learn fundamental techniques for creating three-dimensional 
+objects by working with 3D modeling software. Concepts such as topology, 
+textures, and scene rendering will be explored.

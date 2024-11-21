@@ -1,0 +1,3 @@
+Este curso continúa con los temas de cálculo diferencial, introduciendo técnicas 
+    de integración, teoremas fundamentales y aplicaciones de la integral. Incluye ejercicios prácticos para aplicar 
+    estos conceptos a problemas reales.

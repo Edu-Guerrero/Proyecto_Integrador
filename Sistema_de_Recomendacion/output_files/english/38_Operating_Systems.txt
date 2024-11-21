@@ -1,0 +1,6 @@
+Students learn the principles and structures of operating systems, 
+including process management, memory, storage, and security. A practical 
+perspective on system administration is included. The course covers topics such as 
+concurrency, process scheduling, memory management, and the file system. Students 
+also work with real operating systems to develop practical skills in administration 
+and configuration.

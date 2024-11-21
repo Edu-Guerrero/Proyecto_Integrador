@@ -7,6 +7,8 @@ from django.http import HttpResponse
 from .models import Estudiante, KeyWords, PalabraEstudiante, SubEspecializacion
 from django.urls import reverse
 from django.db import connection
+from Aplicaciones.Curso.tf_idf.recommendation import Recommendation
+
 
 def login_view(request):
     if request.method == 'POST':
@@ -355,3 +357,58 @@ def class_history(request):
     }
 
     return render(request, 'history.html', context)
+
+@login_required
+def recommended(request):
+
+    correo_usuario = request.user.email
+
+    try:
+        estudiante = Estudiante.objects.get(Correo=correo_usuario)
+    except Estudiante.DoesNotExist:
+        estudiante = None
+
+    keyword = KeyWords.objects.all()
+
+    selected_keywords = []
+    if estudiante:
+        selected_keywords = PalabraEstudiante.objects.filter(estudiante=estudiante).values_list('keyword_id', flat=True)
+
+
+    recommendations = []
+    with connection.cursor() as cursor:
+        cursor.callproc('getOptativas', [estudiante.Estudiante_id])
+        results = cursor.fetchall()
+        recommendations = [row[0] for row in results]
+
+    with connection.cursor() as cursor:
+        cursor.callproc('getElectivas', [estudiante.Estudiante_id])
+        results = cursor.fetchall()
+        recommendations.extend([row[0] for row in results])
+
+    asignaturas = []
+
+    Rec = Recommendation(recommendations, selected_keywords, keyword, 'Aplicaciones\\Curso\\tf_idf\\tfidf_vectors.csv')
+    Rec.create_keywords()
+    Rec.create_vector()
+    Rec.filter_documents()
+    Rec.get_names()
+    asignaturas = Rec.get_recommendation()
+    asig = []
+    for i in asignaturas:
+        asig.append(i.split(' ')[0])
+    cursos = []
+
+    with connection.cursor() as cursor:
+        for i in asig:
+            cursor.callproc('verCursos', [int(i)])
+            result = cursor.fetchall()
+            cursos.extend(result)
+            while cursor.nextset() is not None:
+                pass
+    
+    context = {
+        'asignaturas': cursos
+    }
+
+    return render(request, 'recommended.html', context)

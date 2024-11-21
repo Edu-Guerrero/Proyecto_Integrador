@@ -1,0 +1,1 @@
+This course presents a formal introduction to group theory, a fundamental branch of abstract algebra. Students will learn about groups, subgroups, homomorphisms, and applications in various areas of pure and applied mathematics, as well as in physics.

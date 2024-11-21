@@ -1,0 +1,4 @@
+Este curso introduce los conceptos fundamentales de la teoría de probabilidades, 
+    incluyendo el espacio muestral, variables aleatorias, distribuciones de probabilidad 
+    y el teorema central del límite. Se enfoca en aplicaciones prácticas 
+    en estadísticas y modelado de incertidumbre.

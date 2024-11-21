@@ -1,0 +1,5 @@
+This course introduces the fundamental concepts of probability and 
+statistics, with applications in engineering and science. Practical exercises reinforce 
+data analysis and interpretation of statistical results. Topics such as probability distributions, 
+hypothesis testing, regression, and analysis of variance are covered, providing a solid 
+foundation for data analysis.

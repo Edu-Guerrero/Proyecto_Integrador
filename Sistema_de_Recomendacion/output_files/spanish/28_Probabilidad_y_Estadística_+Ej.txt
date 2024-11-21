@@ -1,0 +1,4 @@
+Curso que introduce los conceptos fundamentales de probabilidad y 
+    estadística, con aplicaciones en ingeniería y ciencias. Los ejercicios prácticos refuerzan el análisis de 
+    datos y la interpretación de resultados estadísticos. Se cubren temas como distribuciones de probabilidad, 
+    pruebas de hipótesis, regresión y análisis de varianza, proporcionando una base sólida para el análisis de datos.

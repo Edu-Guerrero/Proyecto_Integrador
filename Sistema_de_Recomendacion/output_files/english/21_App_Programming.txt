@@ -1,0 +1,1 @@
+This course teaches the design and development of mobile applications. Students learn to program user interfaces, manage mobile databases, and optimize the user experience in mobile environments. Topics such as integrating web services, using APIs, and implementing advanced features such as push notifications and cloud storage are covered.

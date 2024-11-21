@@ -1,0 +1,4 @@
+Este curso explora métodos numéricos para la resolución de ecuaciones 
+    diferenciales, integración numérica, y álgebra lineal. Se enfatiza 
+    en la implementación de algoritmos en la computadora y la 
+    evaluación de la precisión de los resultados obtenidos.

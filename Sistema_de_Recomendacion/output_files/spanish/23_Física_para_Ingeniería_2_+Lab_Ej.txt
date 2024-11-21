@@ -1,0 +1,4 @@
+Continuación del curso de Física para Ingeniería 1, este curso cubre 
+    temas como electromagnetismo, circuitos eléctricos y ondas. Incluye un componente de laboratorio para la 
+    aplicación práctica de los conceptos teóricos. Los estudiantes realizarán experimentos para entender el 
+    comportamiento de los circuitos eléctricos, el campo magnético y las propiedades de las ondas.

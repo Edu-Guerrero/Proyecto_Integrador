@@ -1,0 +1,1 @@
+This course continues with the topics of differential calculus, introducing integration techniques, fundamental theorems, and applications of the integral. It includes practical exercises to apply these concepts to real-world problems.

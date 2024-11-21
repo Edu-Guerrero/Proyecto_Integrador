@@ -1,0 +1,4 @@
+This course explores the foundations of real analysis, a key area of ​​mathematics that studies 
+real numbers, functions, and sequences. Topics such as convergence of series, continuity, and 
+differentiation are covered, with an emphasis on rigorous proofs and applications in advanced 
+calculus.

@@ -1,0 +1,5 @@
+The final project of the computing program, where students apply 
+their knowledge in developing a complete system that solves a real-world or business problem, integrating 
+various areas of the field. Students work in teams to plan, design, implement, and evaluate 
+their project, developing skills in project management, teamwork, and effective communication. 
+The project culminates with a formal presentation and demonstration of the developed system.

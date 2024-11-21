@@ -1,0 +1,5 @@
+Este curso cubre la planificación y gestión de proyectos en el ámbito 
+    de la ingeniería y computación. Los estudiantes desarrollan habilidades en análisis de requerimientos, estimación 
+    de costos y gestión de riesgos. Se abordan metodologías de gestión de proyectos como Agile y Scrum, y se utilizan 
+    herramientas de software para planificar y monitorear proyectos. El curso incluye estudios de caso y proyectos 
+    prácticos para aplicar los conceptos aprendidos.

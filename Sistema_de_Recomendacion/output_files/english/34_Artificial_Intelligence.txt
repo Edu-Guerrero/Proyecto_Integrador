@@ -1,0 +1,2 @@
+This course introduces key concepts of artificial intelligence, including
+search algorithms, machine learning, neural networks, and natural language processing. Students will explore practical applications of AI in diverse areas such as computer vision, natural language processing, and robotics. Emphasis is placed on using modern tools and libraries to implement AI solutions.

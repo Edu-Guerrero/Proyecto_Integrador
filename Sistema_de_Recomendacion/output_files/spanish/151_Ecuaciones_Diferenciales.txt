@@ -1,0 +1,4 @@
+Este curso cubre la teoría y métodos para resolver ecuaciones diferenciales 
+    ordinarias, que son fundamentales en la modelización de fenómenos 
+    en ciencias e ingeniería. Los estudiantes explorarán técnicas analíticas y 
+    numéricas para resolver ecuaciones de primer y segundo orden.

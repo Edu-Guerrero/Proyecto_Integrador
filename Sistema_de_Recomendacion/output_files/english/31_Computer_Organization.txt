@@ -1,0 +1,1 @@
+The course explores the components and internal architecture of computers, including memory, processors, and buses. Students learn to optimize and design efficient hardware systems. Topics such as instruction set architecture (ISA), memory hierarchy, and component interconnection are covered, providing a comprehensive understanding of the inner workings of computers.

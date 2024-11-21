@@ -1,0 +1,5 @@
+El curso cubre el diseño y desarrollo de aplicaciones distribuidas, donde 
+    múltiples sistemas interactúan a través de redes. Los estudiantes aprenden a implementar y gestionar aplicaciones
+    escalables y seguras. Se abordan temas como la comunicación entre procesos, la sincronización, la tolerancia a 
+    fallos y la seguridad en sistemas distribuidos, proporcionando una comprensión integral de los desafíos y 
+    soluciones en este campo.

@@ -1,0 +1,4 @@
+This course introduces the basic concepts of differential and integral calculus. 
+Students will learn about limits, derivatives, and their application to science and 
+engineering problems. Concepts of integrals and their relationship to the area under curves 
+are also covered.

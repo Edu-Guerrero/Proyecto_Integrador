@@ -1,0 +1,3 @@
+This course focuses on methods and techniques for ensuring quality in production processes. 
+It includes the study of quality management systems, statistical quality control techniques, and audits. 
+The laboratory component provides practical experience in the application of these methods to ensure quality.

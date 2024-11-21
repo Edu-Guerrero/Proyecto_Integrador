@@ -1,0 +1,3 @@
+This course introduces the basic concepts of topology, the study of 
+geometric properties that remain invariant under deformations. 
+Topics such as topological spaces, continuity, and connections to other branches of mathematics, such as differential geometry, are covered.

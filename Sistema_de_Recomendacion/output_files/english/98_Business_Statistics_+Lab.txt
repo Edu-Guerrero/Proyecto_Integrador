@@ -1,0 +1,2 @@
+This course teaches statistical techniques applied to business decision making. 
+It includes a laboratory where students use statistical software to analyze real data and make informed decisions.

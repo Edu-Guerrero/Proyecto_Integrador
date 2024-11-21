@@ -1,0 +1,4 @@
+Una continuación de Álgebra Abstracta 1, este curso cubre temas más avanzados 
+    relacionados con los anillos, ideales, cuerpos y homomorfismos. Los estudiantes 
+    también explorarán la teoría de Galois y sus aplicaciones en la resolución 
+    de ecuaciones polinómicas.

@@ -1,0 +1,3 @@
+Curso avanzado en el lenguaje de programación C++, donde se profundizan 
+    temas como estructuras de datos dinámicas, programación orientada a objetos y manejo de memoria. Se trabaja con 
+    ejemplos y proyectos más complejos.

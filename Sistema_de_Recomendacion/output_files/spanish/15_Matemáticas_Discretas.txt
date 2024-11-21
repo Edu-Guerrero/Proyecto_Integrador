@@ -1,0 +1,2 @@
+Introducción a conceptos fundamentales de matemáticas discretas como teoría de 
+    conjuntos, grafos, algoritmos y combinatoria. Se estudian aplicaciones en informática y otras áreas relacionadas.

@@ -1,0 +1,3 @@
+A continuation of Calculus for Science 1, this course delves deeper into integral calculus, 
+covering more advanced integration techniques. Vector calculus is also introduced, which is key 
+in solving multivariable problems in science and engineering.

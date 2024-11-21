@@ -1,0 +1,5 @@
+Este curso finaliza la serie de programación enfocada en diseño, cubriendo temas 
+    avanzados como la creación de motores gráficos personalizados, la simulación de 
+    interacciones físicas en entornos virtuales y la integración de programación con 
+    software de diseño 3D. Los estudiantes aplicarán sus conocimientos en un proyecto 
+    integral de diseño interactivo.

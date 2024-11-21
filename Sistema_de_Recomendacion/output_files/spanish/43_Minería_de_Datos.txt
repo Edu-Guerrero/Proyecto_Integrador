@@ -1,0 +1,5 @@
+Este curso enseña las técnicas para extraer conocimiento a partir de grandes volúmenes de
+    datos. Los estudiantes trabajan con algoritmos de clasificación, clustering y análisis de datos para resolver 
+    problemas reales. Se incluyen estudios de caso y proyectos prácticos que permiten a los estudiantes aplicar 
+    las técnicas aprendidas en situaciones del mundo real, mejorando su capacidad para tomar decisiones basadas en 
+    datos.

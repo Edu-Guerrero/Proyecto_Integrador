@@ -1,0 +1,4 @@
+Este curso cubre los fundamentos de la lógica matemática y la teoría de conjuntos. 
+    Se introducen los sistemas formales, el razonamiento deductivo, 
+    y los principios de conjuntos, relaciones, funciones y cardinalidad, 
+    que son esenciales en matemáticas puras y aplicadas.

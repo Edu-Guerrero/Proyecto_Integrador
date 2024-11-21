@@ -1,0 +1,1 @@
+Advanced course in the C++ programming language, where topics such as dynamic data structures, object-oriented programming and memory management are explored in depth. More complex examples and projects are used.

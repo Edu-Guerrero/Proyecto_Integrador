@@ -1,0 +1,3 @@
+Este curso proporciona una introducción a los principios y técnicas de investigación de operaciones. 
+    Incluye el estudio de modelos matemáticos y algoritmos para optimización en sistemas de producción y 
+    logística. El componente de laboratorio permite a los estudiantes aplicar estos conceptos en escenarios prácticos.

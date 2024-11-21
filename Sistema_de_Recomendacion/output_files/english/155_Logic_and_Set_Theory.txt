@@ -1,0 +1,4 @@
+This course covers the fundamentals of mathematical logic and set theory. 
+Formal systems, deductive reasoning, 
+and the principles of sets, relations, functions, and cardinality, 
+which are essential in pure and applied mathematics, are introduced.

@@ -1,0 +1,5 @@
+This course delves into machine learning techniques, including supervised 
+and unsupervised models and neural networks. Students implement classification and prediction 
+algorithms in practical projects. Advanced topics such as deep learning, processing large volumes of data, and 
+model evaluation are covered. The course prepares students to apply machine learning 
+techniques to real-world problems.

@@ -1,0 +1,4 @@
+Este curso introduce los conceptos básicos del cálculo diferencial e integral. 
+    Los estudiantes aprenderán sobre límites, derivadas y su aplicación en problemas 
+    de ciencias e ingeniería. También se cubren conceptos de integrales y su relación 
+    con el área bajo curvas.

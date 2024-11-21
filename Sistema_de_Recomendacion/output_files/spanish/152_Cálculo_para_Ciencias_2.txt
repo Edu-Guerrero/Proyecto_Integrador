@@ -1,0 +1,4 @@
+Una continuación de Cálculo para Ciencias 1, este curso profundiza en el cálculo 
+    integral, cubriendo técnicas de integración más avanzadas. También se introduce 
+    el cálculo vectorial, que es clave en la resolución de problemas 
+    multivariables en la ciencia y la ingeniería.

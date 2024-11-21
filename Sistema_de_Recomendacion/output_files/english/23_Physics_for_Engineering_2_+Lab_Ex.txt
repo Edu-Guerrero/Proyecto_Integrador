@@ -1,0 +1,4 @@
+Continuation of the Engineering Physics 1 course, this course covers 
+topics such as electromagnetism, electric circuits, and waves. It includes a laboratory component for the 
+practical application of theoretical concepts. Students will perform experiments to understand the 
+behavior of electric circuits, the magnetic field, and the properties of waves.

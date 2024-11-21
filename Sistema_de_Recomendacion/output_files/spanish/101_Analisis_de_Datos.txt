@@ -1,0 +1,2 @@
+En este curso, los estudiantes aprenderán a aplicar técnicas de análisis de datos para extraer información 
+    relevante y tomar decisiones estratégicas. Se cubren métodos de análisis descriptivo, predictivo y prescriptivo.

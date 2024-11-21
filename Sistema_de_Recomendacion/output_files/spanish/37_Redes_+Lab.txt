@@ -1,0 +1,4 @@
+Un curso teórico y práctico sobre redes de computadores. Se cubren protocolos de red, 
+        arquitectura de Internet, enrutamiento y seguridad en redes, con un componente de laboratorio para implementaciones.
+    Los estudiantes aprenden a configurar y gestionar redes, solucionar problemas de conectividad y aplicar medidas 
+    de seguridad para proteger la infraestructura de red. El curso incluye estudios de caso y proyectos prácticos.

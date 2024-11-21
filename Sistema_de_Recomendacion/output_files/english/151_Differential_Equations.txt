@@ -1,0 +1,1 @@
+This course covers the theory and methods for solving ordinary differential equations, which are fundamental to modeling phenomena in science and engineering. Students will explore analytical and numerical techniques for solving first- and second-order equations.

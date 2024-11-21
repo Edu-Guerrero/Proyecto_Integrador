@@ -1,11 +1,12 @@
 # urls.py
 from django.urls import path
-from .views import login_view, logout_view, table, table_User, class_history
+from .views import login_view, logout_view, table, table_User, class_history, recommended
 
 urlpatterns = [
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('table/', table, name='table'),
     path('table_user/', table_User, name='table_user'),
-    path('history/', class_history, name="history")
+    path('history/', class_history, name="history"),
+    path('recommended/', recommended, name="recommended")
 ]

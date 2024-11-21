@@ -1,0 +1,3 @@
+Este curso cubre los fundamentos de la programación en C++, incluyendo conceptos
+    como estructuras de control, funciones, arreglos y punteros. Se refuerza el aprendizaje a través de ejercicios
+    prácticos para implementar programas básicos en C++.

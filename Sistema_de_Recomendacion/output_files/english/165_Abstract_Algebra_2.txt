@@ -1,0 +1,4 @@
+A continuation of Abstract Algebra 1, this course covers more advanced topics 
+related to rings, ideals, fields, and homomorphisms. Students 
+will also explore Galois theory and its applications in solving 
+polynomial equations.

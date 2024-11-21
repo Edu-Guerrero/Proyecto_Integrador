@@ -1,0 +1,220 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asignaturas Recomendadas</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}" >
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding-top: 60px;
+            height: calc(100vh - 60px);
+            overflow-y: auto;
+        }
+        .banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #9B0000;    /* Darker red for main background */
+    padding: 10px 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+    border-bottom: 1px solid #750000;  /* Even darker red for border */
+}
+
+.banner h1 {
+    margin: 0;
+    color: #FFFFFF;
+}
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+        .user-info h1 {
+            margin-right: 20px;
+            font-size: 1.2em;
+        }
+        .logout-button {
+            background-color: #ED1C24; /* Updated background color */
+            color: #FFFFFF;           /* Text color */
+            border: 1px solid #C41B1E;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .logout-button:hover {
+            background-color: #9B0000;    /* Darker red on hover */
+            border: 1px solid #750000;    /* Darker border on hover */
+            transition: all 0.3s ease;    /* Smooth transition for both background and border */
+        }
+
+        .info-box {
+            padding: 20px;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #999;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: center; /* Centra los títulos de las columnas */
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .course-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .course-info span {
+            margin-bottom: 5px;
+        }
+        .course-name {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .pagination {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding-bottom: 15px;
+        }
+
+        .pagination button {
+            padding: 10px 15px;
+            background-color: #ED1C24; /* Updated background color */
+            color: #FFFFFF;           /* Text color */
+            border: 1px solid #C41B1E;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+</style>
+</head>
+<body>
+    <div class="banner">
+        <h1>Historial de asignaturas</h1>
+        <div class="user-info">
+            <h1>Bienvenido</h1>
+            <button class="logout-button" onclick="window.close();">Cerrar</button>
+        </div>
+    </div>
+
+    <div class="info-box">
+        <div class="table-container" id="tableContainer">
+            <table id="courseTable">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>NRC</th>
+                        <th>Curso</th>
+                        <th>Cupos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for asignatura in asignaturas %}
+                    <tr>
+                        <td>{{ asignatura.0 }}</td>
+                        <td>{{ asignatura.2 }}</td>
+                        <td>
+                            <div class="course-info">
+                                <span class="course-name">{{ asignatura.1 }}</span>
+                                <span><strong>Profesor:</strong> {{ asignatura.6 }}</span>
+                                <span><strong>Campus:</strong> {{ asignatura.7 }}</span>
+                                <span><strong>Día:</strong>{{ asignatura.4 }}</span>
+                                <span><strong>Horario:</strong> {{ asignatura.5 }}</span>
+                                <span><strong>Edificio:</strong> {{ asignatura.8 }}</span>
+                                <span><strong>Modalidad:</strong> {{ asignatura.3 }}</span>
+                            </div>
+                        </td>
+                        <td>{{ asignatura.11 }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>    
+        <div class="pagination">
+            <button id="prevPage" onclick="changePage(-1)" style="display: none;">Anterior</button>
+            <span id="pageInfo"></span>
+            <button id="nextPage" onclick="changePage(1)" style="display: none;">Siguiente</button>
+        </div>
+    </div>
+
+
+    <script>
+        const rowsPerPage = 10;
+        let currentPage = 1;
+        const totalRows = document.querySelectorAll("#courseTable tbody tr").length; // Total de filas en la tabla
+    
+        function loadTable(page) {
+            const startRow = (page - 1) * rowsPerPage;
+            const endRow = startRow + rowsPerPage;
+            const rows = document.querySelectorAll("#courseTable tbody tr");
+            
+            rows.forEach((row, index) => {
+                if (index >= startRow && index < endRow) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+            
+            updatePagination();
+        }
+    
+        function changePage(direction) {
+            const totalRows = document.querySelectorAll("#courseTable tbody tr").length;
+            const totalPages = Math.ceil(totalRows / rowsPerPage);
+            
+            currentPage += direction;
+            if (currentPage < 1) currentPage = 1;
+            if (currentPage > totalPages) currentPage = totalPages;
+            
+            loadTable(currentPage);
+        }
+
+        function updatePagination() {
+        const totalRows = document.querySelectorAll("#courseTable tbody tr").length;
+        const totalPages = Math.ceil(totalRows / rowsPerPage);
+        
+        const prevButton = document.getElementById('prevPage');
+        const nextButton = document.getElementById('nextPage');
+        const pageInfo = document.getElementById('pageInfo');
+        
+        prevButton.style.display = currentPage > 1 ? 'inline' : 'none';
+        nextButton.style.display = currentPage < totalPages ? 'inline' : 'none';
+        pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+    }
+
+            // Automatically update checked results on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        updatePagination();
+        loadTable(currentPage);
+    });
+</script>
+
+</body>
+</html>

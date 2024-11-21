@@ -1,0 +1,3 @@
+This course introduces the principles of physics applied to engineering, 
+covering topics such as classical mechanics, kinematics, and dynamics. It includes a laboratory 
+component to apply theoretical knowledge to practical experiments.

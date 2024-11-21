@@ -1,0 +1,4 @@
+This course focuses on the analysis of functions of a complex variable. 
+Complex numbers, holomorphic functions, line integrals 
+and Laurent series will be studied, with applications in problem solving 
+in physics and advanced mathematics.

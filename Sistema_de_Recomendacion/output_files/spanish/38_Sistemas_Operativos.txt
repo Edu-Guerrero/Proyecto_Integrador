@@ -1,0 +1,5 @@
+Los estudiantes aprenden los principios y estructuras de los sistemas operativos, 
+    incluyendo la gestión de procesos, memoria, almacenamiento y seguridad. Se incluye una perspectiva práctica de 
+    la administración de sistemas. El curso cubre temas como la concurrencia, la planificación de procesos, la gestión 
+    de memoria y el sistema de archivos. Los estudiantes también trabajan con sistemas operativos reales para 
+    desarrollar habilidades prácticas en administración y configuración.

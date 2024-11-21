@@ -1,0 +1,4 @@
+Este curso se enfoca en el análisis de funciones de una variable compleja. 
+    Se estudiarán los números complejos, funciones holomorfas, integrales de línea 
+    y series de Laurent, con aplicaciones en la resolución de problemas 
+    en física y matemáticas avanzadas.

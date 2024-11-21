@@ -1,0 +1,3 @@
+This course introduces the fundamental concepts of differential calculus, such as 
+limits, derivatives, and applications of the derivative in optimization problems and function analysis. 
+It is complemented with practical exercises to apply the concepts. It is essential in the training of engineers.

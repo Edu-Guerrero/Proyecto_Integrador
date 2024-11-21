@@ -1,0 +1,4 @@
+Este curso se enfoca en los espacios vectoriales normados y sus aplicaciones 
+    en análisis. Se cubren conceptos como espacios de Hilbert y de Banach, 
+    operadores lineales y teoremas de punto fijo. Es un área crucial 
+    para el análisis en espacios infinitos.

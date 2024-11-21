@@ -1,0 +1,4 @@
+Este curso es una continuación de Álgebra Lineal 1, cubriendo temas avanzados 
+    como espacios vectoriales, transformaciones lineales, y formas cuadráticas. 
+    Los estudiantes también aprenderán sobre valores propios y vectores propios, 
+    con aplicaciones en diversas áreas de las matemáticas.

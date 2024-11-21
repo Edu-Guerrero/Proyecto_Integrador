@@ -1,0 +1,1 @@
+This course introduces students to basic programming concepts applied to design. Students will learn to use programming tools to develop interactive projects. Emphasis is placed on the use of programming languages ​​to create dynamic interfaces and digital prototypes.

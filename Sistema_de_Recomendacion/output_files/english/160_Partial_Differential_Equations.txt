@@ -1,0 +1,4 @@
+This course introduces the fundamentals of partial differential equations, 
+which are essential for modeling phenomena in physics and applied mathematics. 
+Techniques for solving first- and second-order equations will be studied, 
+with applications in fluid dynamics and heat transfer.

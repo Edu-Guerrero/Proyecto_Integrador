@@ -1,0 +1,4 @@
+Este curso introduce a los estudiantes a los conceptos básicos de programación 
+    aplicados al diseño. Los estudiantes aprenderán a utilizar herramientas 
+    de programación para desarrollar proyectos interactivos. Se enfatiza el uso de 
+    lenguajes de programación para crear interfaces dinámicas y prototipos digitales.

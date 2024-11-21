@@ -1,0 +1,5 @@
+Curso introductorio a los principios de la electrónica. Se estudian circuitos, 
+    componentes electrónicos y su aplicación en dispositivos básicos. El laboratorio permite experimentar con 
+    circuitos simples y su análisis. Los estudiantes aprenderán a diseñar y construir circuitos electrónicos básicos, 
+    comprender el funcionamiento de componentes como resistencias, capacitores y transistores, y utilizar herramientas
+    de medición electrónica.

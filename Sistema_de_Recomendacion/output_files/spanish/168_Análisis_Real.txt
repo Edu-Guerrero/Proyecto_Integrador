@@ -1,0 +1,4 @@
+Este curso explora las bases del análisis real, un área clave de la matemática 
+    que estudia los números reales, funciones y secuencias. Se cubren temas 
+    como convergencia de series, continuidad, y derivación, con énfasis en 
+    demostraciones rigurosas y aplicaciones en el cálculo avanzado.

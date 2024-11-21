@@ -1,0 +1,1 @@
+In this course, students will delve into advanced programming techniques applied to design. Topics such as object-oriented programming, the use of graphical libraries, and code optimization to improve the user experience in interactive products will be covered. Specific programming languages ​​for multimedia design will also be explored.

@@ -1,0 +1,4 @@
+This course is a continuation of Linear Algebra 1, covering advanced topics 
+such as vector spaces, linear transformations, and quadratic forms. 
+Students will also learn about eigenvalues ​​and eigenvectors, 
+with applications in various areas of mathematics.

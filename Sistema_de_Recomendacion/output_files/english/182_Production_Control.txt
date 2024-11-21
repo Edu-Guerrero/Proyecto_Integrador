@@ -1,0 +1,3 @@
+This course covers techniques and tools for controlling and managing production processes. 
+Topics such as production scheduling, inventory control, and efficiency improvement are covered. 
+Students will learn how to use control systems to ensure quality and efficiency in production.

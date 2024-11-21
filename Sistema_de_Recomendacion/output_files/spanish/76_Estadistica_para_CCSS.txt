@@ -1,0 +1,5 @@
+Este curso proporciona una base en estadística aplicada a las ciencias 
+    sociales. Los estudiantes aprenderán conceptos clave como la recolección de datos, análisis estadístico, y 
+    la interpretación de resultados. El enfoque estará en la aplicación práctica de las técnicas estadísticas 
+    para resolver problemas reales en ciencias sociales. Se abordarán temas como la regresión, correlación y 
+    pruebas de hipótesis, utilizando software especializado para realizar análisis.

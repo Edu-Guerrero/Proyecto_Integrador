@@ -1,0 +1,1 @@
+Introduction to fundamental concepts of discrete mathematics such as set theory, graphs, algorithms, and combinatorics. Applications in computer science and other related areas are studied.
