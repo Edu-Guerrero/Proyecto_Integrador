@@ -177,11 +177,11 @@ Todos los triggers:
 
 ### Diagrama de Entidades ###
 
-![Diagrama de Entidades](readme_files\diagrama_entidades.png)
+![Diagrama de Entidades](readme_files/diagrama_entidades.png)
 
 ### Modelo Relacional ###
 
-![Modelo Relacional](readme_files\modelo_relacional.png)
+![Modelo Relacional](readme_files/modelo_relacional.png)
 
 ## Django y Bootstrap
 
