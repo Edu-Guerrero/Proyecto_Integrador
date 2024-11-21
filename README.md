@@ -19,9 +19,17 @@
     - [Modelos](#modelos)
     - [Vistas](#vistas)
     - [Templates](#templates)
-4. [Sistema de Recomendacion](#sistema-de-recomendacion)
+4. [Sistema de Recomendación](#sistema-de-recomendacion)
     - [Variantes de tf_idf utilizadas](#variantes-de-tf_idf-utilizadas)
     - [Modelos de Keybert utilizados](#modelos-de-keybert-utilizados)
+    - [Variantes de búsqueda de similitud](#variantes-de-búsqueda-de-similitud)
+    - [Fórmula de Similitud del Coseno](#fórmula-de-similitud-del-coseno)
+    - [Resultados](#resultados)
+5. [Vista de la página Web](#vista-de-la-página-web)
+    - [Pantalla de inicio](#pantalla-de-inicio)
+    - [Buscador de Cursos](#buscador-de-cursos)
+    - [Historial de Asignaturas](#historial-de-asignaturas)
+    - [Recomendación de Cursos](#recomendación-de-cursos)
 
 ## Introducción ##
 
@@ -177,11 +185,11 @@ Todos los triggers:
 
 ### Diagrama de Entidades ###
 
-![Diagrama de Entidades](readme_files/diagrama_entidades.png)
+![Diagrama de Entidades](Images/diagrama_entidades.png)
 
 ### Modelo Relacional ###
 
-![Modelo Relacional](readme_files/modelo_relacional.png)
+![Modelo Relacional](Images/modelo_relacional.png)
 
 ## Django y Bootstrap
 
@@ -223,6 +231,7 @@ python manage.py startapp nombre_aplicacion
 | logout_view | login/ |
 | table_user (login_required) | table_user/ |
 | class_history (login_required) | history/ |
+| recomended (login_required) | recommended/ |
 
 ### Templates ###
 
@@ -230,6 +239,7 @@ python manage.py startapp nombre_aplicacion
 * table_user.html
 * table_content.html
 * history.html
+* recommended.html
 
 ## Sistema de Recomendacion ##
 
@@ -262,3 +272,53 @@ El sistema de recomendación utiliza dos métodos distintos para encontrar las p
 | sentence-transformers/distiluse-base-multilingual-cased-v1 | use_mmr = true<br>diversity = 0.2 |
 | sentence-transformers/distiluse-base-multilingual-cased-v1 | use_mmr = true<br>diversity = 0.7 |
 
+Una vez obtenidas las palabras clave, se procede a probar distintas formas de medir la similitud de coincidencia entre un vector query y los documentos.
+
+### Variantes de búsqueda de similitud ###
+
+* Similitud del Coseno
+* Distancia Euclidiana
+* Similitud de Jaccard
+* Correlación de Pearson
+* Distancia Manhattan
+* Divergencia KL
+* Distancia Hamming
+* Distancia Bhattacharyya
+* Producto punto
+
+Al final, comparando la similitud de resultados entre cada uno con un muestreo al azar de 5 palabras claves elegidas 20 veces, se determina que tanto la similitud del coseno, la distancia euclidiana, el producto punto y la correlación de Pearson producen resultados iguales, mientras que la similitud de Jaccard y la distancia Bhattacharyya a veces difieren en uno o dos resultados. La distancia de Hamming y la diverencia de KL producen los peores resultados.
+
+Se optó por utilizar la similitud del coseno,
+### Fórmula de Similitud del Coseno ###
+
+La similitud del coseno entre dos vectores $$ \mathbf{A},  \mathbf{B} $$ se calcula utilizando la siguiente fórmula:
+
+$$\text{Similitud del Coseno} = \cos(\theta) = \frac{\mathbf{A} \cdot \mathbf{B}}{\|\mathbf{A}\| \|\mathbf{B}\|} = \frac{\sum_{i=1}^{n} A_i B_i}{\sqrt{\sum_{i=1}^{n} A_i^2} \sqrt{\sum_{i=1}^{n} B_i^2}} $$
+
+Esta fórmula mide la similitud entre dos vectores en un espacio multidimensional, proporcionando un valor entre -1 y 1, donde 1 indica que los vectores son idénticos, 0 indica que son ortogonales (no tienen similitud) y -1 indica que son opuestos.
+
+### Resultados ###
+
+![Matriz](Images/matriz.png)
+
+## Vista de la página Web
+
+### Pantalla de inicio ###
+
+![P_Inicio](Images/Pantalla_Inicio.png)
+
+### Buscador de Cursos ###
+
+![P_Buscador_1](Images/Buscador_Cursos_1.png)
+
+![P_Buscador_2](Images/Buscador_Cursos_2.png)
+
+![P_Buscador_3](Images/Buscador_Cursos_3.png)
+
+### Historial de Asignaturas ###
+
+![P_Historial](Images/Historial_Asignaturas.png)
+
+### Recomendacion de Cursos ###
+
+![P_Recomendacion](Images/Recomendaciones.png)
