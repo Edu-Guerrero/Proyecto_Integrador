@@ -107,7 +107,7 @@ class KeyWords(models.Model):
     Palabra = models.CharField(max_length=255)       # Keyword field with a maximum length of 255 characters
 
     def __str__(self):
-        return self.palabra  # Return the keyword as the string representation of the object
+        return self.Palabra  # Return the keyword as the string representation of the object
     
     class Meta:
         db_table = 'KeyWords'
