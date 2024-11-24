@@ -361,7 +361,8 @@
                 </label>
             {% endfor %}
         </div>
-        <p id="error-message" style="color: red; display: none;">No puedes seleccionar más de 5 palabras clave.</p>
+        <p id="error-message" style="color: red; display: none;">No puedes seleccionar más de 10 palabras clave.</p>
+        <p id="error-message_2" style="color: red; display: none;">No puedes seleccionar menos de 1 palabra clave.</p>
         <button class="save-keywords-button" type="submit" name="save_keywords">Guardar Palabras Clave</button>
     </form>
     <button class="get-recomendations-button" type="button" onclick="window.open('/recommended/', '_blank');">Ver Recomendaciones</button>
@@ -591,7 +592,7 @@
     function limitKeywords(checkbox) {
         const checkedCheckboxes = Array.from(checkboxes).filter(chk => chk.checked);
         
-        if (checkedCheckboxes.length > 5) {
+        if (checkedCheckboxes.length > 10) {
             checkbox.checked = false; // Deselect the checkbox if limit exceeded
             const errorMessage = document.getElementById('error-message');
             errorMessage.style.display = 'block'; // Show error message
@@ -600,9 +601,21 @@
             setTimeout(() => {
                 errorMessage.style.display = 'none';
             }, 3500);
-            } else {
-                document.getElementById('error-message').style.display = 'none'; // Hide error message
-            }
+        } 
+        else if (checkedCheckboxes.length < 1) {
+            checkbox.checked = true; // Select the checkbox if limit exceeded
+            const errorMessage = document.getElementById('error-message_2');
+            errorMessage.style.display = 'block'; // Show error message
+            
+            // Hide the error message after 5 seconds
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+            }, 3500);
+        }
+        else {
+            document.getElementById('error-message').style.display = 'none'; // Hide error message
+            document.getElementById('error-message_2').style.display = 'none'; // Hide error message
+        }
     }
 
     // Close dropdown when clicking outside

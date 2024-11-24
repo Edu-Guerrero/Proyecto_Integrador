@@ -41,10 +41,11 @@ class Recommendation:
 
     def get_recommendation(self):
         self.recommendation = cosine_similarity(self.query_vector, self.tfidf_vectors)[0]
-        self.top_5_indices = np.argsort(self.recommendation)[::-1][:5]
+        self.top_5_indices = np.argsort(self.recommendation)[::-1][:10]
+        self.threshold = 0.135  # Set your threshold value here
+        self.top_5_indices = [index for index in self.top_5_indices if self.recommendation[index] > self.threshold]
         self.top_5_files = self.file_names.iloc[self.top_5_indices]
         self.top_5_scores = self.recommendation[self.top_5_indices]
-        print(self.query_vector)
         # Display the results
         for i, (file, score) in enumerate(zip(self.top_5_files, self.top_5_scores), start=1):
             print(f"Rank {i}: {file} with similarity score {score:.4f}")
